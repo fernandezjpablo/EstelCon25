@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gestión de Inscritos</title>
+<link rel="stylesheet" type="text/css" href="../../css/estilos.css" />
+</head>
+
+
+<BODY class="fondo">
+<script src="../../jquery/jquery-3.6.1.min.js"></script>
+<script src="../../script/tinymce/tinymce.min.js"></script>
+<script src="../../script/inscritos.js"></script>
+
+<div class="main">
+<img class="logo"  src="/Ezellohar/img/logo.png" alt="logo">
+<div class="barramenu">
+
+<p>XXVIII Mereth Aderthad - Gestión de Inscritos</p>
+<div class="margin_button"><a class="box_button" href="/Ezellohar/admin/">Volver al menú</a>
+</div>
+<div class="box_button_zi">
+<select id="tarea">
+<option value="">(Seleccione una tarea)</option>
+<option value="eliminar">Baja de los inscritos seleccionados</option>
+<option value="apartar">Sacar a los seleccionados de la habitación</option>
+<option value="pendiente">Anular pagos de los seleccionados</option>
+<option value="recuperar">Recuperar baja</option>
+<option value="recordar">Reenviar datos de acceso</option>
+<option value="inscritos">Reenviar datos de inscripción</option>
+<option value="notificarCheckin">Notificar a los seleccionados estado de Check-In</option>
+<option value="exportar">Exportar a archivo</option>
+<option value="exportarWeb">Exportar a Web</option>
+<option value="exportarCheckin">Exportar a Web listado Check-In</option>
+
+</select><input type="button" onClick="ejecutarTarea();" value="Ejecutar tarea">
+
+</div>
+</div>
+</div>
+<div class="contenido_fondo">
+<div class="contenido">
+<br>
+<div id="info"></div>
+<div id="listado" class="listado"></div>
+</div>
+    </div>
+<script type="text/javascript">
+$(document).ready(function(){
+	cargarListado();
+	});
+</script>
+</BODY>
+
+
+</html>

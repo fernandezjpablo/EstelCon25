@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Distribución física de las habitaciones</title>
+<link rel="stylesheet" type="text/css" href="../../css/estilos.css" />
+</head>
+
+
+<BODY class="fondo">
+<script src="../../jquery/jquery-3.6.1.min.js"></script>
+<script src="../../script/tinymce/tinymce.min.js"></script>
+<script src="../../script/distribucionplazas.js"></script>
+
+<div class="main">
+<img class="logo"  src="/Ezellohar/img/logo.png" alt="logo">
+<div class="barramenu">
+<p>Distribución física de habitaciones</p>
+<div class="box_button_zi">
+<select id="tarea">
+<option value="">(Seleccione una tarea)</option>
+<option value="limpiar">Limpiar los nombres de todas las habitaciones</option>
+<option value="asignar">Actualizar los nombres de las habitaciones asignadas</option>
+</select><input type="button" onClick="ejecutarTarea();" value="Ejecutar tarea">
+
+</div>
+</div>
+</div>
+<div class="contenido_fondo">
+<div class="contenido">
+<input type="button" value="Ver info" onClick="$('#info').toggle();">
+<div id="info" style="display:none">
+Ésta es la herramienta para gestionar la distribución física de las habitaciones. <br>
+Es decir, sólo puede utilizarse para establecer la correspondencia entre las habitaciones definidas en el sistema
+<br>
+y las que existan definidas en el alojamiento.
+<br>
+Para hacer esta asignación hay que cargar un fichero de texto (csv) con el siguiente formato por cada línea:<br><br>
+Código/Nombre de la habitación;Planta,Plazas;Camas;Observaciones (si es suite o alguna otra cosa);Camas K(King Size) o T(Twinn)
+<br><br>
+Después de cargarlo podrás visualizarlo e ir cruzando tipos de habitaciones con las que ya tienes en el sistema (viendo sus ocupantes).
+Cuando termines, puedes ejecutar la tarea "Guardar asignación física" en el menú de tareas de arriba.
+</div>
+<input type="file" id="fichero-distribucion">
+<input type="hidden" id="ubicacionSeleccionada">
+<input type="hidden" id="habitacionSeleccionada">
+<input type="hidden" id="plantaSeleccionada">
+<input type="hidden" id="distribucionTemporal">
+<span id="aviso"></span>
+<div id="listado" class="listado">
+
+<div id="ubicaciones" style="width:40%;display:inline-grid"></div>
+<div id="habitaciones" style="width:40%;display:inline-grid"></div>
+</div>
+</div>
+    </div>
+
+<script>
+$(document).ready(function(){
+	cargarDatos();
+});
+</script>
+</BODY>
+
+
+</html>

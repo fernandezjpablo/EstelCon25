@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/estilos.css" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YVMT01CDJD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YVMT01CDJD');
+</script>
+</HEAD>
+<BODY class="fondo" style="cursor:pointer">
+                <script src="jquery/jquery-3.6.1.min.js"></script>
+  <div>
+     <img class="logo_intro"  src="img/logo.png" alt="logo" id="logoIntro">
+     <h1 class="titulo_intro">XXVIII EstelCon - Mereth Aldaron Enyali&euml;</h1>
+  </div>
+<script type="text/javascript">
+$(document).ready(function(){
+document.addEventListener("click", () => {
+    location.href="inicio.html";
+  });
+$("#logoIntro").bind("click", () => {
+    alert("Mira que había pantalla para pulsar...");
+    location.href="inicio.html";
+  });
+});
+</script>
+</body>
+</html>

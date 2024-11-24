@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
+  <display-name>Administración del Sistema</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  
+
+  	<security-constraint>
+		<web-resource-collection>
+		<web-resource-name>Acceso General</web-resource-name>
+			<url-pattern>
+			/admin/index.html
+			</url-pattern>
+			<url-pattern>
+			/css/*
+			</url-pattern>
+			<url-pattern>
+			/script/*
+			</url-pattern>
+			<url-pattern>
+			/jquery/*
+			</url-pattern>
+			<url-pattern>
+			/img/*
+			</url-pattern>
+			<url-pattern>
+			/font/*
+			</url-pattern>			
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>concilio</role-name>
+			<role-name>elrond</role-name>
+			<role-name>tesoreria</role-name>
+			<role-name>mayordomo</role-name>
+			<role-name>actividades</role-name>
+			<role-name>redes</role-name>
+		</auth-constraint>
+
+		<user-data-constraint>
+			<!-- transport-guarantee can be CONFIDENTIAL, INTEGRAL, or NONE -->
+			<transport-guarantee>NONE</transport-guarantee>
+		</user-data-constraint>
+ 	</security-constraint>
+ 	 	<security-constraint>
+		<web-resource-collection>
+		<web-resource-name>Recursos Administración</web-resource-name>
+			<url-pattern>/*</url-pattern>
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>concilio</role-name>
+			<role-name>elrond</role-name>
+		</auth-constraint>
+
+		<user-data-constraint>
+			<!-- transport-guarantee can be CONFIDENTIAL, INTEGRAL, or NONE -->
+			<transport-guarantee>NONE</transport-guarantee>
+		</user-data-constraint>
+ 	</security-constraint>
+ 	 	<security-constraint>
+		<web-resource-collection>
+		<web-resource-name>Recursos Mayordomos</web-resource-name>
+			<url-pattern>
+			/admin/mensajeria/*
+			</url-pattern>
+			<url-pattern>
+			/admin/inscritos/*
+			</url-pattern>
+			<url-pattern>
+			/admin/plazas/*
+			</url-pattern>			
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>mayordomo</role-name>
+			<role-name>concilio</role-name>
+			<role-name>elrond</role-name>
+		</auth-constraint>
+
+		<user-data-constraint>
+			<!-- transport-guarantee can be CONFIDENTIAL, INTEGRAL, or NONE -->
+			<transport-guarantee>NONE</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+	
+	<security-constraint>
+		<web-resource-collection>
+		<web-resource-name>Recursos Actividades</web-resource-name>
+			<url-pattern>
+			/admin/actividades/*
+			</url-pattern>
+			<url-pattern>
+			/admin/espacios/*
+			</url-pattern>
+			<url-pattern>
+			/admin/planificacion/VerCalendarioPlanificacion
+			</url-pattern>
+			<url-pattern>
+			/admin/index.html
+			</url-pattern>
+			<url-pattern>
+			/admin
+			</url-pattern>
+			<url-pattern>
+			/ListInscritos
+			</url-pattern>			
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>actividades</role-name>
+			<role-name>concilio</role-name>
+			<role-name>elrond</role-name>
+		</auth-constraint>
+
+		<user-data-constraint>
+			<!-- transport-guarantee can be CONFIDENTIAL, INTEGRAL, or NONE -->
+			<transport-guarantee>NONE</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+	
+		<security-constraint>
+		<web-resource-collection>
+		<web-resource-name>Recursos Tesoreria</web-resource-name>
+			<url-pattern>
+			/admin/pagos/*
+			</url-pattern>
+			<url-pattern>
+			/ListInscritos
+			</url-pattern>
+			<url-pattern>
+			/GetAcceso
+			</url-pattern>			
+			<url-pattern>
+			/admin/inscritos/adminInscritos.html
+			</url-pattern>
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>tesoreria</role-name>
+			<role-name>concilio</role-name>
+			<role-name>elrond</role-name>
+		</auth-constraint>
+
+		<user-data-constraint>
+			<!-- transport-guarantee can be CONFIDENTIAL, INTEGRAL, or NONE -->
+			<transport-guarantee>NONE</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+	
+			<security-constraint>
+		<web-resource-collection>
+		<web-resource-name>Recursos Redes</web-resource-name>
+			<url-pattern>
+			/admin/noticias/*
+			</url-pattern>
+			<url-pattern>
+			/admin/mensajeria/*
+			</url-pattern>
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>redes</role-name>
+			<role-name>concilio</role-name>
+			<role-name>elrond</role-name>
+		</auth-constraint>
+
+		<user-data-constraint>
+			<!-- transport-guarantee can be CONFIDENTIAL, INTEGRAL, or NONE -->
+			<transport-guarantee>NONE</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+
+	<login-config>
+	    <auth-method>BASIC</auth-method>
+	</login-config>
+ 	<listener>
+  	  <listener-class>
+            es.ste.aderthad.procesos.GestorSegundoPlano
+      </listener-class>
+	</listener>
+</web-app>

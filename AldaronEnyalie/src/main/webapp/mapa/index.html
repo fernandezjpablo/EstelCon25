@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="../css/estilosMapa.css" />
+</head>
+ 
+<BODY class="fondo">
+<script src="../jquery/jquery-3.6.1.min.js"></script>
+<script src="../script/mapa.js"></script>  
+
+<div id="portrait">
+  <div>
+       <p>
+            <img src="img/Gandalf_gira.png" alt="Imagen" /><br />
+            ¡Gira el móvil!<br />
+            <span>Por favor</span>
+       </p>
+  </div>
+</div>    
+   
+<div class="menu_salas" ><img src="../mapa/img/logo.png" alt="logo" id="menu_salas"><br>
+<input type="hidden" id="nombreSala">  
+<div class="Salas">
+  
+        <img class="sombra" src="img/plano.png" alt="Plano General" onClick="sala('plano');"><br>
+        <img class="sombra" src="img/SalaBD.jpg" alt="Bosque de Drúadan" onClick="sala('druadan');"><br>
+        <img class="sombra" src="img/SalaCB.jpg" alt="Sala Colina Barbol" onClick="sala('colina');"><br>
+        <img class="sombra" src="img/Saladelagua.jpg" alt="Sala Delagua" onClick="sala('delagua');"><br>
+        <img class="sombra" src="img/salaLaguna.jpg" alt="Sala Laguna de Delagua" onClick="sala('laguna');"><br>
+        <img class="sombra" src="img/SalaErebor.jpg" alt="Sala Erebor" onClick="sala('erebor');"><br>
+        <img class="sombra" src="img/SalaIthilien.jpg" alt="Sala Ithilien" onClick="sala('ithilien');"><br>
+        <img class="sombra" src="img/SalaLindon.jpg" alt="Sala Lindon" onClick="sala('lindon');"><br>
+        <img class="sombra" src="img/Salameduseld.jpg" alt="Sala Meduseld" onClick="sala('meduseld');"><br>
+        <img class="sombra" src="img/Salamenester.jpg" alt="Sala de los Menesteres" onClick="sala('menesteres');"><br>
+</div>
+</div>
+<div class="pergamino" id="contenidoMapa" >
+
+  <img class="mapa" id="mapaFondo" onClick="actividadesSala();" src="img/sala_plano.jpg">   
+
+  <div class="actividades" id="actividadesSala" onClick="ocultarActividadesSala();" >
+   
+    <div>
+      
+    </div>
+
+</div>    
+ </div>
+ 
+</BODY>
+</html>
+        
+   
+  

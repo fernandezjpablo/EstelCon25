@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Bienvenido a la Mereth Aldaron Enyalië</title>
+<link rel="stylesheet" type="text/css" href="css/estilos.css" />
+<!-- Cookie Consent by TermsFeed https://www.TermsFeed.com -->
+<script type="text/javascript" src="//www.termsfeed.com/public/cookie-consent/4.1.0/cookie-consent.js" charset="UTF-8"></script>
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"light","language":"es","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false});
+});
+</script>
+
+<!-- Unnamed script -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YVMT01CDJD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YVMT01CDJD');
+</script>
+<!-- end of Unnamed script-->
+
+<noscript>Free cookie consent management tool by <a href="https://www.termsfeed.com/">TermsFeed</a></noscript>
+<!-- End Cookie Consent by TermsFeed https://www.TermsFeed.com -->
+
+
+
+
+
+<!-- Below is the link that users can use to open Preferences Center to change their preferences. Do not modify the ID parameter. Place it where appropriate, style it as needed. -->
+
+<a href="#" id="open_preferences_center">Update cookies preferences</a>
+</head>
+<BODY class="fondo">
+<script src="jquery/jquery-3.6.1.min.js"></script>
+<script src="script/inscritos.js"></script>
+<script src="script/tinymce/tinymce.min.js"></script>
+<input type="hidden" value="" id="idUsuario">
+<input type="hidden" value="" id="idSesion">
+<div class="main_zi">
+  <img class="logo"  src="img/logo.png" alt="logo">
+
+  <div class="barramenu">
+   <p>Mereth Aldaron Enyali&euml; - Zona de Inscritos</p>
+   <div class="margin_button">        
+   <input type="button" id="btnDatos" class="box_button" onClick="misDatos();" value="Mis datos">
+   <input type="button" id="btnActividades" class="box_button" onClick="misActividades();" value="Actividades">
+   <input type="button" id="btnCheckin" class="box_button" onClick="checkinHotel();" value="Check-In" style="display:none">
+   <input type="button" id="btnEsteltienda" class="box_button" onClick="mostrarEsteltienda();" value="EstelTienda" style="display:none">
+   <input type="button" id="btnCalendario" class="box_button" onClick="calendario();" value="Calendario">
+   <input type="button" class="box_button" onClick="cerrarSesion();" value="Cerrar sesión">
+  </div>
+</div>
+ </div>
+<div class="titulo">
+</div>
+
+<div class="contenido_fondo">
+<div class="contenido" style="overflow:auto">
+<div id="infoActividad" style="display:none;overflow:scroll;width:100%">
+<br>
+<div id="descripcionActividad">
+</div>
+<br>
+</div>
+<div id="checkin" style="display:none;overflow:scroll;width:100%">
+<div id="contenedordatoscheckin" style="display:flex">
+<div id="datosidencheckin" class="cajasDatos">
+<h2>Datos identificativos:</h2>
+<b>*El nombre, apellidos y NIF/NIE/Pasaporte están sacados automáticamente de tu ficha.<br>Si los datos no son correctos contacta con la organización para solventarlo.
+<br>***NIF obligatorio en mayores de 12 años.</b>
+Nombre:<input type="text" id="nombreCheckin" disabled><br>
+Apellidos:<input type="text" id="apellidoCheckin" disabled><br>
+Fecha de nacimiento (DD/MM/YYYY): <input type="date" id="nacimientoCheckin" style="width:12em"><br>
+NIF:<input type="text" id="nifCheckin" disabled><br>
+Fecha de expedición del documento (sólo mayores de 12 años):<input type="date" id="expedicionCheckin" style="width:12em"><br>
+Dirección:<input type="text" id="direccionCheckin"><br>
+Código Postal:<input type="text" id="cpCheckin"><br>
+Ciudad:<input type="text" id="ciudadCheckin"><br>
+País:<input type="text" id="paisCheckin"><br>
+<input class="box_button_zi" type="button" value="Guardar datos check-in" onClick="guardarCheckin();">
+<input class="box_button_zi" type="button" value="Código QR para Acceder al Evento" onClick="QRCheckin();">
+<br>
+***El usuario (o en su defecto el tutor legal del mismo en caso de ser menores de edad) se hace responsable de la veracidad de los datos remitidos, que serán requisito indispensable para acceder al evento.
+****Los datos solicitados son los que el hotel nos ha pedido. Quienes no lo cumplimenten podrán igualmente hacer el check-in en recepción para recoger la tarjeta de la habitación (pero será más lento).
+
+</div>
+</div>
+</div>
+<div id="datos" style="display:none;overflow:scroll;width:100%">
+<div id="contenedordatos" class="contenidoDatos">
+<div id="datosiden" class="cajasDatos">
+<input id="btnQR" style="display:none" type="button" value="Código QR para Acceder al Evento" onClick="QRCheckin();"><br>
+<b>Estado de la inscripción:</b><span id="notificacion" class="aviso"></span><br>
+<b>Tipo de habitación:</b><span id="tipoHabitacion" class="aviso"></span>
+<div id="datosocupantes" style="display:none"></div>
+<b>Importe de la inscripción:</b><span id="importePlaza" class="aviso"></span>
+<div id="botones_inscrito">
+<input type="button" value="Guardar cambios" onClick="actualizarDatos();">
+<input type="button" value="Cambiar contraseña" onClick="changePassword();">
+<input type="button" value="Solicitar baja" onClick="solicitarBaja();">
+ </div>
+<input type="hidden" id="id">
+<h2>Datos identificativos:</h2>
+Nombre:<input type="text" id="nombre" disabled><br>
+Apellidos:<input type="text" id="apellido" disabled><br>
+Pseudónimo:<input type="text" id="pseudonimo"><br>
+NIF:<input type="text" id="nif" disabled><br>
+Smial:<input type="text" id="smial"><br>
+<span id="txt_menor">Es menor de 12 años:<input type="checkbox" id="menor" disabled></span><br>
+<span id="txt_chk_con_bebes">Acompañado de menores de 2 años:<input type="checkbox" id="chk_con_bebes" disabled></span><br>
+<span id="txt_con_bebes">Año de nacimiento del menor:<input type="text" id="con_bebes" disabled></span><br>
+<h2>Datos de contacto:</h2>
+Teléfono:<input type="text" id="telefono"><br>
+E-mail:<input type="text" id="email"><br>
+Telegram:<input type="text" id="telegram"><br>
+
+<div id="actividadesflotantes" class="cajasDatos" style="padding-top:10px;">
+</div>
+</div>
+<div id="datosobservaciones" class="cajasDatos" style="padding-top:1%">
+<p>Otros datos:</p>
+<span>Alergias:<input type="checkbox" id="alergias"></span>
+Cuáles:<input type="text" id="alergias_txt" size=50>
+<span>Dieta específica:<input type="checkbox" id="alimentos"></span>
+Cuál:<input type="text" id="alimentos_txt" size=50>
+
+Observaciones:
+<textarea id="observaciones"></textarea>
+<input type="button" value="Guardar cambios" onClick="actualizarDatos();">
+</div>
+
+</div>
+</div>
+<div id="actividades" class="actividades" >
+<span class="item_actividad">Actividades:</span>
+<div class="margin_button_act">
+   <input type="button" id="btnDisponibles" class="box_button_zi" onClick="inscripciones();" value="Inscribirse">
+   <input type="button" id="btnInscritas" class="box_button_zi" onClick="misInscripciones();" value="Mis Inscripciones">
+   <input type="button" id="btnGestion" class="box_button_zi" onClick="gestionarMisActividades();" value="Mis Propuestas">
+   <input class="box_button_zi" id="btnPropuesta" type="button" onClick="proponerActividad();" value="Proponer">
+   </div>
+
+<div class="contenido2" id="notificacionesTabla"></div>
+<div id="tituloInscripciones" class="contenido2" style="padding-top:0%;"></div>
+<div class="contenido3" id="inscripciones" style="display:none">
+</div>
+<div class="contenido3" id="misInscripciones" style="display:none">
+</div>
+<div class="contenido3" id="gestionar" style="display:none">
+</div>
+<div id="propuestas" style="display:none">
+<input type="button" onClick="enviarPropuesta();" value="Enviar propuesta">
+ <input id="btnResetPropuesta" type="button" onClick=" $('#formPropuestas')[0].reset();" value="Borrar campos">
+<form id="formPropuestas">
+
+Nombre de la Actividad:<input type="text" id="nombreActividad"><br>
+Aforo (Si no hay límite de aforo poned valor 0):<input type="text" id="aforoActividad"><br>
+Duración estimada (en minutos, poned 0 si no tiene duración):<input type="text" id="duracionActividad"><br>
+Nombre del/la Responsable:<span id="responsableActividad"></span><br>
+email:<span id="emailResponsableActividad"></span><br>
+Nombre para mostrar (quién organiza la actividad):<input type="text" id="pseudonimoActividad"><br>
+¿Requiere pago adicional o materiales de los inscritos? <input type="checkbox" id="pagoAdicional"><br>
+Público:
+<select id="publicoActividad">
+<option value="">(Seleccione público destinatario)</option>
+<option value="adultos">Adultos y mayores de 12 años</option>
+<option value="menores">Menores de 12 años</option>
+<option value="todos">Todos los públicos</option>
+</select><br>
+<br>
+Requisitos (para la organización):<br>
+<textarea id="requisitosActividad"></textarea><br>
+<br>
+Observaciones (para la organización):<br>
+<textarea id="observacionesActividad"></textarea><br>
+Descripción (para los asistentes):<br>
+<textarea id="descripcionActividad"></textarea><br>
+</form>
+
+</div>
+<div class="act_calendario">
+<div id="planificaciones">
+<a href="/MerethInscritos/ObtenerTablaPlanificacion" target="_blank">Abrir calendario en ventana nueva (para imprimir)</a>
+<div id="calendario" style="height:100%;width:100%"></div>
+</div>
+</div>
+</div>
+    </div>
+
+    </div>
+    
+</BODY>
+
+<script type="text/javascript">
+
+
+
+$(document).ready(function(){
+	cargarPerfil();
+	//misActividades();
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Bienvenido a la Mereth Aderthad</title>
+<link rel="stylesheet" type="text/css" href="css/estilos.css" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YVMT01CDJD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YVMT01CDJD');
+</script>
+</head>
+<BODY class="fondo">
+<script src="jquery/jquery-3.6.1.min.js"></script>
+<script src="script/inscritos.js"></script>
+<input type="hidden" value="" id="idhabitacion">
+
+<div class="main_zi">
+  <img class="logo"  src="img/logo.png" alt="logo">
+
+  <div class="barramenu">
+   <p>Mereth Aldaron Enyali&euml; - Inicio de sesi&oacute;n</p>
+</div>
+ </div>
+<div class="titulo">
+</div>
+<div class="contenido_fondo">
+<div class="contenido">
+<form action="Login" method="POST">
+<span id="notificacion" class="aviso" style="color:red"></span>
+<br>
+<table>
+<tr><td>Usuario:</td><td><INPUT type="text" id="usuario" name="usuario"></td></tr>
+<tr><td>Password:</td><td><INPUT type="password" id="password" name="password"></td></tr>
+</table>
+<INPUT type="button" id="btnSubmit" value="Iniciar sesión" onClick="iniciarSesion();"><br>
+<table>
+<tr><td>Si has olvidado tus datos de acceso introduce el correo electrónico con el que te registraste y te los enviaremos.</td></tr>
+<tr><td>Email de registro:<input type="text" id="emailolvido" name="emailolvido"><input type="button" value="Recuperar datos" onClick="recuperar();"></td></tr>
+<tr><td>*Si inscribiste a varias personas con el mismo email recibirás los datos de acceso de tod@s los vinculados a esa dirección de correo.</td></tr>
+</table>
+
+
+</form>
+
+</div>
+</div>
+    </div>
+</BODY>
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+if (location.href.indexOf("?estado=error")>=0)
+	{
+	$("#notificacion").html("Usuario o contraseña no válidos");
+	}
+else
+{
+	$("#notificacion").html("");
+}
+});
+</script>
+
+
+</body>
+</html>

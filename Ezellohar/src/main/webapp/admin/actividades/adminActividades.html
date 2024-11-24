@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Administración de Espacios y Actividades</title>
+<link rel="stylesheet" type="text/css" href="../../css/estilos.css" />
+</head>
+
+
+<BODY class="fondo">
+<script src="../../jquery/jquery-3.6.1.min.js"></script>
+<script src="../../script/tinymce/tinymce.min.js"></script>
+<script src="../../script/actividades.js"></script>
+
+<div class="main">
+<img class="logo"  src="/Ezellohar/img/logo.png" alt="logo">
+<div class="barramenu">
+
+<p>XXVIII Mereth Aderthad - Administración de Espacios<br> y Planificación de Actividades</p>
+<div class="margin_button"><a class="box_button" href="/Ezellohar/admin/">Volver al menú</a>
+</div>
+<div class="box_button_zi">
+<input type="button" onClick="$('.altas').hide();$('.actividades').hide();$('#tareaEspacios').show();$('#botonEspacios').show();$('#gestionEspacios').toggle();" value="Gestionar espacios" class="box_button_main">
+<input type="button" onClick="$('.altas').hide();$('.actividades').hide();$('#tareaActividades').show();$('#botonActividades').show();$('#gestionActividades').toggle();" value="Gestionar actividades" class="box_button_main">
+<input type="button" onClick="$('.altas').hide();$('.actividades').hide();$('#tareaPlanificacion').show();$('#botonPlanificacion').show();$('#gestionPlanificacion').toggle();" value="Planificación" class="box_button_main">
+<input type="button" onClick="$('.altas').hide();$('.actividades').hide();verCalendario();" value="Calendario" class="box_button_main">
+<input type="button" onClick="$('.altas').hide();$('.actividades').hide();verCalendarioPonentes();" value="Calendario de Ponentes" class="box_button_main">
+<input type="button" onClick="$('.altas').hide();$('.actividades').hide();$('#tareaInscritos').show();$('#botonInscritos').show();gestionInscritos();" value="Gestión de Inscritos" class="box_button_main">
+</div>
+<div class="box_button_zi">
+<select id="tareaActividades" class="actividades">
+<option value="">(Seleccione una tarea)</option>
+<option value="aceptarActividades">Aceptar actividades propuestas seleccionadas</option>
+<option value="eliminarActividades">Eliminar actividades seleccionadas</option>
+<option value="activarActividades">Habilitar inscripción en actividades seleccionadas</option>
+<option value="desactivarActividades">Deshabilitar inscripción en actividades seleccionados</option>
+<option value="desplanificar">Desplanificar las actividades seleccionadas</option>
+<option value="exportar">Exportar a Excel</option>
+<option value="inscritos">Exportar Inscripciones a Excel</option>
+<option value="inscritosweb">Exportar Inscripciones a Web</option>
+</select>
+<input id ="botonActividades" type="button" onClick="ejecutarTarea('Actividades');" value="Ejecutar tarea" class="actividades">
+<select id="tareaEspacios" class="actividades">
+<option value="">(Seleccione una tarea)</option>
+<option value="eliminarEspacios">Eliminar espacios seleccionados</option>
+</select>
+<input id ="botonEspacios" type="button" onClick="ejecutarTarea('Espacios');" value="Ejecutar tarea" class="actividades">
+<select id="tareaPlanificacion" class="actividades">
+<option value="">(Seleccione una tarea)</option>
+<option value="borrar">Eliminar toda la planificación</option>
+</select>
+<input id ="botonEspacios" type="button" onClick="ejecutarTarea('Planificacion');" value="Ejecutar tarea" class="actividades">
+<select id="tareaInscritos" class="actividades">
+<option value="">(Seleccione una tarea)</option>
+<option value="eliminarInscripcion">Eliminar inscritos seleccionados</option>
+<option value="listaEspera">Pasar a lista de Espera</option>
+<option value="inscribirEspera">Sacar de lista de Espera</option>
+</select>
+<input id ="botonInscritos" type="button" onClick="ejecutarTarea('Inscritos');" value="Ejecutar tarea" class="actividades">
+
+</div>
+</div>
+</div>
+<div class="contenido_fondo">
+<div class="contenido">
+
+<div id="gestionInscritos" style="display:none" class="altas"></div>
+<div id="calendarioPlanificado" style="display:none" class="altas"></div>
+<div id="gestionEspacios" style="display:none" class="altas">
+<h2>Gestión de espacios</h2>
+<input type="button" onClick="$('#formularioAltasEspacios').toggle();$('#btnRegistrarEspacio').show();$('#btnActualizarEspacio').hide();$('#formAltasEspacios')[0].reset();$('#descripcionEspacio').val('');" value="Mostrar/Ocultar Alta de Espacios" class="box_button_main">
+<div id="bloques_espacios" style="display:flex">
+<div id="listadoEspacios" style="padding:10px;width:60%;height:640px;overflow:auto"></div>
+
+<div id="formularioAltasEspacios" class="altas">
+<form id="formAltasEspacios">
+<input type="hidden" id="idEspacio">
+Nombre:<input type="text" id="nombreEspacio"><br>
+Capacidad:<input type="text" id="capacidadEspacio"><br>
+Planta:<input type="text" id="plantaEspacio"><br>
+Descripción:<br>
+<textarea id="descripcionEspacio"></textarea><br>
+</form>
+<input type="button" value="Registrar espacio" onClick="guardarEspacio();" id="btnRegistrarEspacio">
+<input type="button" value="Actualizar espacio" onClick="actualizarEspacio();" id="btnActualizarEspacio">
+</div>
+</div>
+</div>
+<div id="gestionActividades" style="display:none" class="altas">
+<h2>Gestión de actividades</h2>
+<input type="button" onClick="$('#formularioAltasActividades').toggle();$('#btnRegistrar').show();$('#btnActualizar').hide();limpiarCamposActividad();" value="Mostrar/Ocultar Alta de Actividades" class="box_button_main">
+<div id="bloques" style="display:flex">
+<div id="listadoActividades" style="padding:10px;width:60%;height:640px;overflow:auto">
+<div id="filtroListadoActividades">
+Filtros:
+Público destinatario:
+<select id="filtroPublicoListado" onChange="cargarListadoActividades();">
+<option value="">Todos los públicos</option>
+<option value="adultos">Adultos</option>
+<option value="menores">Menores</option>
+</select>
+<div id="selFiltroTipoListado"></div>
+</div>
+<div id="listadoActividadesInterno">
+</div>
+</div>
+<div id="formularioAltasActividades" class="altas"  style="padding:10px">
+<form id="formAltasActividades">
+<input type="hidden" id="idActividad">
+Nombre:<input type="text" id="nombreActividad"><br>
+Tipo:<input type="text" id="tipoActividad"><br>
+Aforo:<input type="text" id="aforoActividad"><br>
+Duración estimada:<input type="text" id="duracionActividad"><br>
+Responsables:<input type="hidden" id="responsablesActividad"><input type="button" value="Seleccionar responsables" onClick="$('#listaResponsables').toggle();"><br>
+<div id="listaResponsables" style="overflow-y:scroll;display:none">
+
+</div>
+Nombres/Pseudónimos para mostrar (opcional):<input type="text" id="pseudonimosActividad"><br>
+¿Requiere pago adicional? <input type="checkbox" id="pagoAdicional"><br>
+Público:
+<select id="publicoActividad">
+<option value="">(Seleccione público destinatario)</option>
+<option value="adultos">Adultos</option>
+<option value="menores">Menores</option>
+<option value="todos">Todos los públicos</option>
+</select><br>
+Observaciones internas:<br>
+<textarea id="observacionesActividad"></textarea><br>
+Requisitos (para la organización):<br>
+<textarea id="requisitosActividad"></textarea><br>
+Descripción pública:<br>
+<textarea id="descripcionActividad"></textarea><br>
+</form>
+<input type="button" value="Registrar actividad" onClick="guardarActividad();" id="btnRegistrar">
+<input type="button" value="Actualizar actividad" onClick="actualizarActividad();" id="btnActualizar">
+</div>
+</div>
+</div>
+
+<div id="gestionPlanificacion" style="display:none" class="altas">
+<h3>Planificación de Actividades</h3>
+<div id="planificacionPaso1">
+Selecciona rango de fechas:<br>
+Inicio:<input type="date" id="fechaInicio"><br>
+Fin:<input type="date" id="fechaFin">
+<br>
+Franjas horarias:<br>
+Desde:
+<select id="horaInicio">
+<option value=7>07</option>
+<option value=8>08</option>
+<option value=9>09</option>
+<option value=10 selected>10</option>
+<option value=11>11</option>
+<option value=12>12</option>
+<option value=13>13</option>
+<option value=14>14</option>
+<option value=15>15</option>
+<option value=16>16</option>
+<option value=17>17</option>
+<option value=18>18</option>
+<option value=19>19</option>
+<option value=20>20</option>
+<option value=21>21</option>
+<option value=22>22</option>
+</select>:00
+<br>
+Hasta:
+<select id="horaFin">
+<option value=7>07</option>
+<option value=8>08</option>
+<option value=9>09</option>
+<option value=10>10</option>
+<option value=11>11</option>
+<option value=12>12</option>
+<option value=13>13</option>
+<option value=14>14</option>
+<option value=15>15</option>
+<option value=16>16</option>
+<option value=17>17</option>
+<option value=18>18</option>
+<option value=19>19</option>
+<option value=20>20</option>
+<option value=21>21</option>
+<option value=22>22</option>
+<option value=23 selected>23</option>
+<option value=24>00</option>
+<option value=25>01</option>
+<option value=26>02</option>
+<option value=27>03</option>
+<option value=28>04</option>
+<option value=29>05</option>
+<option value=30>06</option>
+</select>:00<br>
+Intervalos de tiempo:
+<select id="intervalo">
+<option value=15>15 minutos</option>
+<option value=30>30 minutos</option>
+<option value=60 selected>1 hora</option>
+</select>
+<br>
+Selecciona los espacios a Gestionar:
+<div id="seleccionEsp">
+</div>
+<input type="button" value="Siguiente" onClick="planificacionPaso2();"  class="box_button_main">
+</div>
+<div id="planificacionPaso2" style="display:none">
+<span id="notificacionesTabla"></span>
+Filtros:
+Público destinatario:<select id="filtroPublico" onChange="filtrarActividades();">
+<option value="">Todos los públicos</option>
+<option value="adultos">Adultos</option>
+<option value="menores">Menores</option>
+</select><br>
+<div id="selFiltroTipo"></div>
+Actividades disponibles:<input id="filtroPlanificadas" type="checkbox" onClick="filtrarActividades();">Mostrar actividades no planificadas
+<div id="selActividades"></div>
+<div id="selcolor">
+<select id="colores">
+<option value="white" style="background-color:white">(Selecciona color)</option>
+<option value="red" style="background-color:red">Rojo</option>
+<option value="fuchsia" style="background-color:fuchsia">Fucsia</option>
+<option value="lime" style="background-color:lime">Lima</option>
+<option value="green" style="background-color:green">Verde</option>
+<option value="yellow" style="background-color:yellow">Amarillo</option>
+<option value="aqua" style="background-color:aqua">Aqua</option>
+<option value="aquamarine" style="background-color:aquamarine">Aquamarine</option>
+<option value="beige" style="background-color:beige">Beige</option>
+<option value="burlywood" style="background-color:burlywood">Burlywood</option>
+<option value="bisque" style="background-color:bisque">Bisque</option>
+<option value="darkseagreen" style="background-color:darkseagreen">Darkseagreen</option>
+<option value="deepskyblue" style="background-color:deepskyblue">Deepbluesky</option>
+<option value="lavender" style="background-color:lavender">Lavanda</option>
+<option value="plum" style="background-color:plum">Plum</option>
+</select></div>
+<div id="tablaPlanificacion">
+</div>
+<input type="button" value="Guardar" onClick="registrarPlanificacion();" class="box_button_main">
+<input type="button" value="Volver" onClick="planificacionPaso1();" class="box_button_main">
+<input type="hidden" id="planificacionActual" value="{}">
+</div>
+</div>
+</div>
+
+<br>
+</BODY>
+<script type="text/javascript">
+$(document).ready(function(){
+	cargarListadoActividades();
+	cargarComboTipos();
+	cargarListadoEspacios();
+	cargarListadoResponsables();
+		tinymce.init({
+			selector: 'textarea#descripcionActividad',
+			  convert_urls:false,		  
+			  plugins:'link',
+			  paste_data_images:true,
+			});
+		document.getElementById("fechaInicio").valueAsDate = new Date();
+		document.getElementById("fechaFin").valueAsDate = new Date();
+	});
+$('.altas').hide();
+$('.actividades').hide();
+verCalendario();
+</script>
+
+</html>
