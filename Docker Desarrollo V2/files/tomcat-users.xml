@@ -1,0 +1,15 @@
+<tomcat-users xmlns="http://tomcat.apache.org/xml">
+    <role rolename="concilio"/>
+    <role rolename="elrond"/>
+    <role rolename="tesoreria"/>
+    <role rolename="mayordomo"/>
+    <role rolename="actividades"/>
+    <role rolename="redes"/>
+  
+    <user username="usuario1" password="password1" roles="concilio"/>
+    <user username="usuario2" password="password2" roles="elrond"/>
+    <user username="usuario3" password="password3" roles="tesoreria"/>
+    <user username="usuario4" password="password4" roles="mayordomo"/>
+    <user username="usuario5" password="password5" roles="actividades"/>
+    <user username="usuario6" password="password6" roles="redes"/>
+</tomcat-users>
