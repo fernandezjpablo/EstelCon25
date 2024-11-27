@@ -1,7 +1,6 @@
 FROM debian:bullseye
 LABEL Author="Lendar"
 
-# Establecer usuario root para ejecutar comandos
 USER root
 
 # Paso 1: Actualizar el sistema y registrar el progreso
@@ -33,16 +32,22 @@ RUN echo "Descargando Apache Tomcat..." && \
 COPY init_users.sh /init_users.sh
 RUN chmod +x /init_users.sh && /init_users.sh
 
+# Paso 6: Permitir acceso SSH para root
+RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config && \
+    echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config && \
+    systemctl restart sshd && \
+    echo "Configuración SSH actualizada."
 
+# Paso 7: Verificar la creación de usuarios
+RUN cut -d: -f1 /etc/passwd
 
-
-# Paso 6: Copiar y configurar archivos personalizados
+# Paso 8: Copiar y configurar archivos personalizados
 COPY files/start-services.sh /usr/local/bin/start-services.sh
 RUN echo "Copiando y configurando scripts personalizados..." && \
     chmod +x /usr/local/bin/start-services.sh && \
     echo "Scripts personalizados configurados correctamente."
 
-# Paso 7: Crear directorios necesarios
+# Paso 9: Crear directorios necesarios
 RUN echo "Creando directorios requeridos por la aplicación..." && \
     mkdir -p /home/estelcon/{outbox,sent,error,plantillas,log,activity} && \
     echo "Directorios creados."
@@ -52,4 +57,3 @@ EXPOSE 8080 80 8443 2121 2122 22 40000 3306
 
 # Comando de inicio con registro
 CMD echo "Iniciando servicios..." && /usr/local/bin/start-services.sh
-

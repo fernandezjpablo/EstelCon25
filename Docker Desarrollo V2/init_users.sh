@@ -10,7 +10,7 @@ create_user() {
   if ! id -u $user &>/dev/null; then
     useradd $user
     echo "$user:$pass" | chpasswd
-    echo "Usuario $user creado."
+    echo "Usuario $user creado con la contraseña: $pass"
   else
     echo "Usuario $user ya existe, omitiendo."
   fi
@@ -25,4 +25,4 @@ create_user root "R00tP4ssw0rd"
 echo "ftpestelcon" >> /etc/vsftpd.userlist
 chmod 644 /etc/passwd && chmod 600 /etc/shadow
 
-echo "Usuarios creados correctamente."
+echo "Usuarios creados correctamente.
