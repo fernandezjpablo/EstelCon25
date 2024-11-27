@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gestión de Mensajería</title>
+<link rel="stylesheet" type="text/css" href="../../css/estilos.css" />
+</head>
+
+
+<BODY class="fondo">
+<script src="../../jquery/jquery-3.6.1.min.js"></script>
+<script src="../../script/tinymce/tinymce.min.js"></script>
+<script src="../../script/mensajes.js"></script>
+
+<div class="main">
+<img class="logo"  src="/Ezellohar/img/logo.png" alt="logo">
+<div class="barramenu">
+
+<p>XXVIII Mereth Aderthad - Gestión de Mensajería</p>
+<div class="margin_button"><a class="box_button" href="/Ezellohar/admin/">Volver al menú</a>
+</div>
+<div class="box_button_zi">
+<input type="button" onClick="newMensaje();" value="Nuevo Mensaje">
+<input type="button" onClick="editPlantillas();" value="Editar plantillas">
+<select id="tarea">
+<option value="">(Seleccione una tarea)</option>
+<option value="eliminar">Eliminar mensajes seleccionados</option>
+<option value="lanzar">Enviar mensajes pendientes</option>
+<option value="recuperar">Recuperar mensajes enviados o erróneos</option>
+</select><input type="button" onClick="ejecutarTarea();" value="Ejecutar tarea">
+</div>
+</div>
+</div>
+<div class="contenido_fondo">
+<div class="contenido">
+<div id="seleccionPlantillas" class="altas" style="display:none">
+<a href="javascript:editPlantilla('inscritos');">Plantilla Inscritos</a>
+<a href="javascript:editPlantilla('espera');">Plantilla Lista de Espera</a>
+<a href="javascript:editPlantilla('notificacion');">Plantilla Notificaciones</a>
+<a href="javascript:editPlantilla('acceso');">Plantilla Datos de Acceso</a>
+<a href="javascript:editPlantilla('mensaje');">Plantilla Mensaje General</a>
+<a href="javascript:editPlantilla('ingreso');">Plantilla Ingreso Recibido</a>
+<div id="contenidoPlantilla" class="altas">
+<input type="hidden" id="nombrePlantilla" value="">
+Etiquetas válidas para campos: %NOMBRE%" %APELLIDOS% %USUARIO% %PASSWORD% %TIPOHABITACION% %PRECIOPLAZA% %NIF%" %TELEFONO% %IDINSCRITO% %EMAIL% %NICK% %TELEGRAM% %IMPORTE%
+<textarea id="cuerpoplantilla"></textarea>
+<input type="button" onClick="guardarPlantilla();" value="Actualizar plantilla">
+</div>
+</div>
+<div id="formularioMensaje" class="altas" style="display:none">
+Asunto:<input type="text" id="asunto" size=100><br>
+<div id="campoDestinatario" style="display:block">
+Destinatario:<input type="text" id="destino" size=100><br>
+</div>
+<span><input type="checkbox" value="masivo" id="masivo" onClick="javascript:$('#campoDestinatario').toggle();">Enviar a todos los inscritos<br>
+<input type="checkbox" value="masivopendientes" id="masivopendientes" onClick="javascript:$('#campoDestinatario').toggle();">Enviar a todos los inscritos pendientes de pago</span><br>
+Plantilla:
+<select id="plantilla">
+<option value="none">(Ninguna plantilla)</option>
+<option value="mensaje">Plantilla general de mensajes</option>
+</select><br>
+Mensaje:<br>
+<textarea id="cuerpomensaje"></textarea>
+<input type="button" value="Enviar mensaje" onClick="generarMensaje();">
+<br>
+</div>
+<br>
+<span id="notificacion"></span>
+<div id="listado" class="listado"></div>
+</div>
+    </div>
+<script type="text/javascript">
+$(document).ready(function(){
+	cargarListado($('#orden').find('option:selected').val());
+	});
+</script>
+</BODY>
+
+
+</html>

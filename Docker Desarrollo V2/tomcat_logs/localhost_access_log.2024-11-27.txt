@@ -1,0 +1,10 @@
+172.19.0.1 - usuario1 [27/Nov/2024:23:38:10 +0000] "GET /Ezellohar/admin/plazas/ HTTP/1.1" 404 715
+172.19.0.1 - usuario1 [27/Nov/2024:23:38:10 +0000] "GET /Ezellohar/admin/plazas/adminPlazas.html HTTP/1.1" 304 -
+172.19.0.1 - usuario1 [27/Nov/2024:23:38:13 +0000] "GET /Ezellohar/admin/plazas/ HTTP/1.1" 404 715
+172.19.0.1 - usuario1 [27/Nov/2024:23:38:30 +0000] "GET /Ezellohar/admin/ HTTP/1.1" 304 -
+172.19.0.1 - usuario1 [27/Nov/2024:23:38:30 +0000] "GET /Ezellohar/admin/ HTTP/1.1" 304 -
+172.19.0.1 - usuario1 [27/Nov/2024:23:38:31 +0000] "GET /Ezellohar/admin/plazas/adminPlazas.html HTTP/1.1" 200 4076
+172.19.0.1 - usuario1 [27/Nov/2024:23:38:32 +0000] "GET /Ezellohar/admin/plazas/ListPlazas?orden= HTTP/1.1" 200 3
+172.19.0.1 - usuario1 [27/Nov/2024:23:39:58 +0000] "GET /Ezellohar/admin/plazas/ListPlazas?orden= HTTP/1.1" 200 3
+172.19.0.1 - usuario1 [27/Nov/2024:23:39:58 +0000] "GET /Ezellohar/ListInscritos HTTP/1.1" 200 65
+172.19.0.1 - usuario1 [27/Nov/2024:23:39:59 +0000] "GET /Ezellohar/admin/plazas/ListPlazas?orden= HTTP/1.1" 200 3

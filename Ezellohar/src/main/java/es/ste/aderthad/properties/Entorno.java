@@ -14,15 +14,18 @@ import es.ste.aderthad.log.Logger;
 
 public class  Entorno {
  //private static String entornoLocal="C:/temp/Proyecto EstelCon/dev - Lendar/docker/files/estelcon.properties.docker";
-	 private static String entornoLocal="/home/fernandez_juafer2/estelcon/estelcon.properties";
-	 private static String entornoRemoto="/home/fernandez_juafer2/estelcon/estelcon.properties";
+	// private static String entornoLocal="/home/fernandez_juafer2/estelcon/estelcon.properties";
+	// private static String entornoRemoto="/home/fernandez_juafer2/estelcon/estelcon.properties";
+	 
+	 private static String entornoLocal="/home/estelcon/estelcon.properties";
+	 private static String entornoRemoto="/home/estelcon/estelcon.properties";
  
  public static String getVariable(String nombreVariable)
  {
 	 String resultado="";
 	 
 	 File file=new File(entornoRemoto);
-	 Logger.GenerarEntradaLogMensaje("Entro en el entorno getVariable "+entornoRemoto, Logger.getFileNameErrorLog());
+	
 	 if (!file.exists())
 	 {
 		 file=new File(entornoLocal);

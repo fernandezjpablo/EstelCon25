@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Consulta de plazas del Evento</title>
+<link rel="stylesheet" type="text/css" href="../../css/estilos.css" />
+</head>
+
+
+<BODY class="fondo">
+<script src="../../jquery/jquery-3.6.1.min.js"></script>
+<script src="../../script/tinymce/tinymce.min.js"></script>
+<script src="../../script/plazas.js"></script>
+
+<div class="main">
+<img class="logo"  src="/Ezellohar/img/logo.png" alt="logo">
+<div class="barramenu">
+<p>XXVIII Mereth Aderthad - Gestión de Plazas</p>
+
+<div class="margin_button"><a class="box_button" href="/Ezellohar/admin/plazas/adminDistribucion.html" target="_blank">Distribución física de grupos/habitaciones</a>&nbsp;&nbsp;&nbsp;<a class="box_button" href="/Ezellohar/admin/plazas/planoHabitaciones.html" target="_blank">Ver plano habitaciones</a>&nbsp;&nbsp;&nbsp;<a class="box_button" href="/Ezellohar/admin/">Volver al menú</a>
+</div>
+<div class="box_button_zi">
+<input type="button" onClick="$('#formularioAltas').toggle();" value="Mostrar/Ocultar Alta de Habitaciones">
+<select id="tarea">
+<option value="">(Seleccione una tarea)</option>
+<option value="eliminar">Eliminar habitaciones seleccionadas</option>
+<option value="habilitar">Habilitar habitaciones/plazas seleccionadas para inscripción</option>
+<option value="deshabilitar">Restaurar habitaciones/plazas bloqueadas seleccionadas al estado inicial</option>
+<option value="reservar">Marcar Reservadas habitaciones/plazas seleccionadas</option>
+<option value="bloquear">Bloquear habitaciones/plazas seleccionadas</option>
+<option value="individual">Convertir para inscripción individual habitaciones seleccionadas</option>
+<option value="recombinar">Recombinar plazas individuales en una habitación de grupo</option>
+
+
+</select><input type="button" onClick="ejecutarTarea();" value="Ejecutar tarea">
+</div>
+</div>
+</div>
+<div class="contenido_fondo">
+<div class="contenido">
+<div id="formularioAltas" class="altas" style="display:none">
+Cuántas habitaciones desea generar:<input type="text" id="numHabitaciones"><br>
+Indique a qué planta desea asignarlas (o déjela en blanco):<input type="text" id="numPlanta"><br>
+Qué capacidad tienen estas habitaciones:<input type="text" id="capacidad"><br>
+Número de camas en estas habitaciones:<input type="text" id="camas"><br>
+Precio unitario plaza de adulto:<input type="text" id="precioAdultos"><br>
+Precio unitario plaza menor de 14 años:<input type="text" id="precioMenores"><br>
+<input type="button" value="Generar plazas" onClick="generarPlazas();">
+<br>
+</div>
+<br>
+<select id="orden" onChange="cargarListado($('#orden').find('option:selected').val());">
+<option value="">Ordenar por estado (ascendente)</option>
+<option value="ESTADO DESC">Ordenar por estado (descendente)</option>
+<option value="CAMAS ASC">Ordenar por camas (ascendente)</option>
+<option value="CAMAS DESC">Ordenar por camas (descendente)</option>
+<option value="PLAZAS ASC">Ordenar por plazas (ascendente)</option>
+<option value="PLAZAS DESC">Ordenar por plazas (descendente)</option>
+<option value="PLAZAS ASC, CAMAS ASC">Ordenar por plazas y camas (ascendente)</option>
+<option value="PLAZAS DESC, CAMAS DESC">Ordenar por plazas y camas (descendente)</option>
+<option value="CAMAS ASC, PLAZAS ASC">Ordenar por camas y plazas (ascendente)</option>
+<option value="CAMAS ASC, PLAZAS DESC">Ordenar por camas y plazas (descendente)</option>
+<option value="PLANTA ASC">Ordenar por planta (ascendente)</option>
+<option value="PLANTA DESC">Ordenar por planta (descendente)</option>
+</select> 
+<span><input id="selectAll" type="checkbox" onClick="toggleAll();">Marcar/desmarcar todas (grupales)</span>
+<span><input id="selectAllParcial" type="checkbox" onClick="toggleAllParciales();">Marcar/desmarcar todas (parciales)</span>
+<div id="listado" class="listado"></div>
+</div>
+    </div>
+<script type="text/javascript">
+$(document).ready(function(){
+	cargarListado($('#orden').find('option:selected').val());
+	});
+</script>
+</BODY>
+
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gestión Económica</title>
+<link rel="stylesheet" type="text/css" href="../../css/estilos.css" />
+</head>
+
+
+<BODY class="fondo">
+<script src="../../jquery/jquery-3.6.1.min.js"></script>
+<script src="../../script/tinymce/tinymce.min.js"></script>
+<script src="../../script/pagos.js"></script>
+
+<div class="main">
+<img class="logo"  src="/Ezellohar/img/logo.png" alt="logo">
+<div class="barramenu">
+<p>XXVIII Mereth Aderthad - Gestión Económica</p>
+<div class="margin_button"><a class="box_button" href="/Ezellohar/admin/">Volver al menú</a>
+</div>
+<div class="box_button_zi">
+<input type="button" onClick="newMovimiento();" value="Nuevo movimiento">
+<select id="tarea">
+<option value="">(Seleccione una tarea)</option>
+<option value="anular">Anular movimientos</option>
+<option value="recuperar">Recuperar movimientos</option>
+<option value="devoluciones">Registrar devoluciones</option>
+<option value="exportar">Exportar movimientos a archivo</option>
+<option value="exportarpagos">Exportar estado de pagos a archivo</option>
+</select><input type="button" onClick="ejecutarTarea();" value="Ejecutar tarea">
+<div class="fontsmall"><a href="/Ezellohar/admin/">Volver al menú</a>
+</div>
+</div>
+</div>
+</div>
+<div class="contenido_fondo">
+<div class="contenido">
+<div id="formularioMovimiento" class="altas" style="display:none">
+Importe:<input type="text" id="importe"><br>
+Concepto/Código de transferencia:
+<input type="text" id="observaciones"><br>
+Tipo de movimiento: 
+<select id="tipo">
+<option value="">(Seleccione tipo de movimiento)</option>
+<option value="inscripcion">Ingreso inscripción</option>
+<option value="devolucion">Devolución de inscripción (total o parcial)</option>
+<option value="ingreso">Ingreso general</option>
+<option value="pago">Pago general</option>
+
+</select>
+<br>
+<input type="button" value="Registrar movimiento" onClick="guardarMovimiento();">
+<br>
+</div>
+<br><div id="balance"></div>
+<br>
+<span><input id="selectAll" type="checkbox" onClick="toggleAll();">Marcar/desmarcar todas</span>
+
+<div id="listado" class="listado"></div>
+</div>
+    </div>
+<script type="text/javascript">
+$(document).ready(function(){
+ cargarListado($('#orden').find('option:selected').val());
+	});
+</script>
+</BODY>
+
+
+</html>

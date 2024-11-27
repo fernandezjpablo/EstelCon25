@@ -4,9 +4,8 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile # Usar el Dockerfile del servicio principal
+      dockerfile: Dockerfile
     container_name: estelcon-app
-    # Vincular archivos de configuración desde el host
     volumes:
       - ./files/default.config.nginx:/etc/nginx/sites-available/default
       - ./files/vsftpd.conf:/etc/vsftpd.conf
@@ -19,13 +18,12 @@ services:
       - ./files/50-server.cnf:/var/www/50-server.cnf
       - ./files/mariadb.sh:/etc/init.d/mariadb.sh
       - ./files/estelcon.properties:/home/estelcon/estelcon.properties
-      - ./wars:/usr/local/tomcat/webapps # Persistencia de los archivos WAR
-    # Variables de entorno opcionales
+      - ./wars:/usr/local/tomcat/webapps
+      - ./tomcat_logs:/usr/local/tomcat/logs
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
       FTP_USER: ftpestelcon
       FTP_PASSWORD: P4ssw0rd
-    # Exponer los puertos
     ports:
       - "8085:8080"
       - "86:80"
@@ -36,26 +34,22 @@ services:
       - "40000:40000"
       - "3306:3306"
     networks:
-      - estelcon-net
+      - dockerdesarrollov2_estelcon-net
 
   db:
     image: mariadb:10.5
     container_name: estelcon-db
-    # Configuración de base de datos
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
-    # Inicializar la base de datos con un script SQL
     volumes:
-      - ./files/init-mariadb.sql:/docker-entrypoint-initdb.d/init.sql
-      - db_data:/var/lib/mysql # Persistencia de los datos de la base de datos
-    ports:
-      - "3307:3306" # Puerto para acceso externo a la base de datos
+      - ./db_data:/var/lib/mysql # Montar la carpeta local db_data
+      - ./files/init-mariadb.sql:/docker-entrypoint-initdb.d/init.sql 
     networks:
-      - estelcon-net
+      - dockerdesarrollov2_estelcon-net
+    ports:
+      - "3307:3306"
+   
 
 networks:
-  estelcon-net:
+  dockerdesarrollov2_estelcon-net:
     driver: bridge
-
-volumes:
-  db_data: # Volumen para persistir los datos de la base de datos

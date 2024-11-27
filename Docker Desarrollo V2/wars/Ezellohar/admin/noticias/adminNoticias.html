@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gestión de Noticias</title>
+<link rel="stylesheet" type="text/css" href="../../css/estilos.css" />
+</head>
+
+
+<BODY class="fondo">
+<script src="../../jquery/jquery-3.6.1.min.js"></script>
+<script src="../../script/tinymce/tinymce.min.js"></script>
+<script src="../../script/noticias.js"></script>
+
+<div class="main">
+<img class="logo"  src="/Ezellohar/img/logo.png" alt="logo">
+<div class="barramenu">
+<p>XXVIII Mereth Aderthad - Gestión de Noticias</p>
+<div class="margin_button"><a class="box_button" href="/Ezellohar/admin/">Volver al menú</a>
+</div>
+<div class="box_button_zi">
+<input type="button" onClick="editNoticia();" value="Mostrar/Ocultar Redacción de Noticias">
+<select id="tarea">
+<option value="">(Seleccione una tarea)</option>
+<option value="eliminar">Eliminar noticias seleccionadas</option>
+<option value="publicar">Publicar noticias seleccionadas</option>
+<option value="deshabilitar">Deshabilitar noticias seleccionadas (estado inicial)</option>
+<option value="archivar">Archivar noticias seleccionadas</option>
+</select><input type="button" onClick="ejecutarTarea();" value="Ejecutar tarea">
+</div>
+</div>
+</div>
+<div class="contenido_fondo">
+<div class="contenido">
+<div id="formularioNoticias" class="altas" style="display:none">
+Título:<input type="text" id="titulo" size=100><br>
+Cuerpo de la noticia:<br>
+<textarea id="cuerponoticia"></textarea>
+<input type="button" value="Guardar noticia" onClick="guardarNoticia();">
+<br>
+</div>
+<br>
+<span><input id="selectAll" type="checkbox" onClick="toggleAll();">Marcar/desmarcar todas</span>
+<div id="listado" class="listado"></div>
+</div>
+    </div>
+<script type="text/javascript">
+$(document).ready(function(){
+	cargarListado($('#orden').find('option:selected').val());
+	});
+</script>
+</BODY>
+
+
+</html>

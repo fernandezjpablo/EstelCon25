@@ -25,4 +25,4 @@ create_user root "R00tP4ssw0rd"
 echo "ftpestelcon" >> /etc/vsftpd.userlist
 chmod 644 /etc/passwd && chmod 600 /etc/shadow
 
-echo "Usuarios creados correctamente.
+echo "Usuarios creados correctamente."

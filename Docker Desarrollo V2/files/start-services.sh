@@ -1,15 +1,23 @@
 #!/bin/bash
 
-# Arrancar servicios
+echo "Iniciando servicios..."
+
+# Iniciar MariaDB
+service mysql start
+
+# Iniciar SSH
 service ssh start
+
+# Iniciar vsftpd
 service vsftpd start
+
+# Iniciar Nginx
 service nginx start
 
-# Arrancar MariaDB
-sh /etc/init.d/mariadb.sh
+# Iniciar Tomcat
+/usr/local/tomcat/bin/catalina.sh start
 
-# Arrancar Tomcat
-sh /usr/local/tomcat/bin/catalina.sh start
+echo "Servicios iniciados. Contenedor listo."
 
-# Mostrar logs de Tomcat
-tail -f /usr/local/tomcat/logs/catalina.out
+# Mantener el contenedor en ejecución
+tail -f /dev/null

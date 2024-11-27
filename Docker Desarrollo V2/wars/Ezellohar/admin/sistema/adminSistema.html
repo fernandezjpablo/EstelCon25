@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Administración del sistema</title>
+<link rel="stylesheet" type="text/css" href="../../css/estilos.css" />
+</head>
+
+
+<BODY class="fondo">
+<script src="../../jquery/jquery-3.6.1.min.js"></script>
+<script src="../../script/sistema.js"></script>
+
+<div class="main">
+<img class="logo"  src="/Ezellohar/img/logo.png" alt="logo">
+<div class="barramenu">
+<p>XXVIII Mereth Aderthad - Administración del Sistema</p>
+<div class="margin_button"><a class="box_button" href="/Ezellohar/admin/">Volver al menú</a>
+</div>
+<div class="box_button_zi">
+<input type="button" onClick="listarLogs('errores');" value="Ver Logs de Errores">
+<input type="button" onClick="listarLogs('actividad');" value="Ver Logs de Actividad">
+<input type="button" onClick="listarLogs('inscritos');" value="Ver Logs de Actividad de inscritos">
+<input type="button" onClick="editConfiguracion();" value="Editar Configuración">
+
+</div>
+</div>
+</div>
+<div class="contenido_fondo">
+<div class="contenido">
+<div id="contenidoConfiguracion" class="altas" style="display:none">
+<textarea id="cuerpoconfiguracion" style="width:600px;height:400px"></textarea><br>
+<input type="button" onClick="guardarConfiguracion();" value="Actualizar Configuración">
+</div>
+<div id="listadoLogs" class="altas" style="display:none">
+<span id="tituloLog"></span>
+<div id="listado" class="listado" style="display:flex;width:100%"></div>
+</div>
+
+</div>
+
+</div>
+    </div>
+<script type="text/javascript">
+$(document).ready(function(){
+	editConfiguracion();
+	});
+</script>
+</BODY>
+
+
+</html>
