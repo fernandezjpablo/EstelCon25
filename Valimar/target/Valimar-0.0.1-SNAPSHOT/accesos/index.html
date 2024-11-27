@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Bienvenido al Control de Accesos de Asamblea General</title>
+<link rel="stylesheet" type="text/css" href="../css/estilos.css" />
+</head>
+<BODY class="fondo">
+<script src="../jquery/jquery-3.6.1.min.js"></script>
+<input type="hidden" value="" id="socios" value="{}">
+
+
+ <div class="titulo"></div>
+
+<div class="contenido_fondo" style="height:100%">
+<div class="contenido">
+
+<div id="info" class="info" style="display:block">
+
+<h2>Accesos a la Asamblea General: Escanear QR</h2>
+<div id="escaneo" style="display:none">
+<div id="video-container" class="info">
+    <video id="qr-video" disablepictureinpicture="" playsinline="" style="transform: scaleX(-1);"></video>
+    <div class="scan-region-highlight" style="position: absolute; pointer-events: none; transform: scaleX(-1); width: 480px; height: 480px; top: 200px; left: 408px; display: none;">
+    <svg class="scan-region-highlight-svg" viewBox="0 0 238 238" preserveAspectRatio="none" style="position:absolute;width:100%;height:100%;left:0;top:0;fill:none;stroke:#e9b213;stroke-width:4;stroke-linecap:round;stroke-linejoin:round"><path d="M31 2H10a8 8 0 0 0-8 8v21M207 2h21a8 8 0 0 1 8 8v21m0 176v21a8 8 0 0 1-8 8h-21m-176 0H10a8 8 0 0 1-8-8v-21"></path></svg>
+    <svg class="code-outline-highlight" preserveAspectRatio="none" style="display:none;width:100%;height:100%;fill:none;stroke:#e9b213;stroke-width:5;stroke-dasharray:25;stroke-linecap:round;stroke-linejoin:round">
+    <polygon></polygon></svg>
+    </div>
+</div>
+
+<div class="info">
+    <select id="inversion-mode-select">
+        <option value="original">Escaneo original (QR oscuro en fondo claro)</option>
+        <option value="invert">Escaneo con colores invertidos (QR claro con fondo oscuro)</option>
+        <option value="both">Ambos</option>
+    </select>
+    <br>
+
+<b>Cámara detectada: </b>
+<span id="cam-has-camera"></span>
+<br>
+
+    <b>Seleccionar cámara:</b>
+    <select id="cam-list">
+</select>
+
+<b>Tiene flash: </b>
+<span id="cam-has-flash"></span>
+<div class="info">
+    <button id="flash-toggle" style="display: none;">📸 Flash: <span id="flash-state">off</span></button>
+</div>
+
+<br>
+<button id="start-button">Iniciar escáner</button>
+<button id="stop-button">Detener escáner</button>
+<hr>
+</div>
+</div>
+<div id="info-escaneada" class="info">
+<span id="cam-qr-result" style="color: inherit;"></span>
+</div>
+<div id="carga">
+Seleccionar archivo csv de socios (formato NIF;Número de socio):<input type="file" id="fichero-socios">
+</div>
+</div>
+
+    </div>
+   </div> 
+    <script type="module">
+    import QrScanner from "../script/qr-scanner.min.js";
+
+    const video = document.getElementById('qr-video');
+    const videoContainer = document.getElementById('video-container');
+    const camHasCamera = document.getElementById('cam-has-camera');
+    const camList = document.getElementById('cam-list');
+    const camHasFlash = document.getElementById('cam-has-flash');
+    const flashToggle = document.getElementById('flash-toggle');
+    const flashState = document.getElementById('flash-state');
+    const camQrResult = document.getElementById('cam-qr-result');
+
+function procesarResultado(contenido)
+{
+var nif=contenido.split("NIF:")[1];
+nif=nif.split("<br>")[0];
+nif=normalizarNIF(nif);
+var socios=JSON.parse($("#socios").val());
+if (socios.hasOwnProperty(nif))
+{
+nif="Socio: "+socios[nif];
+}
+else
+{
+nif="Socio: No consta como socio<br>";
+}
+return contenido+"<br>"+nif;
+}
+
+    function setResult(label, result) {
+    
+		$("#cam-qr-result").html(procesarResultado(result.data.replace(/\n/g,"<br>")));
+        label.style.color = 'teal';
+		scanner.stop();
+        clearTimeout(label.highlightTimeout);
+        label.highlightTimeout = setTimeout(() => label.style.color = 'inherit', 1000);
+    }
+
+
+    const scanner = new QrScanner(video, result => setResult(camQrResult, result), {
+        onDecodeError: error => {
+            camQrResult.textContent = error;
+            camQrResult.style.color = 'inherit';
+        },
+        highlightScanRegion: true,
+        highlightCodeOutline: true,
+    });
+
+    const updateFlashAvailability = () => {
+        scanner.hasFlash().then(hasFlash => {
+            camHasFlash.textContent = hasFlash;
+            flashToggle.style.display = hasFlash ? 'inline-block' : 'none';
+        });
+    };
+
+    scanner.start().then(() => {
+        updateFlashAvailability();
+        QrScanner.listCameras(true).then(cameras => cameras.forEach(camera => {
+            const option = document.createElement('option');
+            option.value = camera.id;
+            option.text = camera.label;
+            camList.add(option);
+        }));
+    });
+
+    QrScanner.hasCamera().then(hasCamera => camHasCamera.textContent = hasCamera);
+
+    // for debugging
+    window.scanner = scanner;
+
+
+
+
+    document.getElementById('inversion-mode-select').addEventListener('change', event => {
+        scanner.setInversionMode(event.target.value);
+    });
+
+    camList.addEventListener('change', event => {
+        scanner.setCamera(event.target.value).then(updateFlashAvailability);
+    });
+
+    flashToggle.addEventListener('click', () => {
+        scanner.toggleFlash().then(() => flashState.textContent = scanner.isFlashOn() ? 'on' : 'off');
+    });
+
+    document.getElementById('start-button').addEventListener('click', () => {
+        scanner.start();
+    });
+
+    document.getElementById('stop-button').addEventListener('click', () => {
+        scanner.stop();
+    });
+
+function cargarArchivo(id)
+{
+	var input=document.getElementById(id);
+	var archivo=input.files[0];
+	fr=new FileReader();
+	fr.onload=cargarCSV;
+	fr.readAsText(archivo);
+	}
+	
+	function cargarCSV(id)
+	{
+
+		$(id).on('change',function(){
+			var fileReader=new FileReader();
+			fileReader.onload=function()
+			{
+				var data=fileReader.result;
+				$("#socios").val(formatear(data));
+				$("#carga").hide();
+				$("#info").show();
+				$("#escaneo").show();
+				scanner.start();
+			};
+			fileReader.readAsText($(id).prop('files')[0],"ISO-8859-15");
+			
+		});
+		
+	}
+
+function normalizarNIF(nif)
+{
+nif=nif.replace(/ /g,"");
+nif=nif.replace(/-/g,"");
+if (nif.length<9)
+{
+nif="000"+nif;
+var longitud=nif.length;
+nif=nif.substring(longitud-9,longitud);
+}
+return nif;
+}
+
+function formatear(listado)
+{
+	var contenido="";
+	var lineas = listado.split(/[\r\n]+/g);
+	var socio="";
+	var nsocio;
+	var nif;
+	var objeto=JSON.parse("{}");
+
+for(var i = 0; i < lineas.length; i++)
+{
+	socio=lineas[i];
+	nsocio=socio.split(";")[1];
+	nif=normalizarNIF(socio.split(";")[0]);
+	objeto[nif]=nsocio;
+}
+contenido=JSON.stringify(objeto);
+return contenido;
+}
+scanner.stop();
+	cargarCSV("#fichero-socios");
+</script>
+</BODY>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+<style>
+    div {
+        margin-bottom: 16px;
+    }
+
+    #video-container {
+        line-height: 0;
+    }
+
+    #video-container.example-style-1 .scan-region-highlight-svg,
+    #video-container.example-style-1 .code-outline-highlight {
+        stroke: #64a2f3 !important;
+    }
+
+    #video-container.example-style-2 {
+        position: relative;
+        width: max-content;
+        height: max-content;
+        overflow: hidden;
+    }
+    #video-container.example-style-2 .scan-region-highlight {
+        border-radius: 30px;
+        outline: rgba(0, 0, 0, .25) solid 50vmax;
+    }
+    #video-container.example-style-2 .scan-region-highlight-svg {
+        display: none;
+    }
+    #video-container.example-style-2 .code-outline-highlight {
+        stroke: rgba(255, 255, 255, .5) !important;
+        stroke-width: 15 !important;
+        stroke-dasharray: none !important;
+    }
+
+    #flash-toggle {
+        display: none;
+    }
+
+    hr {
+        margin-top: 32px;
+    }
+    input[type="file"] {
+        display: block;
+        margin-bottom: 16px;
+    }
+</style>
+
+
+</body>
+
+
+
+
+
+
+</body>
+</html>

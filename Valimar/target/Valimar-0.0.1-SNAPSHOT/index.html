@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Bienvenido a la hoja de inscripción de la Mereth Aderthad</title>
+<link rel="stylesheet" type="text/css" href="css/estilos.css" />
+<!-- Cookie Consent by TermsFeed https://www.TermsFeed.com -->
+<script type="text/javascript" src="//www.termsfeed.com/public/cookie-consent/4.1.0/cookie-consent.js" charset="UTF-8"></script>
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"light","language":"es","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false});
+});
+</script>
+
+<!-- Unnamed script -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YVMT01CDJD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YVMT01CDJD');
+</script>
+<!-- end of Unnamed script-->
+
+<noscript>Free cookie consent management tool by <a href="https://www.termsfeed.com/">TermsFeed</a></noscript>
+<!-- End Cookie Consent by TermsFeed https://www.TermsFeed.com -->
+
+
+
+
+
+<!-- Below is the link that users can use to open Preferences Center to change their preferences. Do not modify the ID parameter. Place it where appropriate, style it as needed. -->
+
+<a href="#" id="open_preferences_center">Update cookies preferences</a>
+
+</head>
+<BODY class="fondo">
+<script src="jquery/jquery-3.6.1.min.js"></script>
+<script src="script/mereth.js"></script>
+<input type="hidden" value="" id="idhabitacion">
+
+<div class="main">
+  <img class="logo"  src="img/logo.png" alt="logo">
+
+  <div class="barramenu">
+   <p>Mereth Aldaron Enyali&euml; - Formulario de Inscripci&oacute;n</p>
+   <div class="margin_button">        
+   <input type="button" id="btnGrupo" class="box_button" onClick="inicioGrupos();" value="Inscripci&oacute;n General">
+   <input type="button" id="btnIndividual" class="box_button" onClick="inicioIndividual();" value="Inscripci&oacute;n Aleatoria">
+   <input type="button" id="btnListaEspera" class="box_button" onClick="inicioListaEspera();" value="Apuntarse a la lista de espera" style="display:none">
+   <input type="button" class="box_button" onClick="reiniciarProceso();" value="Reiniciar proceso">
+  </div>
+</div>
+ </div>
+ <div class="titulo"></div>
+
+<div class="contenido_fondo">
+<div class="contenido">
+<div id="info" class="info"></div>
+<div id="paso1" style="display:none" class="paso1">
+
+</div>
+<div id="paso2" style="display:none" class="paso2">
+
+</div>
+
+<div id="paso3" style="display:none;overflow:auto" class="paso3">
+Por favor, cumplimenta los datos de los inscritos en esta habitación. Recuerda que hasta que no se formalice el pago esta reserva no será definitiva.
+<div id="paso3Datos"></div>
+<input type="button" id="validar" onClick="validar();" value="Validar datos de inscripción">
+<input type="button" id="enviar" onClick="enviarInscripcion();" value="Enviar inscripción" disabled>
+</div>
+<div id="paso3individual" style="display:none" class="paso3">
+Por favor, cumplimenta los datos de inscripción.<br>Recuerda que estás haciendo una inscripción individual en habitación compartida.<br>Hasta que no se formalice el pago esta reserva no será definitiva.
+<div id="paso3individualTextos"></div>
+<div id="paso3individualDatos"></div>
+<input type="button" id="validarIndividual" onClick="validarIndividual();" value="Validar datos de inscripción">
+<input type="button" id="enviarIndividual" onClick="enviarInscripcionIndividual();" value="Enviar inscripción" disabled>
+</div>
+
+<div id="paso3espera" style="display:none" class="paso3">
+Por favor, cumplimenta los datos.<br>Recuerda que estás inscribiéndote en la <b>Lista de espera</b> del evento.<br>Desde la organización no podemos garantizar tu plaza, pero nos pondremos en contacto contigo si aparece una vacante.
+<div id="paso3esperaTextos"></div>
+<div id="paso3EsperaDatos"></div>
+<input type="button" id="validarEspera" onClick="validarEspera();" value="Validar datos">
+<input type="button" id="enviarEspera" onClick="enviarInscripcionEspera();" value="Enviar solicitud" disabled>
+</div>
+
+<div id="paso4" style="display:none">
+</div>
+</div>
+</div>
+    </div>
+</BODY>
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+
+
+$(document).ready(function(){cargarEstado();});
+</script>
+</body>
+</html>

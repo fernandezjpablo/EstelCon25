@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Properties;
 
+
 import es.ste.aderthad.log.Logger;
 
 public class  Entorno {
@@ -18,7 +19,9 @@ public class  Entorno {
  public static String getVariable(String nombreVariable)
  {
 	 String resultado="";
+	 
 	 File file=new File(entornoRemoto);
+	 Logger.GenerarEntradaLogMensaje("Entro en el entorno getVariable "+entornoRemoto, Logger.getFileNameErrorLog());
 	 if (!file.exists())
 	 {
 		 file=new File(entornoLocal);
@@ -48,6 +51,7 @@ public static String getEntorno()
 {
 	 String resultado="";
 	 File file=new File(entornoRemoto);
+	 Logger.GenerarEntradaLogMensaje("Entro en el entorno getEntorno "+entornoRemoto, Logger.getFileNameErrorLog());
 	 if (!file.exists())
 	 {
 		 file=new File(entornoLocal);
