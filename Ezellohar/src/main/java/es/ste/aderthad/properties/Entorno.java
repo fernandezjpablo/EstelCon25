@@ -13,8 +13,9 @@ import java.util.Properties;
 import es.ste.aderthad.log.Logger;
 
 public class  Entorno {
- private static String entornoLocal="C:/temp/Proyecto EstelCon/dev - Lendar/docker/files/estelcon.properties.docker";
- private static String entornoRemoto="/home/estelcon/estelcon.properties";
+ //private static String entornoLocal="C:/temp/Proyecto EstelCon/dev - Lendar/docker/files/estelcon.properties.docker";
+	 private static String entornoLocal="/home/fernandez_juafer2/estelcon/estelcon.properties";
+	 private static String entornoRemoto="/home/fernandez_juafer2/estelcon/estelcon.properties";
  
  public static String getVariable(String nombreVariable)
  {

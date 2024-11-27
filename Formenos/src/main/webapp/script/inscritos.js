@@ -975,67 +975,91 @@ function checkinHotel()
  {
  window.open("esteltienda.html");
  }
- function cargarPerfil()
- {
- $.ajax({
-		url:"/Formenos/GetPerfil",
-		type:"POST",
-		success:function(respuesta,estados){
-			var respObj=JSON.parse(respuesta);
-			if (respObj["respuesta"]=="ok")
-				{
-				pintarDatos(respObj["usuario"]);
-				if (respObj["checkin"])
-				{
-					$("#btnCheckin").show();
-					$("#btnQR").show();
-					$("#nacimientoCheckin").val(respObj["datosCheckin"]["fechaNacimiento"]);
-					$("#direccionCheckin").val(respObj["datosCheckin"]["direccion"]);
-					$("#paisCheckin").val(respObj["datosCheckin"]["pais"]);
-					$("#ciudadCheckin").val(respObj["datosCheckin"]["ciudad"]);
-					$("#cpCheckin").val(respObj["datosCheckin"]["codigo_postal"]);
-					if (respObj["usuario"]["menor"])
-					{
-					$("#expedicionCheckin").val("00/00/0000");
-					}
-					else
-					{
-					$("#expedicionCheckin").val(respObj["datosCheckin"]["fechaExpedicion"]);
-					}
-					
-				}
-				if (respObj["esteltienda"])
-				{
-					$("#btnEsteltienda").show();
-				}
-				$("#datos").show();
-				$("#actividades").hide();
-				$("#checkin").hide();
-				tinymce.init({
-					selector: 'textarea#observaciones',
-				    convert_urls:false,					
-					paste_data_images:false,
-					menubar:false
-					});
-					misDatos();
-				}
-			else
-				{
+ function cargarPerfil() {
+    console.log("Iniciando carga de perfil...");
+    
+    $.ajax({
+        url: "/Formenos/GetPerfil",
+        type: "POST",
+        success: function(respuesta, estados) {
+            console.log("Respuesta recibida:", respuesta);
+            
+            try {
+                var respObj = JSON.parse(respuesta);
+                console.log("Objeto JSON parseado:", respObj);
+                
+                if (respObj["respuesta"] == "ok") {
+                    console.log("Respuesta OK, pintando datos del usuario...");
+                    pintarDatos(respObj["usuario"]);
+                    
+                    if (respObj["checkin"]) {
+                        console.log("Check-in habilitado, mostrando botones de check-in...");
+                        $("#btnCheckin").show();
+                        $("#btnQR").show();
+                        
+                        // Asignando datos de check-in
+                        console.log("Fecha nacimiento:", respObj["datosCheckin"]["fechaNacimiento"]);
+                        console.log("Dirección:", respObj["datosCheckin"]["direccion"]);
+                        console.log("País:", respObj["datosCheckin"]["pais"]);
+                        console.log("Ciudad:", respObj["datosCheckin"]["ciudad"]);
+                        console.log("Código Postal:", respObj["datosCheckin"]["codigo_postal"]);
+                        
+                        $("#nacimientoCheckin").val(respObj["datosCheckin"]["fechaNacimiento"]);
+                        $("#direccionCheckin").val(respObj["datosCheckin"]["direccion"]);
+                        $("#paisCheckin").val(respObj["datosCheckin"]["pais"]);
+                        $("#ciudadCheckin").val(respObj["datosCheckin"]["ciudad"]);
+                        $("#cpCheckin").val(respObj["datosCheckin"]["codigo_postal"]);
+                        
+                        if (respObj["usuario"]["menor"]) {
+                            console.log("Menor de edad, estableciendo fecha de expedición a 00/00/0000.");
+                            $("#expedicionCheckin").val("00/00/0000");
+                        } else {
+                            console.log("Fecha de expedición:", respObj["datosCheckin"]["fechaExpedicion"]);
+                            $("#expedicionCheckin").val(respObj["datosCheckin"]["fechaExpedicion"]);
+                        }
+                    }
 
-				location.href="login.html";
-				}
-		},
-		failure:function(respuesta,estados){
+                    if (respObj["esteltienda"]) {
+                        console.log("Esteltienda habilitado, mostrando botón.");
+                        $("#btnEsteltienda").show();
+                    }
 
-				location.href="/Formenos/login.html";
-		},
-		error:function(respuesta,estados){
+                    // Mostrando la sección de datos y ocultando las otras
+                    $("#datos").show();
+                    $("#actividades").hide();
+                    $("#checkin").hide();
 
-				location.href="/Formenos/login.html";
-		}
-});
- }
- 
+                    console.log("Inicializando editor de texto (TinyMCE)...");
+                    tinymce.init({
+                        selector: 'textarea#observaciones',
+                        convert_urls: false,
+                        paste_data_images: false,
+                        menubar: false
+                    });
+
+                    console.log("Llamando a misDatos()...");
+                    misDatos();
+
+                } else {
+                    console.log("Respuesta no válida, redirigiendo a login...");
+                    //location.href = "login.html";
+                }
+            } catch (error) {
+                console.error("Error al parsear la respuesta JSON:", error);
+                //location.href = "login.html";
+            }
+        },
+        failure: function(respuesta, estados) {
+            console.error("Fallo en la llamada AJAX:", respuesta, estados);
+            //location.href = "/Formenos/login.html";
+        },
+        error: function(respuesta, estados) {
+            console.error("Error de AJAX:", respuesta, estados);
+            //location.href = "/Formenos/login.html";
+        }
+    });
+}
+
   function iniciarSesion()
  {
   $.ajax({

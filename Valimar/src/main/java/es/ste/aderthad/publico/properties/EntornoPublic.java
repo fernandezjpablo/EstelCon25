@@ -9,8 +9,8 @@ import java.util.Properties;
 import es.ste.aderthad.publico.log.LoggerPublic;
 
 public class  EntornoPublic {
- private static String entornoLocal="D:\\devtemp\\docker\\files\\aldaron.properties";
- private static String entornoRemoto="/home/estelcon/aldaron.properties";
+ private static String entornoLocal="/home/fernandez_juafer2/estelcon/estelcon.properties";
+ private static String entornoRemoto="/home/fernandez_juafer2/estelcon/estelcon.properties";
  
  public static String getVariable(String nombreVariable)
  {
