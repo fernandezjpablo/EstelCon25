@@ -1,0 +1,170 @@
+28-Nov-2024 19:30:52.630 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.33
+28-Nov-2024 19:30:52.634 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 7 2024 22:28:55 UTC
+28-Nov-2024 19:30:52.635 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.33.0
+28-Nov-2024 19:30:52.635 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+28-Nov-2024 19:30:52.635 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.15.167.4-microsoft-standard-WSL2
+28-Nov-2024 19:30:52.636 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+28-Nov-2024 19:30:52.637 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-11-openjdk-amd64
+28-Nov-2024 19:30:52.637 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           11.0.25+9-post-Debian-1deb11u1
+28-Nov-2024 19:30:52.637 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Debian
+28-Nov-2024 19:30:52.638 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
+28-Nov-2024 19:30:52.638 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
+28-Nov-2024 19:30:52.664 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
+28-Nov-2024 19:30:52.664 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+28-Nov-2024 19:30:52.665 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+28-Nov-2024 19:30:52.665 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+28-Nov-2024 19:30:52.666 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+28-Nov-2024 19:30:52.666 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+28-Nov-2024 19:30:52.666 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+28-Nov-2024 19:30:52.667 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+28-Nov-2024 19:30:52.667 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+28-Nov-2024 19:30:52.667 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+28-Nov-2024 19:30:52.668 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
+28-Nov-2024 19:30:52.668 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
+28-Nov-2024 19:30:52.668 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
+28-Nov-2024 19:30:52.671 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+28-Nov-2024 19:30:53.526 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+28-Nov-2024 19:30:53.776 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1487] milliseconds
+28-Nov-2024 19:30:53.863 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+28-Nov-2024 19:30:53.863 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.33]
+28-Nov-2024 19:30:53.930 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Ezellohar.war]
+28-Nov-2024 19:30:53.962 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/usr/local/tomcat/webapps/Ezellohar] was found with a last modified time that did not match the associated WAR. It will be deleted.
+28-Nov-2024 19:31:31.810 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [concilio] used in an <auth-constraint> without being defined in a <security-role>
+28-Nov-2024 19:31:31.811 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [elrond] used in an <auth-constraint> without being defined in a <security-role>
+28-Nov-2024 19:31:31.812 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [tesoreria] used in an <auth-constraint> without being defined in a <security-role>
+28-Nov-2024 19:31:31.812 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [mayordomo] used in an <auth-constraint> without being defined in a <security-role>
+28-Nov-2024 19:31:31.813 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [actividades] used in an <auth-constraint> without being defined in a <security-role>
+28-Nov-2024 19:31:31.813 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [redes] used in an <auth-constraint> without being defined in a <security-role>
+28-Nov-2024 19:31:31.950 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+28-Nov-2024 19:31:32.110 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Ezellohar.war] has finished in [38,180] ms
+28-Nov-2024 19:31:32.120 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+28-Nov-2024 19:31:32.134 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [38358] milliseconds
+28-Nov-2024 19:38:27.259 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.33
+28-Nov-2024 19:38:27.265 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 7 2024 22:28:55 UTC
+28-Nov-2024 19:38:27.266 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.33.0
+28-Nov-2024 19:38:27.266 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+28-Nov-2024 19:38:27.267 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.15.167.4-microsoft-standard-WSL2
+28-Nov-2024 19:38:27.268 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+28-Nov-2024 19:38:27.268 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-11-openjdk-amd64
+28-Nov-2024 19:38:27.268 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           11.0.25+9-post-Debian-1deb11u1
+28-Nov-2024 19:38:27.269 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Debian
+28-Nov-2024 19:38:27.269 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
+28-Nov-2024 19:38:27.270 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
+28-Nov-2024 19:38:27.295 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
+28-Nov-2024 19:38:27.296 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+28-Nov-2024 19:38:27.296 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+28-Nov-2024 19:38:27.297 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+28-Nov-2024 19:38:27.297 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+28-Nov-2024 19:38:27.297 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+28-Nov-2024 19:38:27.298 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+28-Nov-2024 19:38:27.298 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+28-Nov-2024 19:38:27.299 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+28-Nov-2024 19:38:27.299 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+28-Nov-2024 19:38:27.299 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
+28-Nov-2024 19:38:27.300 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
+28-Nov-2024 19:38:27.300 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
+28-Nov-2024 19:38:27.302 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+28-Nov-2024 19:38:27.898 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+28-Nov-2024 19:38:27.938 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [990] milliseconds
+28-Nov-2024 19:38:28.009 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+28-Nov-2024 19:38:28.010 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.33]
+28-Nov-2024 19:38:28.065 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Ezellohar.war]
+28-Nov-2024 19:38:28.101 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/usr/local/tomcat/webapps/Ezellohar] was found with a last modified time that did not match the associated WAR. It will be deleted.
+28-Nov-2024 19:39:03.814 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [concilio] used in an <auth-constraint> without being defined in a <security-role>
+28-Nov-2024 19:39:03.815 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [elrond] used in an <auth-constraint> without being defined in a <security-role>
+28-Nov-2024 19:39:03.815 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [tesoreria] used in an <auth-constraint> without being defined in a <security-role>
+28-Nov-2024 19:39:03.815 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [mayordomo] used in an <auth-constraint> without being defined in a <security-role>
+28-Nov-2024 19:39:03.816 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [actividades] used in an <auth-constraint> without being defined in a <security-role>
+28-Nov-2024 19:39:03.816 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [redes] used in an <auth-constraint> without being defined in a <security-role>
+28-Nov-2024 19:39:03.948 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+28-Nov-2024 19:39:04.119 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Ezellohar.war] has finished in [36,053] ms
+28-Nov-2024 19:39:04.128 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+28-Nov-2024 19:39:04.140 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [36202] milliseconds
+28-Nov-2024 19:41:16.339 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.33
+28-Nov-2024 19:41:16.345 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 7 2024 22:28:55 UTC
+28-Nov-2024 19:41:16.346 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.33.0
+28-Nov-2024 19:41:16.346 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+28-Nov-2024 19:41:16.347 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.15.167.4-microsoft-standard-WSL2
+28-Nov-2024 19:41:16.347 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+28-Nov-2024 19:41:16.348 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-11-openjdk-amd64
+28-Nov-2024 19:41:16.348 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           11.0.25+9-post-Debian-1deb11u1
+28-Nov-2024 19:41:16.349 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Debian
+28-Nov-2024 19:41:16.349 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
+28-Nov-2024 19:41:16.350 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
+28-Nov-2024 19:41:16.380 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
+28-Nov-2024 19:41:16.380 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+28-Nov-2024 19:41:16.381 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+28-Nov-2024 19:41:16.381 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+28-Nov-2024 19:41:16.382 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+28-Nov-2024 19:41:16.382 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+28-Nov-2024 19:41:16.383 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+28-Nov-2024 19:41:16.383 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+28-Nov-2024 19:41:16.384 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+28-Nov-2024 19:41:16.384 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+28-Nov-2024 19:41:16.384 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
+28-Nov-2024 19:41:16.385 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
+28-Nov-2024 19:41:16.385 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
+28-Nov-2024 19:41:16.387 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+28-Nov-2024 19:41:16.994 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+28-Nov-2024 19:41:17.032 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1032] milliseconds
+28-Nov-2024 19:41:17.109 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+28-Nov-2024 19:41:17.110 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.33]
+28-Nov-2024 19:41:17.165 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Ezellohar.war]
+28-Nov-2024 19:41:17.201 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/usr/local/tomcat/webapps/Ezellohar] was found with a last modified time that did not match the associated WAR. It will be deleted.
+28-Nov-2024 19:41:55.581 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [mayordomo] used in an <auth-constraint> without being defined in a <security-role>
+28-Nov-2024 19:41:55.582 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [concilio] used in an <auth-constraint> without being defined in a <security-role>
+28-Nov-2024 19:41:55.582 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [elrond] used in an <auth-constraint> without being defined in a <security-role>
+28-Nov-2024 19:41:55.583 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [redes] used in an <auth-constraint> without being defined in a <security-role>
+28-Nov-2024 19:41:55.583 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [tesoreria] used in an <auth-constraint> without being defined in a <security-role>
+28-Nov-2024 19:41:55.584 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [actividades] used in an <auth-constraint> without being defined in a <security-role>
+28-Nov-2024 19:41:55.732 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+28-Nov-2024 19:41:55.935 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Ezellohar.war] has finished in [38,770] ms
+28-Nov-2024 19:41:55.945 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+28-Nov-2024 19:41:55.959 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [38927] milliseconds
+28-Nov-2024 23:36:34.733 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Valimar.war]
+28-Nov-2024 23:36:53.297 INFO [Catalina-utility-2] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+28-Nov-2024 23:36:53.327 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Valimar.war] has finished in [18,603] ms
+28-Nov-2024 23:39:24.377 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.33
+28-Nov-2024 23:39:24.384 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 7 2024 22:28:55 UTC
+28-Nov-2024 23:39:24.385 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.33.0
+28-Nov-2024 23:39:24.385 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+28-Nov-2024 23:39:24.385 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.15.167.4-microsoft-standard-WSL2
+28-Nov-2024 23:39:24.385 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+28-Nov-2024 23:39:24.386 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-11-openjdk-amd64
+28-Nov-2024 23:39:24.386 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           11.0.25+9-post-Debian-1deb11u1
+28-Nov-2024 23:39:24.386 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Debian
+28-Nov-2024 23:39:24.387 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
+28-Nov-2024 23:39:24.388 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
+28-Nov-2024 23:39:24.412 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
+28-Nov-2024 23:39:24.413 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+28-Nov-2024 23:39:24.414 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+28-Nov-2024 23:39:24.414 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+28-Nov-2024 23:39:24.415 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+28-Nov-2024 23:39:24.415 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+28-Nov-2024 23:39:24.416 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+28-Nov-2024 23:39:24.416 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+28-Nov-2024 23:39:24.416 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+28-Nov-2024 23:39:24.417 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+28-Nov-2024 23:39:24.417 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
+28-Nov-2024 23:39:24.417 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
+28-Nov-2024 23:39:24.418 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
+28-Nov-2024 23:39:24.420 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+28-Nov-2024 23:39:24.879 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+28-Nov-2024 23:39:24.947 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [889] milliseconds
+28-Nov-2024 23:39:25.061 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+28-Nov-2024 23:39:25.062 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.33]
+28-Nov-2024 23:39:25.144 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Ezellohar.war]
+28-Nov-2024 23:39:25.203 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/usr/local/tomcat/webapps/Ezellohar] was found with a last modified time that did not match the associated WAR. It will be deleted.
+28-Nov-2024 23:40:04.492 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [mayordomo] used in an <auth-constraint> without being defined in a <security-role>
+28-Nov-2024 23:40:04.494 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [concilio] used in an <auth-constraint> without being defined in a <security-role>
+28-Nov-2024 23:40:04.494 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [elrond] used in an <auth-constraint> without being defined in a <security-role>
+28-Nov-2024 23:40:04.494 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [actividades] used in an <auth-constraint> without being defined in a <security-role>
+28-Nov-2024 23:40:04.494 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [tesoreria] used in an <auth-constraint> without being defined in a <security-role>
+28-Nov-2024 23:40:04.495 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [redes] used in an <auth-constraint> without being defined in a <security-role>
+28-Nov-2024 23:40:04.643 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+28-Nov-2024 23:40:04.831 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Ezellohar.war] has finished in [39,686] ms
+28-Nov-2024 23:40:04.841 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Valimar.war]
+28-Nov-2024 23:40:17.420 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+28-Nov-2024 23:40:17.433 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Valimar.war] has finished in [12,592] ms
+28-Nov-2024 23:40:17.448 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+28-Nov-2024 23:40:17.461 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [52516] milliseconds

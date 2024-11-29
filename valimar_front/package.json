@@ -10,10 +10,11 @@
   "dependencies": {
     "bootstrap": "^5.3.3",
     "jquery": "^3.7.1",
+    "ValimarFrontal": "file:",
     "vue": "^3.5.13"
   },
   "devDependencies": {
-    "@vue/cli-service": "^4.5.0",
+    "@vue/cli-service": "^5.0.8",
     "@vue/compiler-sfc": "^3.5.13"
   }
 }
