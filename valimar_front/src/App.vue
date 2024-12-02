@@ -91,7 +91,7 @@ export default {
       formData: {
         comboHabitaciones: "",
         idhabitacion: "",
-        baseUrl: "http://10.178.169.86:8080",
+        baseUrl: "http://localhost:8080",
       },
       isDisabled: false,
       showListaEspera: false,

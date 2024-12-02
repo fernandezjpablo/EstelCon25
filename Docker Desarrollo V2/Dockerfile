@@ -3,22 +3,21 @@ LABEL Author="Lendar"
 
 USER root
 
-# Paso 1: Actualizar el sistema
+# Paso 1: Actualizar el sistema e instalar dependencias
 RUN echo "Iniciando actualización del sistema..." && \
     apt-get update && apt-get upgrade -y && \
-    echo "Actualización del sistema completada."
-
-# Paso 2: Instalar dependencias principales
-RUN echo "Instalando dependencias principales..." && \
     apt-get install -y apt-transport-https wget procps openjdk-11-jdk mariadb-server \
-    openssh-server vsftpd net-tools nginx vim && \
-    echo "Dependencias principales instaladas correctamente."
+    openssh-server vsftpd net-tools nginx vim iputils-ping curl && \
+    apt-get clean && rm -rf /var/lib/apt/lists/* && \
+    echo "Dependencias instaladas y sistema actualizado."
 
-RUN mkdir -p /run/mysqld && chown mysql:mysql /run/mysqld
+# Paso 2: Instalar Node.js y npm
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install -y nodejs && \
+    echo "Node.js y npm instalados."
 
-# Paso 3: Configurar usuario y grupo para Tomcat
-RUN echo "Creando grupo y usuario Tomcat..." && \
-    groupadd tomcat && \
+# Paso 3: Crear directorios y configurar Tomcat
+RUN groupadd tomcat && \
     useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat && \
     echo "Grupo y usuario Tomcat configurados."
 
@@ -30,31 +29,37 @@ RUN echo "Descargando Apache Tomcat..." && \
     rm -f /tmp/apache-tomcat-10.1.33.tar.gz && \
     echo "Apache Tomcat instalado correctamente."
 
-# Paso 5: Crear usuarios del sistema con contraseñas
+# Paso 5: Copiar y construir aplicación Vue.js
+COPY ../valimar_front /usr/local/vue-app
+WORKDIR /usr/local/vue-app
+RUN npm install && npm run build && \
+    echo "Aplicación Vue.js construida."
+
+
+# Paso 6: Copiar los archivos construidos de Vue.js al directorio público de Nginx
+RUN cp -r /usr/local/vue-app/dist/* /usr/share/nginx/html/
+
+# Paso 7: Crear usuarios del sistema con contraseñas
 RUN mkdir -p /scripts
 COPY ./init_users.sh /scripts/init_users.sh
 RUN chmod +x /scripts/init_users.sh && /scripts/init_users.sh
 
-# Hacer el directorio de Tomcat accesible para todos los usuarios
-RUN chmod -R 777 /usr/local/tomcat && \
-    chown -R adminusr:adminusr /usr/local/tomcat
+# Paso 8: Hacer directorio Tomcat accesible
+RUN chmod -R 755 /usr/local/tomcat && \
+    chown -R tomcat:tomcat /usr/local/tomcat
 
-# Paso 6: Configurar SSH
-RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config && \
-    echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config && \
+# Paso 9: Configurar SSH (recomendación de seguridad)
+RUN echo "PermitRootLogin no" >> /etc/ssh/sshd_config && \
+    echo "PasswordAuthentication no" >> /etc/ssh/sshd_config && \
     mkdir -p /run/sshd && \
     echo "Configuración SSH actualizada."
-RUN apt-get update && apt-get install -y iputils-ping
-# Paso 7: Copiar y configurar scripts personalizados
-COPY files/start-services.sh /usr/local/bin/start-services.sh
-RUN echo "Copiando y configurando scripts personalizados..." && \
-    chmod +x /usr/local/bin/start-services.sh && \
-    echo "Scripts personalizados configurados correctamente."
 
-# Paso 8: Crear directorios necesarios
-RUN echo "Creando directorios requeridos por la aplicación..." && \
-    mkdir -p /home/estelcon/{outbox,sent,error,plantillas,log,activity} && \
-    echo "Directorios creados."
+# Paso 10: Crear directorios necesarios
+RUN mkdir -p /home/estelcon/{activity,error,log,outbox,plantillas,sent} && \
+    chown -R tomcat:tomcat /home/estelcon
+
+# Paso 11: Copiar el archivo web.xml modificado
+COPY files/web.xml /usr/local/tomcat/conf/web.xml
 
 # Exponer los puertos necesarios
 EXPOSE 8080 80 8443 2121 2122 22 40000 3306

@@ -1,562 +1,605 @@
-28-Nov-2024 19:30:52.630 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.33
-28-Nov-2024 19:30:52.634 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 7 2024 22:28:55 UTC
-28-Nov-2024 19:30:52.635 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.33.0
-28-Nov-2024 19:30:52.635 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
-28-Nov-2024 19:30:52.635 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.15.167.4-microsoft-standard-WSL2
-28-Nov-2024 19:30:52.636 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
-28-Nov-2024 19:30:52.637 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-11-openjdk-amd64
-28-Nov-2024 19:30:52.637 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           11.0.25+9-post-Debian-1deb11u1
-28-Nov-2024 19:30:52.637 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Debian
-28-Nov-2024 19:30:52.638 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
-28-Nov-2024 19:30:52.638 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
-28-Nov-2024 19:30:52.664 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
-28-Nov-2024 19:30:52.664 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
-28-Nov-2024 19:30:52.665 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
-28-Nov-2024 19:30:52.665 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
-28-Nov-2024 19:30:52.666 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
-28-Nov-2024 19:30:52.666 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
-28-Nov-2024 19:30:52.666 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
-28-Nov-2024 19:30:52.667 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
-28-Nov-2024 19:30:52.667 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
-28-Nov-2024 19:30:52.667 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
-28-Nov-2024 19:30:52.668 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
-28-Nov-2024 19:30:52.668 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
-28-Nov-2024 19:30:52.668 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
-28-Nov-2024 19:30:52.671 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
-28-Nov-2024 19:30:53.526 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
-28-Nov-2024 19:30:53.776 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1487] milliseconds
-28-Nov-2024 19:30:53.863 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
-28-Nov-2024 19:30:53.863 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.33]
-28-Nov-2024 19:30:53.930 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Ezellohar.war]
-28-Nov-2024 19:30:53.962 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/usr/local/tomcat/webapps/Ezellohar] was found with a last modified time that did not match the associated WAR. It will be deleted.
-28-Nov-2024 19:31:31.810 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [concilio] used in an <auth-constraint> without being defined in a <security-role>
-28-Nov-2024 19:31:31.811 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [elrond] used in an <auth-constraint> without being defined in a <security-role>
-28-Nov-2024 19:31:31.812 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [tesoreria] used in an <auth-constraint> without being defined in a <security-role>
-28-Nov-2024 19:31:31.812 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [mayordomo] used in an <auth-constraint> without being defined in a <security-role>
-28-Nov-2024 19:31:31.813 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [actividades] used in an <auth-constraint> without being defined in a <security-role>
-28-Nov-2024 19:31:31.813 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [redes] used in an <auth-constraint> without being defined in a <security-role>
-28-Nov-2024 19:31:31.950 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-28-Nov-2024 19:31:32.110 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Ezellohar.war] has finished in [38,180] ms
-28-Nov-2024 19:31:32.120 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
-28-Nov-2024 19:31:32.134 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [38358] milliseconds
+30-Nov-2024 00:03:51.356 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.33
+30-Nov-2024 00:03:51.361 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 7 2024 22:28:55 UTC
+30-Nov-2024 00:03:51.362 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.33.0
+30-Nov-2024 00:03:51.362 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+30-Nov-2024 00:03:51.363 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.15.167.4-microsoft-standard-WSL2
+30-Nov-2024 00:03:51.364 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+30-Nov-2024 00:03:51.364 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-11-openjdk-amd64
+30-Nov-2024 00:03:51.365 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           11.0.25+9-post-Debian-1deb11u1
+30-Nov-2024 00:03:51.365 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Debian
+30-Nov-2024 00:03:51.365 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
+30-Nov-2024 00:03:51.366 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
+30-Nov-2024 00:03:51.394 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
+30-Nov-2024 00:03:51.395 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+30-Nov-2024 00:03:51.395 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+30-Nov-2024 00:03:51.396 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+30-Nov-2024 00:03:51.396 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+30-Nov-2024 00:03:51.397 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+30-Nov-2024 00:03:51.397 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+30-Nov-2024 00:03:51.397 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+30-Nov-2024 00:03:51.398 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+30-Nov-2024 00:03:51.398 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+30-Nov-2024 00:03:51.398 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
+30-Nov-2024 00:03:51.399 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
+30-Nov-2024 00:03:51.399 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
+30-Nov-2024 00:03:51.401 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+30-Nov-2024 00:03:52.027 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+30-Nov-2024 00:03:52.084 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1097] milliseconds
+30-Nov-2024 00:03:52.197 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+30-Nov-2024 00:03:52.198 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.33]
+30-Nov-2024 00:03:52.255 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Ezellohar.war]
+30-Nov-2024 00:03:58.269 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 00:03:58.331 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Ezellohar.war] has finished in [6,075] ms
+30-Nov-2024 00:03:58.352 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Valimar.war]
+30-Nov-2024 00:04:19.763 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 00:04:19.781 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Valimar.war] has finished in [21,430] ms
+30-Nov-2024 00:04:19.795 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+30-Nov-2024 00:04:19.814 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [27731] milliseconds
 Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
-Conexi?n de BD -> jdbc:mysql://127.0.0.1:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:824)
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444)
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237)
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
-	at es.ste.aderthad.sql.SQLConexion.getConexion(SQLConexion.java:17)
-	at es.ste.aderthad.sql.SQLHabitaciones.LimpiarBloqueos(SQLHabitaciones.java:223)
-	at es.ste.aderthad.procesos.RevisarBloqueos.run(RevisarBloqueos.java:11)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
-	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167)
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:89)
-	at com.mysql.cj.NativeSession.connect(NativeSession.java:120)
-	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:944)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:814)
-	... 14 more
-Caused by: java.net.ConnectException: Connection refused (Connection refused)
-	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method)
-	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:412)
-	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:255)
-	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:237)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
-	at java.base/java.net.Socket.connect(Socket.java:609)
-	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:153)
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63)
-	... 17 more
-Conexi?n de BD -> jdbc:mysql://127.0.0.1:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:824)
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444)
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237)
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
-	at es.ste.aderthad.sql.SQLConexion.getConexion(SQLConexion.java:17)
-	at es.ste.aderthad.sql.SQLHabitaciones.LimpiarBloqueosParciales(SQLHabitaciones.java:243)
-	at es.ste.aderthad.procesos.RevisarBloqueos.run(RevisarBloqueos.java:12)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
-	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167)
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:89)
-	at com.mysql.cj.NativeSession.connect(NativeSession.java:120)
-	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:944)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:814)
-	... 14 more
-Caused by: java.net.ConnectException: Connection refused (Connection refused)
-	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method)
-	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:412)
-	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:255)
-	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:237)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
-	at java.base/java.net.Socket.connect(Socket.java:609)
-	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:153)
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63)
-	... 17 more
-Conexi?n de BD -> jdbc:mysql://127.0.0.1:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:824)
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444)
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237)
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
-	at es.ste.aderthad.sql.SQLConexion.getConexion(SQLConexion.java:17)
-	at es.ste.aderthad.sql.SQLHabitaciones.selectHabitacionesDistribuidas(SQLHabitaciones.java:676)
-	at es.ste.aderthad.plazas.ListPlazas.doGet(ListPlazas.java:43)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:598)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
-	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:663)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
-	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167)
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:89)
-	at com.mysql.cj.NativeSession.connect(NativeSession.java:120)
-	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:944)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:814)
-	... 32 more
-Caused by: java.net.ConnectException: Connection refused (Connection refused)
-	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method)
-	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:412)
-	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:255)
-	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:237)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
-	at java.base/java.net.Socket.connect(Socket.java:609)
-	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:153)
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63)
-	... 35 more
-28-Nov-2024 19:38:27.259 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.33
-28-Nov-2024 19:38:27.265 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 7 2024 22:28:55 UTC
-28-Nov-2024 19:38:27.266 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.33.0
-28-Nov-2024 19:38:27.266 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
-28-Nov-2024 19:38:27.267 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.15.167.4-microsoft-standard-WSL2
-28-Nov-2024 19:38:27.268 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
-28-Nov-2024 19:38:27.268 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-11-openjdk-amd64
-28-Nov-2024 19:38:27.268 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           11.0.25+9-post-Debian-1deb11u1
-28-Nov-2024 19:38:27.269 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Debian
-28-Nov-2024 19:38:27.269 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
-28-Nov-2024 19:38:27.270 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
-28-Nov-2024 19:38:27.295 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
-28-Nov-2024 19:38:27.296 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
-28-Nov-2024 19:38:27.296 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
-28-Nov-2024 19:38:27.297 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
-28-Nov-2024 19:38:27.297 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
-28-Nov-2024 19:38:27.297 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
-28-Nov-2024 19:38:27.298 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
-28-Nov-2024 19:38:27.298 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
-28-Nov-2024 19:38:27.299 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
-28-Nov-2024 19:38:27.299 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
-28-Nov-2024 19:38:27.299 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
-28-Nov-2024 19:38:27.300 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
-28-Nov-2024 19:38:27.300 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
-28-Nov-2024 19:38:27.302 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
-28-Nov-2024 19:38:27.898 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
-28-Nov-2024 19:38:27.938 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [990] milliseconds
-28-Nov-2024 19:38:28.009 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
-28-Nov-2024 19:38:28.010 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.33]
-28-Nov-2024 19:38:28.065 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Ezellohar.war]
-28-Nov-2024 19:38:28.101 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/usr/local/tomcat/webapps/Ezellohar] was found with a last modified time that did not match the associated WAR. It will be deleted.
-28-Nov-2024 19:39:03.814 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [concilio] used in an <auth-constraint> without being defined in a <security-role>
-28-Nov-2024 19:39:03.815 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [elrond] used in an <auth-constraint> without being defined in a <security-role>
-28-Nov-2024 19:39:03.815 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [tesoreria] used in an <auth-constraint> without being defined in a <security-role>
-28-Nov-2024 19:39:03.815 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [mayordomo] used in an <auth-constraint> without being defined in a <security-role>
-28-Nov-2024 19:39:03.816 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [actividades] used in an <auth-constraint> without being defined in a <security-role>
-28-Nov-2024 19:39:03.816 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [redes] used in an <auth-constraint> without being defined in a <security-role>
-28-Nov-2024 19:39:03.948 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-28-Nov-2024 19:39:04.119 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Ezellohar.war] has finished in [36,053] ms
-28-Nov-2024 19:39:04.128 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
-28-Nov-2024 19:39:04.140 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [36202] milliseconds
-Conexi?n de BD -> jdbc:mysql://127.0.0.1:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:824)
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444)
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237)
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
-	at es.ste.aderthad.sql.SQLConexion.getConexion(SQLConexion.java:18)
-	at es.ste.aderthad.sql.SQLHabitaciones.LimpiarBloqueos(SQLHabitaciones.java:223)
-	at es.ste.aderthad.procesos.RevisarBloqueos.run(RevisarBloqueos.java:11)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
-	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167)
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:89)
-	at com.mysql.cj.NativeSession.connect(NativeSession.java:120)
-	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:944)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:814)
-	... 14 more
-Caused by: java.net.ConnectException: Connection refused (Connection refused)
-	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method)
-	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:412)
-	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:255)
-	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:237)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
-	at java.base/java.net.Socket.connect(Socket.java:609)
-	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:153)
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63)
-	... 17 more
-Conexi?n de BD -> jdbc:mysql://127.0.0.1:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:824)
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444)
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237)
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
-	at es.ste.aderthad.sql.SQLConexion.getConexion(SQLConexion.java:18)
-	at es.ste.aderthad.sql.SQLHabitaciones.LimpiarBloqueosParciales(SQLHabitaciones.java:243)
-	at es.ste.aderthad.procesos.RevisarBloqueos.run(RevisarBloqueos.java:12)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
-	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167)
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:89)
-	at com.mysql.cj.NativeSession.connect(NativeSession.java:120)
-	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:944)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:814)
-	... 14 more
-Caused by: java.net.ConnectException: Connection refused (Connection refused)
-	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method)
-	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:412)
-	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:255)
-	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:237)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
-	at java.base/java.net.Socket.connect(Socket.java:609)
-	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:153)
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63)
-	... 17 more
-Conexi?n de BD -> jdbc:mysql://127.0.0.1:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:824)
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444)
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237)
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
-	at es.ste.aderthad.sql.SQLConexion.getConexion(SQLConexion.java:18)
-	at es.ste.aderthad.sql.SQLHabitaciones.selectHabitacionesDistribuidas(SQLHabitaciones.java:676)
-	at es.ste.aderthad.plazas.ListPlazas.doGet(ListPlazas.java:43)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:598)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
-	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:663)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
-	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167)
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:89)
-	at com.mysql.cj.NativeSession.connect(NativeSession.java:120)
-	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:944)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:814)
-	... 32 more
-Caused by: java.net.ConnectException: Connection refused (Connection refused)
-	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method)
-	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:412)
-	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:255)
-	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:237)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
-	at java.base/java.net.Socket.connect(Socket.java:609)
-	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:153)
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63)
-	... 35 more
-28-Nov-2024 19:41:16.339 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.33
-28-Nov-2024 19:41:16.345 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 7 2024 22:28:55 UTC
-28-Nov-2024 19:41:16.346 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.33.0
-28-Nov-2024 19:41:16.346 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
-28-Nov-2024 19:41:16.347 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.15.167.4-microsoft-standard-WSL2
-28-Nov-2024 19:41:16.347 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
-28-Nov-2024 19:41:16.348 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-11-openjdk-amd64
-28-Nov-2024 19:41:16.348 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           11.0.25+9-post-Debian-1deb11u1
-28-Nov-2024 19:41:16.349 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Debian
-28-Nov-2024 19:41:16.349 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
-28-Nov-2024 19:41:16.350 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
-28-Nov-2024 19:41:16.380 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
-28-Nov-2024 19:41:16.380 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
-28-Nov-2024 19:41:16.381 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
-28-Nov-2024 19:41:16.381 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
-28-Nov-2024 19:41:16.382 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
-28-Nov-2024 19:41:16.382 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
-28-Nov-2024 19:41:16.383 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
-28-Nov-2024 19:41:16.383 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
-28-Nov-2024 19:41:16.384 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
-28-Nov-2024 19:41:16.384 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
-28-Nov-2024 19:41:16.384 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
-28-Nov-2024 19:41:16.385 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
-28-Nov-2024 19:41:16.385 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
-28-Nov-2024 19:41:16.387 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
-28-Nov-2024 19:41:16.994 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
-28-Nov-2024 19:41:17.032 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1032] milliseconds
-28-Nov-2024 19:41:17.109 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
-28-Nov-2024 19:41:17.110 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.33]
-28-Nov-2024 19:41:17.165 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Ezellohar.war]
-28-Nov-2024 19:41:17.201 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/usr/local/tomcat/webapps/Ezellohar] was found with a last modified time that did not match the associated WAR. It will be deleted.
-28-Nov-2024 19:41:55.581 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [mayordomo] used in an <auth-constraint> without being defined in a <security-role>
-28-Nov-2024 19:41:55.582 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [concilio] used in an <auth-constraint> without being defined in a <security-role>
-28-Nov-2024 19:41:55.582 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [elrond] used in an <auth-constraint> without being defined in a <security-role>
-28-Nov-2024 19:41:55.583 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [redes] used in an <auth-constraint> without being defined in a <security-role>
-28-Nov-2024 19:41:55.583 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [tesoreria] used in an <auth-constraint> without being defined in a <security-role>
-28-Nov-2024 19:41:55.584 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [actividades] used in an <auth-constraint> without being defined in a <security-role>
-28-Nov-2024 19:41:55.732 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-28-Nov-2024 19:41:55.935 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Ezellohar.war] has finished in [38,770] ms
-28-Nov-2024 19:41:55.945 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
-28-Nov-2024 19:41:55.959 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [38927] milliseconds
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-28-Nov-2024 23:36:34.733 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Valimar.war]
-28-Nov-2024 23:36:53.297 INFO [Catalina-utility-2] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-28-Nov-2024 23:36:53.327 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Valimar.war] has finished in [18,603] ms
-28-Nov-2024 23:39:24.377 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.33
-28-Nov-2024 23:39:24.384 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 7 2024 22:28:55 UTC
-28-Nov-2024 23:39:24.385 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.33.0
-28-Nov-2024 23:39:24.385 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
-28-Nov-2024 23:39:24.385 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.15.167.4-microsoft-standard-WSL2
-28-Nov-2024 23:39:24.385 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
-28-Nov-2024 23:39:24.386 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-11-openjdk-amd64
-28-Nov-2024 23:39:24.386 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           11.0.25+9-post-Debian-1deb11u1
-28-Nov-2024 23:39:24.386 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Debian
-28-Nov-2024 23:39:24.387 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
-28-Nov-2024 23:39:24.388 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
-28-Nov-2024 23:39:24.412 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
-28-Nov-2024 23:39:24.413 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
-28-Nov-2024 23:39:24.414 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
-28-Nov-2024 23:39:24.414 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
-28-Nov-2024 23:39:24.415 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
-28-Nov-2024 23:39:24.415 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
-28-Nov-2024 23:39:24.416 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
-28-Nov-2024 23:39:24.416 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
-28-Nov-2024 23:39:24.416 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
-28-Nov-2024 23:39:24.417 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
-28-Nov-2024 23:39:24.417 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
-28-Nov-2024 23:39:24.417 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
-28-Nov-2024 23:39:24.418 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
-28-Nov-2024 23:39:24.420 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
-28-Nov-2024 23:39:24.879 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
-28-Nov-2024 23:39:24.947 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [889] milliseconds
-28-Nov-2024 23:39:25.061 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
-28-Nov-2024 23:39:25.062 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.33]
-28-Nov-2024 23:39:25.144 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Ezellohar.war]
-28-Nov-2024 23:39:25.203 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/usr/local/tomcat/webapps/Ezellohar] was found with a last modified time that did not match the associated WAR. It will be deleted.
-28-Nov-2024 23:40:04.492 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [mayordomo] used in an <auth-constraint> without being defined in a <security-role>
-28-Nov-2024 23:40:04.494 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [concilio] used in an <auth-constraint> without being defined in a <security-role>
-28-Nov-2024 23:40:04.494 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [elrond] used in an <auth-constraint> without being defined in a <security-role>
-28-Nov-2024 23:40:04.494 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [actividades] used in an <auth-constraint> without being defined in a <security-role>
-28-Nov-2024 23:40:04.494 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [tesoreria] used in an <auth-constraint> without being defined in a <security-role>
-28-Nov-2024 23:40:04.495 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [redes] used in an <auth-constraint> without being defined in a <security-role>
-28-Nov-2024 23:40:04.643 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-28-Nov-2024 23:40:04.831 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Ezellohar.war] has finished in [39,686] ms
-28-Nov-2024 23:40:04.841 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Valimar.war]
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-28-Nov-2024 23:40:17.420 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-28-Nov-2024 23:40:17.433 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Valimar.war] has finished in [12,592] ms
-28-Nov-2024 23:40:17.448 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
-28-Nov-2024 23:40:17.461 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [52516] milliseconds
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
-Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Intentando escribir en el archivo de error: /<error>/20241130.log
+Intentando escribir en el archivo de error: /<error>/20241130.log
+30-Nov-2024 23:30:03.410 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.33
+30-Nov-2024 23:30:03.418 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 7 2024 22:28:55 UTC
+30-Nov-2024 23:30:03.419 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.33.0
+30-Nov-2024 23:30:03.419 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+30-Nov-2024 23:30:03.420 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.15.167.4-microsoft-standard-WSL2
+30-Nov-2024 23:30:03.420 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+30-Nov-2024 23:30:03.421 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-11-openjdk-amd64
+30-Nov-2024 23:30:03.421 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           11.0.25+9-post-Debian-1deb11u1
+30-Nov-2024 23:30:03.422 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Debian
+30-Nov-2024 23:30:03.422 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
+30-Nov-2024 23:30:03.423 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
+30-Nov-2024 23:30:03.453 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
+30-Nov-2024 23:30:03.454 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+30-Nov-2024 23:30:03.454 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+30-Nov-2024 23:30:03.455 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+30-Nov-2024 23:30:03.455 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+30-Nov-2024 23:30:03.455 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+30-Nov-2024 23:30:03.456 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+30-Nov-2024 23:30:03.456 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+30-Nov-2024 23:30:03.457 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+30-Nov-2024 23:30:03.457 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+30-Nov-2024 23:30:03.457 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
+30-Nov-2024 23:30:03.458 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
+30-Nov-2024 23:30:03.458 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
+30-Nov-2024 23:30:03.461 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+30-Nov-2024 23:30:03.957 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+30-Nov-2024 23:30:04.011 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1018] milliseconds
+30-Nov-2024 23:30:04.107 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+30-Nov-2024 23:30:04.107 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.33]
+30-Nov-2024 23:30:04.263 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Ezellohar.war]
+30-Nov-2024 23:30:09.732 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 23:30:09.803 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Ezellohar.war] has finished in [5,539] ms
+30-Nov-2024 23:30:09.827 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Valimar.war]
+30-Nov-2024 23:30:09.845 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/usr/local/tomcat/webapps/Valimar] was found with a last modified time that did not match the associated WAR. It will be deleted.
+30-Nov-2024 23:30:33.032 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 23:30:33.046 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Valimar.war] has finished in [23,219] ms
+30-Nov-2024 23:30:33.065 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+30-Nov-2024 23:30:33.089 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [29077] milliseconds
+30-Nov-2024 23:32:09.864 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.33
+30-Nov-2024 23:32:09.872 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 7 2024 22:28:55 UTC
+30-Nov-2024 23:32:09.873 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.33.0
+30-Nov-2024 23:32:09.874 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+30-Nov-2024 23:32:09.874 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.15.167.4-microsoft-standard-WSL2
+30-Nov-2024 23:32:09.875 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+30-Nov-2024 23:32:09.876 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-11-openjdk-amd64
+30-Nov-2024 23:32:09.877 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           11.0.25+9-post-Debian-1deb11u1
+30-Nov-2024 23:32:09.877 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Debian
+30-Nov-2024 23:32:09.878 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
+30-Nov-2024 23:32:09.879 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
+30-Nov-2024 23:32:09.920 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
+30-Nov-2024 23:32:09.921 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+30-Nov-2024 23:32:09.922 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+30-Nov-2024 23:32:09.923 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+30-Nov-2024 23:32:09.924 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+30-Nov-2024 23:32:09.925 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+30-Nov-2024 23:32:09.926 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+30-Nov-2024 23:32:09.927 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+30-Nov-2024 23:32:09.928 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+30-Nov-2024 23:32:09.929 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+30-Nov-2024 23:32:09.930 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
+30-Nov-2024 23:32:09.930 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
+30-Nov-2024 23:32:09.931 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
+30-Nov-2024 23:32:09.935 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+30-Nov-2024 23:32:10.709 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+30-Nov-2024 23:32:10.766 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1331] milliseconds
+30-Nov-2024 23:32:10.861 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+30-Nov-2024 23:32:10.862 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.33]
+30-Nov-2024 23:32:10.912 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Ezellohar.war]
+30-Nov-2024 23:32:16.668 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 23:32:16.738 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Ezellohar.war] has finished in [5,822] ms
+30-Nov-2024 23:32:16.784 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Valimar.war]
+30-Nov-2024 23:32:16.802 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/usr/local/tomcat/webapps/Valimar] was found with a last modified time that did not match the associated WAR. It will be deleted.
+30-Nov-2024 23:32:48.043 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 23:32:48.059 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Valimar.war] has finished in [31,275] ms
+30-Nov-2024 23:32:48.077 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+30-Nov-2024 23:32:48.101 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [37335] milliseconds
+30-Nov-2024 23:36:01.145 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.33
+30-Nov-2024 23:36:01.151 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 7 2024 22:28:55 UTC
+30-Nov-2024 23:36:01.151 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.33.0
+30-Nov-2024 23:36:01.152 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+30-Nov-2024 23:36:01.152 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.15.167.4-microsoft-standard-WSL2
+30-Nov-2024 23:36:01.153 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+30-Nov-2024 23:36:01.153 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-11-openjdk-amd64
+30-Nov-2024 23:36:01.153 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           11.0.25+9-post-Debian-1deb11u1
+30-Nov-2024 23:36:01.154 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Debian
+30-Nov-2024 23:36:01.154 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
+30-Nov-2024 23:36:01.155 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
+30-Nov-2024 23:36:01.170 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
+30-Nov-2024 23:36:01.171 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+30-Nov-2024 23:36:01.172 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+30-Nov-2024 23:36:01.172 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+30-Nov-2024 23:36:01.173 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+30-Nov-2024 23:36:01.173 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+30-Nov-2024 23:36:01.174 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+30-Nov-2024 23:36:01.174 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+30-Nov-2024 23:36:01.175 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+30-Nov-2024 23:36:01.175 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+30-Nov-2024 23:36:01.176 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
+30-Nov-2024 23:36:01.177 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
+30-Nov-2024 23:36:01.177 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
+30-Nov-2024 23:36:01.180 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+30-Nov-2024 23:36:01.643 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+30-Nov-2024 23:36:01.678 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [829] milliseconds
+30-Nov-2024 23:36:01.765 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+30-Nov-2024 23:36:01.766 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.33]
+30-Nov-2024 23:36:01.839 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Ezellohar.war]
+30-Nov-2024 23:36:40.222 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [concilio] used in an <auth-constraint> without being defined in a <security-role>
+30-Nov-2024 23:36:40.223 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [elrond] used in an <auth-constraint> without being defined in a <security-role>
+30-Nov-2024 23:36:40.224 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [tesoreria] used in an <auth-constraint> without being defined in a <security-role>
+30-Nov-2024 23:36:40.225 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [mayordomo] used in an <auth-constraint> without being defined in a <security-role>
+30-Nov-2024 23:36:40.226 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [actividades] used in an <auth-constraint> without being defined in a <security-role>
+30-Nov-2024 23:36:40.227 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [redes] used in an <auth-constraint> without being defined in a <security-role>
+30-Nov-2024 23:36:40.385 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 23:36:40.520 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Ezellohar.war] has finished in [38,681] ms
+30-Nov-2024 23:36:40.528 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Valimar.war]
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+30-Nov-2024 23:37:02.052 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 23:37:02.068 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Valimar.war] has finished in [21,540] ms
+30-Nov-2024 23:37:02.081 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+30-Nov-2024 23:37:02.105 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [60428] milliseconds
+30-Nov-2024 23:45:53.178 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.33
+30-Nov-2024 23:45:53.183 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 7 2024 22:28:55 UTC
+30-Nov-2024 23:45:53.184 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.33.0
+30-Nov-2024 23:45:53.184 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+30-Nov-2024 23:45:53.185 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.15.167.4-microsoft-standard-WSL2
+30-Nov-2024 23:45:53.185 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+30-Nov-2024 23:45:53.185 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-11-openjdk-amd64
+30-Nov-2024 23:45:53.186 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           11.0.25+9-post-Debian-1deb11u1
+30-Nov-2024 23:45:53.186 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Debian
+30-Nov-2024 23:45:53.186 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
+30-Nov-2024 23:45:53.187 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
+30-Nov-2024 23:45:53.226 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
+30-Nov-2024 23:45:53.226 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+30-Nov-2024 23:45:53.227 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+30-Nov-2024 23:45:53.227 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+30-Nov-2024 23:45:53.228 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+30-Nov-2024 23:45:53.228 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+30-Nov-2024 23:45:53.229 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+30-Nov-2024 23:45:53.229 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+30-Nov-2024 23:45:53.230 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+30-Nov-2024 23:45:53.230 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+30-Nov-2024 23:45:53.231 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
+30-Nov-2024 23:45:53.231 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
+30-Nov-2024 23:45:53.231 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
+30-Nov-2024 23:45:53.234 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+30-Nov-2024 23:45:53.860 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+30-Nov-2024 23:45:53.898 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1046] milliseconds
+30-Nov-2024 23:45:53.963 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+30-Nov-2024 23:45:53.964 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.33]
+30-Nov-2024 23:45:54.000 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Ezellohar.war]
+30-Nov-2024 23:45:54.036 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/usr/local/tomcat/webapps/Ezellohar] was found with a last modified time that did not match the associated WAR. It will be deleted.
+30-Nov-2024 23:46:36.199 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [concilio] used in an <auth-constraint> without being defined in a <security-role>
+30-Nov-2024 23:46:36.200 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [elrond] used in an <auth-constraint> without being defined in a <security-role>
+30-Nov-2024 23:46:36.201 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [tesoreria] used in an <auth-constraint> without being defined in a <security-role>
+30-Nov-2024 23:46:36.201 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [mayordomo] used in an <auth-constraint> without being defined in a <security-role>
+30-Nov-2024 23:46:36.202 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [actividades] used in an <auth-constraint> without being defined in a <security-role>
+30-Nov-2024 23:46:36.202 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [redes] used in an <auth-constraint> without being defined in a <security-role>
+30-Nov-2024 23:46:36.351 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 23:46:36.514 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Ezellohar.war] has finished in [42,513] ms
+30-Nov-2024 23:46:36.525 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Valimar.war]
+30-Nov-2024 23:46:36.542 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/usr/local/tomcat/webapps/Valimar] was found with a last modified time that did not match the associated WAR. It will be deleted.
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+30-Nov-2024 23:46:59.238 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2024 23:46:59.251 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Valimar.war] has finished in [22,725] ms
+30-Nov-2024 23:46:59.271 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+30-Nov-2024 23:46:59.303 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [65406] milliseconds
+01-Dec-2024 00:17:39.333 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.33
+01-Dec-2024 00:17:39.349 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 7 2024 22:28:55 UTC
+01-Dec-2024 00:17:39.354 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.33.0
+01-Dec-2024 00:17:39.355 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+01-Dec-2024 00:17:39.356 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.15.167.4-microsoft-standard-WSL2
+01-Dec-2024 00:17:39.357 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+01-Dec-2024 00:17:39.358 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-11-openjdk-amd64
+01-Dec-2024 00:17:39.370 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           11.0.25+9-post-Debian-1deb11u1
+01-Dec-2024 00:17:39.371 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Debian
+01-Dec-2024 00:17:39.373 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
+01-Dec-2024 00:17:39.376 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
+01-Dec-2024 00:17:39.431 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
+01-Dec-2024 00:17:39.432 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+01-Dec-2024 00:17:39.433 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+01-Dec-2024 00:17:39.433 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+01-Dec-2024 00:17:39.439 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+01-Dec-2024 00:17:39.439 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+01-Dec-2024 00:17:39.440 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+01-Dec-2024 00:17:39.441 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+01-Dec-2024 00:17:39.441 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+01-Dec-2024 00:17:39.442 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+01-Dec-2024 00:17:39.442 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
+01-Dec-2024 00:17:39.443 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
+01-Dec-2024 00:17:39.443 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
+01-Dec-2024 00:17:39.448 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+01-Dec-2024 00:17:40.014 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+01-Dec-2024 00:17:40.080 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1105] milliseconds
+01-Dec-2024 00:17:40.189 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+01-Dec-2024 00:17:40.190 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.33]
+01-Dec-2024 00:17:40.276 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Ezellohar.war]
+01-Dec-2024 00:17:40.328 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/usr/local/tomcat/webapps/Ezellohar] was found with a last modified time that did not match the associated WAR. It will be deleted.
+01-Dec-2024 00:18:16.687 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [mayordomo] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 00:18:16.687 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [concilio] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 00:18:16.688 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [elrond] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 00:18:16.688 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [tesoreria] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 00:18:16.688 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [actividades] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 00:18:16.689 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [redes] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 00:18:16.812 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Dec-2024 00:18:16.985 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Ezellohar.war] has finished in [36,708] ms
+01-Dec-2024 00:18:17.005 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Valimar.war]
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+01-Dec-2024 00:18:35.349 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Dec-2024 00:18:35.360 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Valimar.war] has finished in [18,356] ms
+01-Dec-2024 00:18:35.369 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+01-Dec-2024 00:18:35.387 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [55308] milliseconds
+01-Dec-2024 00:27:15.756 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.33
+01-Dec-2024 00:27:15.764 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 7 2024 22:28:55 UTC
+01-Dec-2024 00:27:15.764 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.33.0
+01-Dec-2024 00:27:15.765 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+01-Dec-2024 00:27:15.766 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.15.167.4-microsoft-standard-WSL2
+01-Dec-2024 00:27:15.766 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+01-Dec-2024 00:27:15.767 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-11-openjdk-amd64
+01-Dec-2024 00:27:15.767 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           11.0.25+9-post-Debian-1deb11u1
+01-Dec-2024 00:27:15.768 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Debian
+01-Dec-2024 00:27:15.768 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
+01-Dec-2024 00:27:15.769 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
+01-Dec-2024 00:27:15.799 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
+01-Dec-2024 00:27:15.800 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+01-Dec-2024 00:27:15.800 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+01-Dec-2024 00:27:15.801 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+01-Dec-2024 00:27:15.801 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+01-Dec-2024 00:27:15.802 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+01-Dec-2024 00:27:15.802 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+01-Dec-2024 00:27:15.803 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+01-Dec-2024 00:27:15.803 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+01-Dec-2024 00:27:15.804 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+01-Dec-2024 00:27:15.805 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
+01-Dec-2024 00:27:15.805 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
+01-Dec-2024 00:27:15.806 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
+01-Dec-2024 00:27:15.809 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+01-Dec-2024 00:27:16.691 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+01-Dec-2024 00:27:16.822 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1562] milliseconds
+01-Dec-2024 00:27:16.956 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+01-Dec-2024 00:27:16.957 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.33]
+01-Dec-2024 00:27:17.017 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Ezellohar.war]
+01-Dec-2024 00:27:17.063 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/usr/local/tomcat/webapps/Ezellohar] was found with a last modified time that did not match the associated WAR. It will be deleted.
+01-Dec-2024 00:27:56.567 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [concilio] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 00:27:56.567 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [elrond] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 00:27:56.568 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [mayordomo] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 00:27:56.568 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [tesoreria] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 00:27:56.568 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [actividades] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 00:27:56.569 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [redes] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 00:27:56.716 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Dec-2024 00:27:56.914 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Ezellohar.war] has finished in [39,897] ms
+01-Dec-2024 00:27:56.924 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Valimar.war]
+01-Dec-2024 00:27:56.941 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/usr/local/tomcat/webapps/Valimar] was found with a last modified time that did not match the associated WAR. It will be deleted.
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+01-Dec-2024 00:28:17.102 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Dec-2024 00:28:17.118 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Valimar.war] has finished in [20,194] ms
+01-Dec-2024 00:28:17.140 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+01-Dec-2024 00:28:17.161 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [60334] milliseconds
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
+01-Dec-2024 00:35:39.498 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.33
+01-Dec-2024 00:35:39.502 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 7 2024 22:28:55 UTC
+01-Dec-2024 00:35:39.503 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.33.0
+01-Dec-2024 00:35:39.503 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+01-Dec-2024 00:35:39.504 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.15.167.4-microsoft-standard-WSL2
+01-Dec-2024 00:35:39.504 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+01-Dec-2024 00:35:39.505 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-11-openjdk-amd64
+01-Dec-2024 00:35:39.505 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           11.0.25+9-post-Debian-1deb11u1
+01-Dec-2024 00:35:39.506 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Debian
+01-Dec-2024 00:35:39.506 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
+01-Dec-2024 00:35:39.507 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
+01-Dec-2024 00:35:39.529 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
+01-Dec-2024 00:35:39.530 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+01-Dec-2024 00:35:39.530 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+01-Dec-2024 00:35:39.530 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+01-Dec-2024 00:35:39.531 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+01-Dec-2024 00:35:39.531 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+01-Dec-2024 00:35:39.532 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+01-Dec-2024 00:35:39.532 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+01-Dec-2024 00:35:39.532 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+01-Dec-2024 00:35:39.533 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+01-Dec-2024 00:35:39.533 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
+01-Dec-2024 00:35:39.534 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
+01-Dec-2024 00:35:39.534 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
+01-Dec-2024 00:35:39.537 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+01-Dec-2024 00:35:40.027 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+01-Dec-2024 00:35:40.069 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [863] milliseconds
+01-Dec-2024 00:35:40.147 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+01-Dec-2024 00:35:40.148 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.33]
+01-Dec-2024 00:35:40.198 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Ezellohar.war]
+01-Dec-2024 00:35:40.232 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/usr/local/tomcat/webapps/Ezellohar] was found with a last modified time that did not match the associated WAR. It will be deleted.
+01-Dec-2024 00:36:17.809 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [redes] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 00:36:17.810 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [concilio] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 00:36:17.810 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [elrond] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 00:36:17.810 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [mayordomo] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 00:36:17.811 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [tesoreria] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 00:36:17.811 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [actividades] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 00:36:17.937 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Dec-2024 00:36:18.098 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Ezellohar.war] has finished in [37,899] ms
+01-Dec-2024 00:36:18.108 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Valimar.war]
+01-Dec-2024 00:36:18.126 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/usr/local/tomcat/webapps/Valimar] was found with a last modified time that did not match the associated WAR. It will be deleted.
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+01-Dec-2024 00:36:36.656 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Dec-2024 00:36:36.670 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Valimar.war] has finished in [18,562] ms
+01-Dec-2024 00:36:36.685 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+01-Dec-2024 00:36:36.696 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [56629] milliseconds
+Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+01-Dec-2024 22:19:15.505 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.33
+01-Dec-2024 22:19:15.512 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 7 2024 22:28:55 UTC
+01-Dec-2024 22:19:15.513 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.33.0
+01-Dec-2024 22:19:15.514 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+01-Dec-2024 22:19:15.514 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.15.167.4-microsoft-standard-WSL2
+01-Dec-2024 22:19:15.515 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+01-Dec-2024 22:19:15.515 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-11-openjdk-amd64
+01-Dec-2024 22:19:15.516 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           11.0.25+9-post-Debian-1deb11u1
+01-Dec-2024 22:19:15.516 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Debian
+01-Dec-2024 22:19:15.517 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
+01-Dec-2024 22:19:15.517 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
+01-Dec-2024 22:19:15.555 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
+01-Dec-2024 22:19:15.556 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+01-Dec-2024 22:19:15.556 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+01-Dec-2024 22:19:15.557 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+01-Dec-2024 22:19:15.557 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+01-Dec-2024 22:19:15.558 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+01-Dec-2024 22:19:15.558 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+01-Dec-2024 22:19:15.559 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+01-Dec-2024 22:19:15.559 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+01-Dec-2024 22:19:15.560 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+01-Dec-2024 22:19:15.560 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
+01-Dec-2024 22:19:15.561 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
+01-Dec-2024 22:19:15.562 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
+01-Dec-2024 22:19:15.565 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+01-Dec-2024 22:19:16.276 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+01-Dec-2024 22:19:16.387 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1412] milliseconds
+01-Dec-2024 22:19:16.520 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+01-Dec-2024 22:19:16.521 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.33]
+01-Dec-2024 22:19:16.635 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Ezellohar.war]
+01-Dec-2024 22:19:16.699 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/usr/local/tomcat/webapps/Ezellohar] was found with a last modified time that did not match the associated WAR. It will be deleted.
+01-Dec-2024 22:20:15.718 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [concilio] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 22:20:15.719 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [elrond] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 22:20:15.720 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [mayordomo] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 22:20:15.720 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [tesoreria] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 22:20:15.721 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [actividades] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 22:20:15.721 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [redes] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 22:20:15.874 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Dec-2024 22:20:16.056 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Ezellohar.war] has finished in [59,420] ms
+01-Dec-2024 22:20:16.080 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Valimar.war]
+01-Dec-2024 22:20:16.096 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/usr/local/tomcat/webapps/Valimar] was found with a last modified time that did not match the associated WAR. It will be deleted.
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+01-Dec-2024 22:20:37.193 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Dec-2024 22:20:37.211 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Valimar.war] has finished in [21,131] ms
+01-Dec-2024 22:20:37.224 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+01-Dec-2024 22:20:37.235 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [80860] milliseconds
+Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+01-Dec-2024 23:03:12.953 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/Valimar]
+01-Dec-2024 23:03:13.032 WARNING [Catalina-utility-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [Valimar] registered the JDBC driver [com.mysql.cj.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+01-Dec-2024 23:03:13.035 WARNING [Catalina-utility-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [Valimar] appears to have started a thread named [mysql-cj-abandoned-connection-cleanup] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.25/java.lang.Object.wait(Native Method)
+ java.base@11.0.25/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+ com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:91)
+ java.base@11.0.25/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+ java.base@11.0.25/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.25/java.lang.Thread.run(Thread.java:829)
+01-Dec-2024 23:03:13.941 INFO [mysql-cj-abandoned-connection-cleanup] org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading Illegal access: this web application instance has been stopped already. Could not load []. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+	java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load []. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+		at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1384)
+		at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:975)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.checkThreadContextClassLoader(AbandonedConnectionCleanupThread.java:123)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:90)
+		at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+		at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+		at java.base/java.lang.Thread.run(Thread.java:829)
+01-Dec-2024 23:03:14.358 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Valimar.war]
+01-Dec-2024 23:03:31.978 INFO [Catalina-utility-2] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Dec-2024 23:03:31.994 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Valimar.war] has finished in [17,635] ms
+Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
+Recibido capacidad: null, camas: null
+Desbloqueando habitaciones caducadas...
+Habitaciones caducadas desbloqueadas.
+Bloqueando habitaci?n con capacidad: null y camas: null
+Filas actualizadas: 0
+No se encontr? ninguna habitaci?n bloqueada.
+ID bloqueado: 
+01-Dec-2024 23:06:22.390 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/Valimar]
+01-Dec-2024 23:06:22.399 WARNING [Catalina-utility-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [Valimar] registered the JDBC driver [com.mysql.cj.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+01-Dec-2024 23:06:22.400 WARNING [Catalina-utility-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [Valimar] appears to have started a thread named [mysql-cj-abandoned-connection-cleanup] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.25/java.lang.Object.wait(Native Method)
+ java.base@11.0.25/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+ com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:91)
+ java.base@11.0.25/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+ java.base@11.0.25/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.25/java.lang.Thread.run(Thread.java:829)
+01-Dec-2024 23:06:23.666 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Valimar.war]
+01-Dec-2024 23:06:23.939 INFO [mysql-cj-abandoned-connection-cleanup] org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading Illegal access: this web application instance has been stopped already. Could not load []. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+	java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load []. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+		at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1384)
+		at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:975)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.checkThreadContextClassLoader(AbandonedConnectionCleanupThread.java:123)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:90)
+		at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+		at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+		at java.base/java.lang.Thread.run(Thread.java:829)
+01-Dec-2024 23:06:41.882 INFO [Catalina-utility-2] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Dec-2024 23:06:41.896 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Valimar.war] has finished in [18,230] ms
+Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
+Recibido capacidad: null, camas: null
+Error: Par?metros 'capacidad' o 'camas' son nulos.
+Par?metros recibidos - Capacidad: null, Camas: null
+Desbloqueando habitaciones caducadas...
+Habitaciones caducadas desbloqueadas.
+Bloqueando habitaci?n con capacidad: null y camas: null
+Filas actualizadas: 0
+No se encontr? ninguna habitaci?n bloqueada.
+ID bloqueado: 
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Recibido capacidad: null, camas: null
+Error: Par?metros 'capacidad' o 'camas' son nulos.
+Par?metros recibidos - Capacidad: null, Camas: null
+Desbloqueando habitaciones caducadas...
+Habitaciones caducadas desbloqueadas.
+Bloqueando habitaci?n con capacidad: null y camas: null
+Filas actualizadas: 0
+No se encontr? ninguna habitaci?n bloqueada.
+ID bloqueado: 
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+01-Dec-2024 23:30:52.536 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.33
+01-Dec-2024 23:30:52.541 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 7 2024 22:28:55 UTC
+01-Dec-2024 23:30:52.541 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.33.0
+01-Dec-2024 23:30:52.542 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+01-Dec-2024 23:30:52.542 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.15.167.4-microsoft-standard-WSL2
+01-Dec-2024 23:30:52.543 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+01-Dec-2024 23:30:52.543 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-11-openjdk-amd64
+01-Dec-2024 23:30:52.544 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           11.0.25+9-post-Debian-1deb11u1
+01-Dec-2024 23:30:52.544 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Debian
+01-Dec-2024 23:30:52.545 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
+01-Dec-2024 23:30:52.545 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
+01-Dec-2024 23:30:52.573 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
+01-Dec-2024 23:30:52.573 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+01-Dec-2024 23:30:52.574 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+01-Dec-2024 23:30:52.574 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+01-Dec-2024 23:30:52.575 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+01-Dec-2024 23:30:52.575 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+01-Dec-2024 23:30:52.576 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+01-Dec-2024 23:30:52.576 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+01-Dec-2024 23:30:52.576 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+01-Dec-2024 23:30:52.577 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+01-Dec-2024 23:30:52.577 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
+01-Dec-2024 23:30:52.578 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
+01-Dec-2024 23:30:52.578 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
+01-Dec-2024 23:30:52.581 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+01-Dec-2024 23:30:53.310 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+01-Dec-2024 23:30:53.391 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1225] milliseconds
+01-Dec-2024 23:30:53.618 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+01-Dec-2024 23:30:53.619 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.33]
+01-Dec-2024 23:30:53.662 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Ezellohar.war]
+01-Dec-2024 23:30:53.698 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/usr/local/tomcat/webapps/Ezellohar] was found with a last modified time that did not match the associated WAR. It will be deleted.
+01-Dec-2024 23:31:31.175 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [redes] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 23:31:31.175 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [concilio] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 23:31:31.176 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [elrond] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 23:31:31.176 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [mayordomo] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 23:31:31.177 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [tesoreria] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 23:31:31.177 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [actividades] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 23:31:31.317 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Dec-2024 23:31:31.546 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Ezellohar.war] has finished in [37,882] ms
+01-Dec-2024 23:31:31.564 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Valimar.war]
+01-Dec-2024 23:31:31.590 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/usr/local/tomcat/webapps/Valimar] was found with a last modified time that did not match the associated WAR. It will be deleted.
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+01-Dec-2024 23:31:52.566 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Dec-2024 23:31:52.598 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Valimar.war] has finished in [21,033] ms
+01-Dec-2024 23:31:52.627 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+01-Dec-2024 23:31:52.681 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [59291] milliseconds
+Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
+01-Dec-2024 23:37:00.691 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.33
+01-Dec-2024 23:37:00.695 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 7 2024 22:28:55 UTC
+01-Dec-2024 23:37:00.695 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.33.0
+01-Dec-2024 23:37:00.696 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+01-Dec-2024 23:37:00.696 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.15.167.4-microsoft-standard-WSL2
+01-Dec-2024 23:37:00.696 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+01-Dec-2024 23:37:00.696 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-11-openjdk-amd64
+01-Dec-2024 23:37:00.697 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           11.0.25+9-post-Debian-1deb11u1
+01-Dec-2024 23:37:00.697 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Debian
+01-Dec-2024 23:37:00.698 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
+01-Dec-2024 23:37:00.698 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
+01-Dec-2024 23:37:00.722 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
+01-Dec-2024 23:37:00.723 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+01-Dec-2024 23:37:00.723 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+01-Dec-2024 23:37:00.724 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+01-Dec-2024 23:37:00.724 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+01-Dec-2024 23:37:00.724 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+01-Dec-2024 23:37:00.725 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+01-Dec-2024 23:37:00.725 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+01-Dec-2024 23:37:00.726 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+01-Dec-2024 23:37:00.726 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+01-Dec-2024 23:37:00.726 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
+01-Dec-2024 23:37:00.727 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
+01-Dec-2024 23:37:00.727 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
+01-Dec-2024 23:37:00.729 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+01-Dec-2024 23:37:01.164 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+01-Dec-2024 23:37:01.201 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [819] milliseconds
+01-Dec-2024 23:37:01.278 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+01-Dec-2024 23:37:01.279 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.33]
+01-Dec-2024 23:37:01.333 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Ezellohar.war]
+01-Dec-2024 23:37:01.376 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/usr/local/tomcat/webapps/Ezellohar] was found with a last modified time that did not match the associated WAR. It will be deleted.
+01-Dec-2024 23:37:44.896 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [redes] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 23:37:44.898 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [concilio] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 23:37:44.899 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [elrond] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 23:37:44.900 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [mayordomo] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 23:37:44.900 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [tesoreria] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 23:37:44.900 WARNING [main] org.apache.catalina.startup.ContextConfig.validateSecurityRoles Security role name [actividades] used in an <auth-constraint> without being defined in a <security-role>
+01-Dec-2024 23:37:45.069 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Dec-2024 23:37:45.249 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Ezellohar.war] has finished in [43,916] ms
+01-Dec-2024 23:37:45.259 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/Valimar.war]
+01-Dec-2024 23:37:45.276 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/usr/local/tomcat/webapps/Valimar] was found with a last modified time that did not match the associated WAR. It will be deleted.
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+Conexi?n de BD -> jdbc:mysql://db:3306/aldaron_db, Usuario: root, Contrase?a: rootpassword
+01-Dec-2024 23:38:05.577 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Dec-2024 23:38:05.591 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Valimar.war] has finished in [20,332] ms
+01-Dec-2024 23:38:05.605 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+01-Dec-2024 23:38:05.618 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [64419] milliseconds

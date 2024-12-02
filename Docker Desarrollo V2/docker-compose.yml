@@ -1,10 +1,20 @@
-version: '3.9'
 
 services:
+  vue-app:
+    build:
+      context: ./  # Asegúrate de que el contexto de construcción es correcto
+      dockerfile: Dockerfile
+    container_name: vue-app
+    ports:
+      - "8081:8080"
+    volumes:
+      - ../valimar_front:/usr/local/vue-app  # Si prefieres montar el volumen en lugar de copiar
+    networks:
+      - dockerdesarrollov2_estelcon-net
+
   app:
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: ./  # El contexto está en el directorio actual, donde se encuentra Dockerfile de este servicio
     container_name: estelcon-app
     volumes:
       - ./files/default.config.nginx:/etc/nginx/sites-available/default
@@ -20,12 +30,18 @@ services:
       - ./files/estelcon.properties:/home/estelcon/estelcon.properties
       - ./wars:/usr/local/tomcat/webapps
       - ./tomcat_logs:/usr/local/tomcat/logs
+      - ./local_activity:/home/estelcon/activity
+      - ./local_error:/home/estelcon/error
+      - ./local_log:/home/estelcon/log
+      - ./local_outbox:/home/estelcon/outbox
+      - ./local_plantillas:/home/estelcon/plantillas
+      - ./local_sent:/home/estelcon/sent
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
       FTP_USER: ftpestelcon
       FTP_PASSWORD: P4ssw0rd
     ports:
-      - "8085:8080"
+      - "8080:8080"
       - "86:80"
       - "8445:8443"
       - "2121:2121"
@@ -42,13 +58,12 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
     volumes:
-      - ./db_data:/var/lib/mysql # Montar la carpeta local db_data
+      - ./db_data:/var/lib/mysql
       - ./files/init-mariadb.sql:/docker-entrypoint-initdb.d/init.sql 
     networks:
       - dockerdesarrollov2_estelcon-net
     ports:
       - "3307:3306"
-   
 
 networks:
   dockerdesarrollov2_estelcon-net:

@@ -101,69 +101,71 @@ public class SQLHabitacionesPublic {
 		
 		return resultado;
 	}
-	public static String BloqueoHabitacion(String capacidad,String camas)
-	{
-		String resultado="";
-			try{
-				long tiempo=System.currentTimeMillis();
-			Statement sentencia;
-			Connection con=SQLConexionPublic.getConexion();
-			sentencia=con.createStatement();
+	public static String BloqueoHabitacion(String capacidad, String camas) {
+	    String resultado = "";
+	    try {
+	        long tiempo = System.currentTimeMillis();
+	        Statement sentencia;
+	        Connection con = SQLConexionPublic.getConexion();
+	        sentencia = con.createStatement();
 
-			
-			/*Primero desbloqueamos las caducadas*/
-			sentencia.executeUpdate("UPDATE HABITACIONES SET ESTADO=1, HORA_BLOQUEO=NULL WHERE ESTADO=2 AND HORA_BLOQUEO<"+(tiempo-600000));
-			
+	        System.out.println("Parámetros recibidos - Capacidad: " + capacidad + ", Camas: " + camas);
 
-			/*Primero bloqueamos con el timestamp*/
-			sentencia.executeUpdate("UPDATE HABITACIONES SET ESTADO=2, HORA_BLOQUEO="+tiempo+" WHERE ESTADO=1 AND PLAZAS="+capacidad+" AND CAMAS="+camas+" LIMIT 1");
-			
-			/*Después obtenemos el id de la que hemos marcado con ese timestamp*/
-			ResultSet rs=sentencia.executeQuery("SELECT IDHABITACION from HABITACIONES WHERE HORA_BLOQUEO="+tiempo);
-			if (rs.next())
-			{
-				resultado=rs.getString(1);
-			}
-			if (con!=null) con.close();
+	        System.out.println("Desbloqueando habitaciones caducadas...");
+	        sentencia.executeUpdate("UPDATE HABITACIONES SET ESTADO=1, HORA_BLOQUEO=NULL WHERE ESTADO=2 AND HORA_BLOQUEO<" + (tiempo - 600000));
+	        System.out.println("Habitaciones caducadas desbloqueadas.");
 
-		}  catch (SQLException e) {
-			return null;
-		}
-		
-		return resultado;
-	}
-	
-	public static String BloqueoHabitacionParcial()
-	{
-		String resultado="";
-			try{
-				long tiempo=System.currentTimeMillis();
-			Statement sentencia;
-			Connection con=SQLConexionPublic.getConexion();
-			sentencia=con.createStatement();
+	        System.out.println("Bloqueando habitación con capacidad: " + capacidad + " y camas: " + camas);
+	        int filasActualizadas = sentencia.executeUpdate("UPDATE HABITACIONES SET ESTADO=2, HORA_BLOQUEO=" + tiempo + " WHERE ESTADO=1 AND PLAZAS=" + capacidad + " AND CAMAS=" + camas + " LIMIT 1");
+	        System.out.println("Filas actualizadas: " + filasActualizadas);
 
-			
-			/*Primero desbloqueamos las caducadas*/
-			sentencia.executeUpdate("UPDATE HABITACIONESPARCIALES SET ESTADO=1, HORA_BLOQUEO=NULL WHERE ESTADO=2 AND HORA_BLOQUEO<"+(tiempo-600000));
-			
+	        ResultSet rs = sentencia.executeQuery("SELECT IDHABITACION from HABITACIONES WHERE HORA_BLOQUEO=" + tiempo);
+	        if (rs.next()) {
+	            resultado = rs.getString(1);
+	            System.out.println("ID de habitación bloqueada: " + resultado);
+	        } else {
+	            System.out.println("No se encontró ninguna habitación bloqueada.");
+	        }
+	        if (con != null) con.close();
+	    } catch (SQLException e) {
+	        System.err.println("Error SQL: " + e.getMessage());
+	        return null;
+	    }
 
-			/*Primero bloqueamos con el timestamp*/
-			sentencia.executeUpdate("UPDATE HABITACIONESPARCIALES SET ESTADO=2, HORA_BLOQUEO="+tiempo+" WHERE ESTADO=1 LIMIT 1");
-			
-			/*Después obtenemos el id de la que hemos marcado con ese timestamp*/
-			ResultSet rs=sentencia.executeQuery("SELECT IDHABITACION from HABITACIONESPARCIALES WHERE HORA_BLOQUEO="+tiempo);
-			if (rs.next())
-			{
-				resultado=rs.getString(1);
-			}
-			if (con!=null) con.close();
-		}  catch (SQLException e) {
-			return null;
-		}
-		
-		return resultado;
+	    return resultado;
 	}
 
+	public static String BloqueoHabitacionParcial() {
+	    String resultado = "";
+	    try {
+	        long tiempo = System.currentTimeMillis();
+	        Statement sentencia;
+	        Connection con = SQLConexionPublic.getConexion();
+	        sentencia = con.createStatement();
+
+	        System.out.println("Desbloqueando habitaciones parciales caducadas...");
+	        sentencia.executeUpdate("UPDATE HABITACIONESPARCIALES SET ESTADO=1, HORA_BLOQUEO=NULL WHERE ESTADO=2 AND HORA_BLOQUEO<" + (tiempo - 600000));
+	        System.out.println("Habitaciones parciales caducadas desbloqueadas.");
+
+	        System.out.println("Bloqueando habitación parcial...");
+	        int filasActualizadas = sentencia.executeUpdate("UPDATE HABITACIONESPARCIALES SET ESTADO=2, HORA_BLOQUEO=" + tiempo + " WHERE ESTADO=1 LIMIT 1");
+	        System.out.println("Filas actualizadas: " + filasActualizadas);
+
+	        ResultSet rs = sentencia.executeQuery("SELECT IDHABITACION from HABITACIONESPARCIALES WHERE HORA_BLOQUEO=" + tiempo);
+	        if (rs.next()) {
+	            resultado = rs.getString(1);
+	            System.out.println("ID de habitación parcial bloqueada: " + resultado);
+	        } else {
+	            System.out.println("No se encontró ninguna habitación parcial bloqueada.");
+	        }
+	        if (con != null) con.close();
+	    } catch (SQLException e) {
+	        System.err.println("Error SQL: " + e.getMessage());
+	        return null;
+	    }
+
+	    return resultado;
+	}
 
 	
 

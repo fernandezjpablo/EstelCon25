@@ -47,19 +47,19 @@ export default {
         capacidad: capacidad,
         camas: camas
       })
-      .then((response) => {
-        console.log("Respuesta de la API:", response.data);
-        if (response.data) {
-          this.formData.idhabitacion = response.data;
-          this.contenidoPaso2 = `Tiene bloqueada temporalmente la habitación ${response.data}. Dispone de 10 minutos para formalizar la reserva antes de que la habitación vuelva a liberarse.`;
-          this.isDisabled = true; // Deshabilita el botón "Siguiente"
-        } else {
-          this.contenidoPaso2 = "Las habitaciones de esta capacidad ya no están disponibles.";
-        }
-      })
-      .catch((error) => {
-        console.error("Error al bloquear la habitación:", error);
-      });
+        .then((response) => {
+          console.log("Respuesta de la API:", response.data);
+          if (response.data) {
+            this.formData.idhabitacion = response.data;
+            this.contenidoPaso2 = `Tiene bloqueada temporalmente la habitación ${response.data}. Dispone de 10 minutos para formalizar la reserva antes de que la habitación vuelva a liberarse.`;
+            this.isDisabled = true; // Deshabilita el botón "Siguiente"
+          } else {
+            this.contenidoPaso2 = "Las habitaciones de esta capacidad ya no están disponibles.";
+          }
+        })
+        .catch((error) => {
+          console.error("Error al bloquear la habitación:", error);
+        });
     },
   },
   mounted() {

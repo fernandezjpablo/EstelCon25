@@ -1,0 +1,102 @@
+30-Nov-2024 00:04:48.343 SEVERE [http-nio-8080-exec-5] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [es.ste.aderthad.publico.plazas.GetComboHabitacionesDisponibles] in context with path [/Valimar] threw exception
+	java.lang.NullPointerException
+		at es.ste.aderthad.publico.sql.SQLHabitacionesPublic.selectComboHabitaciones(SQLHabitacionesPublic.java:385)
+		at es.ste.aderthad.publico.plazas.GetComboHabitacionesDisponibles.doGet(GetComboHabitacionesDisponibles.java:32)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.filters.CorsFilter.handleNonCORS(CorsFilter.java:331)
+		at org.apache.catalina.filters.CorsFilter.doFilter(CorsFilter.java:158)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:663)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:829)
+30-Nov-2024 00:05:03.043 SEVERE [http-nio-8080-exec-7] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [es.ste.aderthad.publico.plazas.GetComboHabitacionesDisponibles] in context with path [/Valimar] threw exception
+	java.lang.NullPointerException
+		at es.ste.aderthad.publico.sql.SQLHabitacionesPublic.selectComboHabitaciones(SQLHabitacionesPublic.java:385)
+		at es.ste.aderthad.publico.plazas.GetComboHabitacionesDisponibles.doGet(GetComboHabitacionesDisponibles.java:32)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.filters.CorsFilter.handleNonCORS(CorsFilter.java:331)
+		at org.apache.catalina.filters.CorsFilter.doFilter(CorsFilter.java:158)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:663)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:829)
+30-Nov-2024 23:36:40.485 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/img/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:36:40.485 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/admin/pagos/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:36:40.485 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/admin/noticias/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:36:40.485 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/ListInscritos] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:36:40.485 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/GetAcceso] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:36:40.485 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/admin/plazas/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:36:40.485 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/admin/index.html] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:36:40.485 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/script/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:36:40.485 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/jquery/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:36:40.485 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/css/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:36:40.485 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/admin/mensajeria/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:36:40.485 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/admin/espacios/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:36:40.486 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/admin/inscritos/adminInscritos.html] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:36:40.486 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/admin] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:36:40.486 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/admin/actividades/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:36:40.486 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/font/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:36:40.486 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:36:40.486 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/admin/planificacion/VerCalendarioPlanificacion] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:36:40.486 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/admin/inscritos/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:46:36.471 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/img/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:46:36.472 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/admin/pagos/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:46:36.472 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/admin/noticias/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:46:36.472 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/ListInscritos] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:46:36.472 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/GetAcceso] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:46:36.472 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/admin/plazas/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:46:36.472 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/admin/index.html] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:46:36.472 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/script/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:46:36.472 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/jquery/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:46:36.472 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/css/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:46:36.472 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/admin/mensajeria/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:46:36.472 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/admin/espacios/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:46:36.472 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/admin/inscritos/adminInscritos.html] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:46:36.473 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/admin] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:46:36.473 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/admin/actividades/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:46:36.473 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/font/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:46:36.473 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:46:36.473 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/admin/planificacion/VerCalendarioPlanificacion] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+30-Nov-2024 23:46:36.473 SEVERE [main] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/admin/inscritos/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
