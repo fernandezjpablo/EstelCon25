@@ -3,7 +3,7 @@ module.exports = {
   devServer: {
     proxy: {
       '/Valimar': {
-        target: 'http://localhost:8085',
+        target: 'http://10.178.169.94:8080/',
         changeOrigin: true,
       },
     },

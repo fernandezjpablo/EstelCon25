@@ -111,6 +111,10 @@ public class SQLHabitacionesPublic {
 
 	        System.out.println("Parámetros recibidos - Capacidad: " + capacidad + ", Camas: " + camas);
 
+	        if (capacidad == null || camas == null) {
+	            throw new IllegalArgumentException("Parámetros 'capacidad' o 'camas' son nulos.");
+	        }
+
 	        System.out.println("Desbloqueando habitaciones caducadas...");
 	        sentencia.executeUpdate("UPDATE HABITACIONES SET ESTADO=1, HORA_BLOQUEO=NULL WHERE ESTADO=2 AND HORA_BLOQUEO<" + (tiempo - 600000));
 	        System.out.println("Habitaciones caducadas desbloqueadas.");
@@ -118,7 +122,8 @@ public class SQLHabitacionesPublic {
 	        System.out.println("Bloqueando habitación con capacidad: " + capacidad + " y camas: " + camas);
 	        int filasActualizadas = sentencia.executeUpdate("UPDATE HABITACIONES SET ESTADO=2, HORA_BLOQUEO=" + tiempo + " WHERE ESTADO=1 AND PLAZAS=" + capacidad + " AND CAMAS=" + camas + " LIMIT 1");
 	        System.out.println("Filas actualizadas: " + filasActualizadas);
-
+	        System.out.println("Tiempo");
+	        System.out.println("SELECT IDHABITACION from HABITACIONES WHERE HORA_BLOQUEO=" + tiempo);
 	        ResultSet rs = sentencia.executeQuery("SELECT IDHABITACION from HABITACIONES WHERE HORA_BLOQUEO=" + tiempo);
 	        if (rs.next()) {
 	            resultado = rs.getString(1);
@@ -129,6 +134,9 @@ public class SQLHabitacionesPublic {
 	        if (con != null) con.close();
 	    } catch (SQLException e) {
 	        System.err.println("Error SQL: " + e.getMessage());
+	        return null;
+	    } catch (IllegalArgumentException e) {
+	        System.err.println("Error: " + e.getMessage());
 	        return null;
 	    }
 

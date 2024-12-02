@@ -1,6 +1,9 @@
 package es.ste.aderthad.publico.plazas;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import es.ste.aderthad.publico.sql.SQLHabitacionesPublic;
 import jakarta.servlet.ServletException;
@@ -9,33 +12,25 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class BloquearHabitacion
- */
 @WebServlet("/BloquearHabitacion")
 public class BloquearHabitacion extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    /**
-     * Default constructor.
-     */
-    public BloquearHabitacion() {
-        // TODO Auto-generated constructor stub
-    }
-
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String capacidad = request.getParameter("capacidad");
-        String camas = request.getParameter("camas");
+        BufferedReader reader = request.getReader();
+        Gson gson = new Gson();
+        JsonObject json = gson.fromJson(reader, JsonObject.class);
+
+        String capacidad = json.get("capacidad").getAsString();
+        String camas = json.get("camas").getAsString();
 
         System.out.println("Recibido capacidad: " + capacidad + ", camas: " + camas); // Log para depuración
 
         if (capacidad == null || camas == null) {
             System.out.println("Error: Parámetros 'capacidad' o 'camas' son nulos.");
-        } else {
-            System.out.println("Parámetros válidos recibidos.");
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            response.getWriter().print("Error: Parámetros 'capacidad' o 'camas' son nulos.");
+            return;
         }
 
         String idbloqueado = SQLHabitacionesPublic.BloqueoHabitacion(capacidad, camas);

@@ -38,8 +38,22 @@
         </div>
       </div>
       <div class="main-content">
-        <Paso1 :formData="formData" :baseUrl="formData.baseUrl" @nextStep="handleNextStep" v-if="currentStep === 1" ref="paso1Component" />
-        <Paso2 :formData="formData" :baseUrl="formData.baseUrl" @nextStep="handleNextStep" @prevStep="handlePrevStep" v-if="currentStep === 2" ref="paso2Component" />
+        <Paso1
+          :formData="formData"
+          :baseUrl="formData.baseUrl"
+          @nextStep="handleNextStep"
+          v-if="currentStep === 1"
+          ref="paso1Component"
+        />
+        <Paso2
+          :currentStep="currentStep"
+          :formData="formData"
+          :baseUrl="baseUrl"
+          :mensaje="mensaje"
+          v-if="currentStep === 2"
+          ref="paso2Component"
+        />
+
         <Paso3
           :formData="formData"
           @nextStep="handleNextStep"
@@ -91,17 +105,34 @@ export default {
       formData: {
         comboHabitaciones: "",
         idhabitacion: "",
-        baseUrl: "http://localhost:8080",
+        baseUrl: "http://10.178.169.94:8080",
+        mensaje: "",
       },
       isDisabled: false,
       showListaEspera: false,
     };
   },
+  watch: {
+    // Observa los cambios en 'currentStep' y muestra el nuevo valor en consola
+    currentStep(newStep) {
+      console.log("Cambio de paso a:", newStep);
+    },
+  },
   methods: {
     handleNextStep(data) {
       console.log("Datos del siguiente paso:", data);
       this.formData = { ...this.formData, ...data };
-      if (this.currentStep < 4) {
+      if (this.currentStep === 1) {
+        console.log("Avanzando al paso 2");
+        this.lanzarPaso2();
+      } else if (this.currentStep === 2) {
+        console.log("Avanzando al paso 3");
+        this.currentStep++;
+        this.generarPaso3(
+          this.formData.comboHabitaciones.split(",")[0],
+          this.formData.idhabitacion
+        );
+      } else if (this.currentStep < 4) {
         this.currentStep++;
       }
     },
@@ -148,6 +179,7 @@ export default {
       axios
         .get(this.formData.baseUrl + "/Valimar/GetComboHabitacionesDisponibles")
         .then((response) => {
+          console.log(this.$refs);
           const paso1Component = this.$refs.paso1Component;
           if (paso1Component) {
             paso1Component.$refs.paso1.innerHTML = response.data; // Usa $refs para acceder al div
@@ -169,54 +201,131 @@ export default {
       console.log("Lanzar paso 1 lista de espera");
     },
     lanzarPaso2() {
-      const capacidad = this.formData.comboHabitaciones.split(',')[0];
-      const camas = this.formData.comboHabitaciones.split(',')[1];
+      console.log("Antes de cambiar currentStep:", this.currentStep); // Log antes de actualizar
+      this.currentStep = 2;
+      console.log("Después de cambiar currentStep:", this.currentStep); // Log después de actualizar
 
-      axios.post(`${this.formData.baseUrl}/Valimar/BloquearHabitacion`, {
-        capacidad: capacidad,
-        camas: camas
-      })
-      .then((response) => {
-        const paso2Component = this.$refs.paso2Component;
-        if (paso2Component) {
-          if (response.data) {
-            this.formData.idhabitacion = response.data;
-            paso2Component.$refs.paso2.innerHTML = `Tiene bloqueada temporalmente la habitación ${response.data}. Dispone de 10 minutos para formalizar la reserva antes de que la habitación vuelva a liberarse.`;
-            this.currentStep = 2;
-          } else {
-            paso2Component.$refs.paso2.innerHTML = "Las habitaciones de esta capacidad ya no están disponibles.";
-          }
-        } else {
-          console.error("El componente Paso2 no está disponible.");
-        }
-      })
-      .catch((error) => {
-        console.error("Error al bloquear la habitación:", error);
-      });
-    },
-    reiniciarProceso() {
-      this.currentStep = 1;
-      this.isDisabled = false;
-      console.log("Reiniciar proceso");
-    },
-    enviarInscripcion() {
-      const lista = []; // Define y llena esta lista según tus datos
+      const capacidad = this.formData.comboHabitaciones.split(",")[0];
+      const camas = this.formData.comboHabitaciones.split(",")[1];
+      console.log(
+        `Se llama al servicio de bloquear ${this.formData.baseUrl}/Valimar/BloquearHabitacion`
+      );
       axios
-        .post(this.formData.baseUrl + "/Valimar/RegistrarInscripcion", {
-          habitacion: this.formData.idhabitacion,
-          datos: JSON.stringify(lista),
+        .post(`${this.formData.baseUrl}/Valimar/BloquearHabitacion`, {
+          capacidad: capacidad,
+          camas: camas,
         })
         .then((response) => {
-          console.log("Inscripción registrada:", response.data);
+          console.log(this.$refs);
+          const paso2Component = this.$refs.paso2Component;
+          console.log("paso 2 comp. -> " + this.$refs); // Verifica que la referencia está siendo asignada correctamente
+          console.log(this.$refs);
+
+          if (paso2Component) {
+            // Verifica si hay respuesta del servicio de bloqueo
+            if (response.data) {
+              this.formData.idhabitacion = response.data;
+              console.log("Preparandop mensaje a Paso2");
+              const mensaje = `
+                  <div class="alert alert-info" role="alert">
+                    <h4 class="alert-heading">Habitación Bloqueada</h4>
+                    <p>Tiene bloqueada temporalmente la habitación <strong>${response.data}</strong>.</p>
+                    <hr>
+                    <p class="mb-0">Dispone de 10 minutos para formalizar la reserva antes de que la habitación vuelva a liberarse.</p>
+                  </div>
+                `;
+              paso2Component.mostrarMensaje(mensaje); // Enviar el mensaje al componente Paso2
+              console.log("Mensaje enviado a Paso2");
+              this.generarPaso3(capacidad, response.data); // Llamar a generarPaso3
+            } else {
+              const mensajeError =
+                "Las habitaciones de esta capacidad ya no están disponibles.";
+              paso2Component.mostrarError(mensajeError); // Mostrar error en el Paso2
+            }
+          } else {
+            console.error("El componente Paso2 no está disponible.");
+          }
         })
         .catch((error) => {
-          console.error("Error al enviar la inscripción:", error);
+          console.error("Error al bloquear la habitación:", error);
         });
+    },
+
+    generarPaso3(capacidad, idhabitacion) {
+      console.log(
+        "Generar paso 3 con capacidad:",
+        capacidad,
+        "y idhabitacion:",
+        idhabitacion
+      );
+
+      // Selecciona el elemento donde se mostrarán los datos del paso 3
+      const elemDatos = document.getElementById("paso3Datos");
+      // Limpia el contenido previo
+      $("#paso3Datos").html("");
+
+      // Genera los campos de inscripción para cada ocupante según la capacidad
+      for (let i = 0; i < capacidad; i++) {
+        const divInscrito = document.createElement("div");
+        let lineaMenor = "";
+
+        // Si no es el primer ocupante, añade la línea para menores de 2 a 12 años
+        if (i > 0) {
+          lineaMenor = " Menor entre 2 y 12 años";
+        }
+
+        // Si es el primer ocupante, añade la línea para menores de 2 años
+        if (i === 0) {
+          lineaMenor = " Voy con menor/es de 2 años (no ocupan plaza)";
+          lineaMenor += "\n(Año de nacimiento del menor)2022 2023 2024";
+        }
+
+        // Genera el contenido HTML para cada ocupante
+        divInscrito.innerHTML = `
+        <div>
+          <h4>Datos del inscrito número ${i + 1}</h4>
+          <label>Nombre: *</label>
+          <input type="text" name="nombre${i}" required>
+          <label>Apellidos: *</label>
+          <input type="text" name="apellidos${i}" required>
+          <label>Pseudónimo (opcional):</label>
+          <input type="text" name="pseudonimo${i}">
+          <label>Email: *</label>
+          <input type="email" name="email${i}" required>
+          <label>Teléfono: *</label>
+          <input type="tel" name="telefono${i}" required>
+          <label>NIF/NIE/Pasaporte: *</label>
+          <input type="text" name="nif${i}" required>
+          <label>
+            <input type="checkbox" name="condiciones${i}" required>
+            He leído y acepto las condiciones de inscripción al evento (incluidas las referentes a uso de mi imagen)*
+          </label>
+          ${lineaMenor}
+          <p>(*) Campos obligatorios (salvo NIF en menores de 12 años)</p>
+        </div>
+      `;
+
+        // Añade el div generado al contenedor de datos
+        elemDatos.appendChild(divInscrito);
+      }
+
+      // Muestra el contenedor del paso 3
+      $("#paso3").show();
+    },
+    reiniciarProceso() {
+      // Lógica para reiniciar el proceso
+      console.log("Reiniciar proceso");
+      this.isDisabled = false;
+      this.currentStep = 1;
+      this.formData = {
+        comboHabitaciones: "",
+        idhabitacion: "",
+        baseUrl: "http://10.178.169.94:8080",
+      };
     },
   },
 };
 </script>
-
 <style>
 body {
   font-family: "Roboto", sans-serif;
@@ -250,5 +359,17 @@ body {
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.alert {
+  margin-top: 20px;
+}
+
+.alert-heading {
+  font-size: 1.5rem;
+}
+
+.alert p {
+  margin-bottom: 0;
 }
 </style>

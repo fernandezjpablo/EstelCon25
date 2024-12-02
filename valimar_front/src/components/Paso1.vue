@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import axios from 'axios'; // Asegúrate de importar Axios
+import axios from "axios"; // Asegúrate de importar Axios
 
 export default {
   props: {
@@ -58,7 +58,10 @@ export default {
           if (callback) callback();
         })
         .catch((error) => {
-          console.error("Error al cargar el combo de habitaciones:", error.response || error.message);
+          console.error(
+            "Error al cargar el combo de habitaciones:",
+            error.response || error.message
+          );
         });
     },
     // Método para manejar la selección de una habitación
@@ -84,16 +87,8 @@ export default {
         console.log("Capacidad seleccionada:", capacidad);
         console.log("Camas seleccionadas:", camas);
 
-        // Enviar datos al servidor para bloquear la habitación
-        axios
-          .post(`${this.baseUrl}/BloquearHabitacion`, { capacidad, camas })
-          .then((response) => {
-            console.log("Habitación bloqueada con ID:", response.data);
-            this.$emit("nextStep", { comboHabitaciones: selectedOption });
-          })
-          .catch((error) => {
-            console.error("Error al bloquear la habitación:", error.response || error.message);
-          });
+        // Emitir evento para pasar al siguiente paso
+        this.$emit("nextStep", { comboHabitaciones: selectedOption });
       } else {
         console.error("El elemento <select> no está disponible.");
       }
@@ -107,7 +102,9 @@ export default {
         if (selectElement) {
           selectElement.addEventListener("change", this.handleSelection);
         } else {
-          console.error("No se encontró el elemento <select> después de cargar el combo.");
+          console.error(
+            "No se encontró el elemento <select> después de cargar el combo."
+          );
         }
       });
     });
