@@ -9,27 +9,15 @@
       <div class="barramenu mb-4">
         <p>Mereth Aldaron Enyali&euml; - Formulario de Inscripci&oacute;n</p>
         <div class="margin_button d-flex justify-content-around">
-          <button
-            class="btn btn-primary"
-            @click="inicioGrupos"
-            :disabled="isDisabled"
-            :style="{ cursor: isDisabled ? 'not-allowed' : 'pointer' }"
-          >
+          <button class="btn btn-primary" @click="inicioGrupos" :disabled="isDisabled"
+            :style="{ cursor: isDisabled ? 'not-allowed' : 'pointer' }">
             Inscripci&oacute;n General
           </button>
-          <button
-            class="btn btn-secondary"
-            @click="inicioIndividual"
-            :disabled="isDisabled"
-            :style="{ cursor: isDisabled ? 'not-allowed' : 'pointer' }"
-          >
+          <button class="btn btn-secondary" @click="inicioIndividual" :disabled="isDisabled"
+            :style="{ cursor: isDisabled ? 'not-allowed' : 'pointer' }">
             Inscripci&oacute;n Aleatoria
           </button>
-          <button
-            class="btn btn-warning"
-            @click="inicioListaEspera"
-            v-show="showListaEspera"
-          >
+          <button class="btn btn-warning" @click="inicioListaEspera" v-show="showListaEspera">
             Apuntarse a la lista de espera
           </button>
           <button class="btn btn-danger" @click="reiniciarProceso">
@@ -38,40 +26,23 @@
         </div>
       </div>
       <div class="main-content">
-        <Paso1
-          :formData="formData"
-          :baseUrl="formData.baseUrl"
-          @nextStep="handleNextStep"
-          v-if="currentStep === 1"
-          ref="paso1Component"
-        />
-        <Paso2
-          :currentStep="currentStep"
-          :formData="formData"
-          :baseUrl="baseUrl"
-          :mensaje="mensaje"
-          v-if="currentStep === 2"
-          ref="paso2Component"
-        />
-
-        <Paso3
-          :formData="formData"
-          @nextStep="handleNextStep"
-          @prevStep="handlePrevStep"
-          v-if="currentStep === 3"
-        />
-        <Paso4
-          :formData="formData"
-          @prevStep="handlePrevStep"
-          @submitForm="handleSubmit"
-          v-if="currentStep === 4"
-        />
-        <ControlComponent
-          :visible="true"
-          :isDisabled="isDisabled"
-          @validar="handleValidar"
-          @enviar="handleEnviar"
-        />
+        <div v-if="isLoading" class="spinner">
+          <div class="spinner-container">
+            <div class="spinner-circle"></div>
+            <div class="spinner-circle"></div>
+            <div class="spinner-circle"></div>
+            <div class="spinner-circle"></div>
+          </div>
+          <p>Buscando en el Pony Pisador...</p>
+        </div>
+        <Paso1 :formData="formData" :baseUrl="formData.baseUrl" @nextStep="handleNextStep"
+          v-if="currentStep === 1 && !isLoading" ref="paso1Component" />
+        <Paso2 :currentStep="currentStep" :formData="formData" :baseUrl="baseUrl" :mensaje="mensaje"
+          v-if="currentStep === 2 && !isLoading" ref="paso2Component" />
+        <Paso3 :formData="formData" @nextStep="handleNextStep" @prevStep="handlePrevStep"
+          v-if="currentStep === 3 && !isLoading" ref="paso3Component" />
+        <Paso4 :formData="formData" @prevStep="handlePrevStep" @submitForm="handleSubmit"
+          v-if="currentStep === 4 && !isLoading" />
       </div>
     </main>
     <footer class="footer text-center mt-5">
@@ -105,8 +76,9 @@ export default {
       formData: {
         comboHabitaciones: "",
         idhabitacion: "",
-        baseUrl: "http://10.178.169.94:8080",
+        baseUrl: "http://localhost:8080",
         mensaje: "",
+        isLoading: false, // Estado de carga
       },
       isDisabled: false,
       showListaEspera: false,
@@ -124,6 +96,7 @@ export default {
       this.formData = { ...this.formData, ...data };
       if (this.currentStep === 1) {
         console.log("Avanzando al paso 2");
+        console.log("Lanzo paso 2");
         this.lanzarPaso2();
       } else if (this.currentStep === 2) {
         console.log("Avanzando al paso 3");
@@ -207,9 +180,10 @@ export default {
 
       const capacidad = this.formData.comboHabitaciones.split(",")[0];
       const camas = this.formData.comboHabitaciones.split(",")[1];
-      console.log(
-        `Se llama al servicio de bloquear ${this.formData.baseUrl}/Valimar/BloquearHabitacion`
-      );
+      console.log(`Se llama al servicio de bloquear ${this.formData.baseUrl}/Valimar/BloquearHabitacion`);
+
+      this.isLoading = true; // Inicia el estado de carga
+
       axios
         .post(`${this.formData.baseUrl}/Valimar/BloquearHabitacion`, {
           capacidad: capacidad,
@@ -227,19 +201,18 @@ export default {
               this.formData.idhabitacion = response.data;
               console.log("Preparandop mensaje a Paso2");
               const mensaje = `
-                  <div class="alert alert-info" role="alert">
-                    <h4 class="alert-heading">Habitación Bloqueada</h4>
-                    <p>Tiene bloqueada temporalmente la habitación <strong>${response.data}</strong>.</p>
-                    <hr>
-                    <p class="mb-0">Dispone de 10 minutos para formalizar la reserva antes de que la habitación vuelva a liberarse.</p>
-                  </div>
-                `;
+              <div class="alert alert-info" role="alert">
+                <h4 class="alert-heading">Habitación Bloqueada</h4>
+                <p>Tiene bloqueada temporalmente la habitación <strong>${response.data}</strong>.</p>
+                <hr>
+                <p class="mb-0">Dispone de 10 minutos para formalizar la reserva antes de que la habitación vuelva a liberarse.</p>
+              </div>
+            `;
               paso2Component.mostrarMensaje(mensaje); // Enviar el mensaje al componente Paso2
               console.log("Mensaje enviado a Paso2");
               this.generarPaso3(capacidad, response.data); // Llamar a generarPaso3
             } else {
-              const mensajeError =
-                "Las habitaciones de esta capacidad ya no están disponibles.";
+              const mensajeError = "Las habitaciones de esta capacidad ya no están disponibles.";
               paso2Component.mostrarError(mensajeError); // Mostrar error en el Paso2
             }
           } else {
@@ -248,68 +221,60 @@ export default {
         })
         .catch((error) => {
           console.error("Error al bloquear la habitación:", error);
+        })
+        .finally(() => {
+          this.isLoading = false; // Finaliza el estado de carga
         });
     },
 
     generarPaso3(capacidad, idhabitacion) {
-      console.log(
-        "Generar paso 3 con capacidad:",
-        capacidad,
-        "y idhabitacion:",
-        idhabitacion
-      );
+      console.log("Generar paso 3 con capacidad:", capacidad, "y idhabitacion:", idhabitacion);
 
-      // Selecciona el elemento donde se mostrarán los datos del paso 3
-      const elemDatos = document.getElementById("paso3Datos");
+
       // Limpia el contenido previo
-      $("#paso3Datos").html("");
+      elemDatos.innerHTML = "";
 
       // Genera los campos de inscripción para cada ocupante según la capacidad
       for (let i = 0; i < capacidad; i++) {
         const divInscrito = document.createElement("div");
         let lineaMenor = "";
 
-        // Si no es el primer ocupante, añade la línea para menores de 2 a 12 años
         if (i > 0) {
           lineaMenor = " Menor entre 2 y 12 años";
         }
 
-        // Si es el primer ocupante, añade la línea para menores de 2 años
         if (i === 0) {
           lineaMenor = " Voy con menor/es de 2 años (no ocupan plaza)";
           lineaMenor += "\n(Año de nacimiento del menor)2022 2023 2024";
         }
 
-        // Genera el contenido HTML para cada ocupante
         divInscrito.innerHTML = `
-        <div>
-          <h4>Datos del inscrito número ${i + 1}</h4>
-          <label>Nombre: *</label>
-          <input type="text" name="nombre${i}" required>
-          <label>Apellidos: *</label>
-          <input type="text" name="apellidos${i}" required>
-          <label>Pseudónimo (opcional):</label>
-          <input type="text" name="pseudonimo${i}">
-          <label>Email: *</label>
-          <input type="email" name="email${i}" required>
-          <label>Teléfono: *</label>
-          <input type="tel" name="telefono${i}" required>
-          <label>NIF/NIE/Pasaporte: *</label>
-          <input type="text" name="nif${i}" required>
-          <label>
-            <input type="checkbox" name="condiciones${i}" required>
-            He leído y acepto las condiciones de inscripción al evento (incluidas las referentes a uso de mi imagen)*
-          </label>
-          ${lineaMenor}
-          <p>(*) Campos obligatorios (salvo NIF en menores de 12 años)</p>
-        </div>
-      `;
+      <div>
+        <h4>Datos del inscrito número ${i + 1}</h4>
+        <label>Nombre: *</label>
+        <input type="text" name="nombre${i}" required>
+        <label>Apellidos: *</label>
+        <input type="text" name="apellidos${i}" required>
+        <label>Pseudónimo (opcional):</label>
+        <input type="text" name="pseudonimo${i}">
+        <label>Email: *</label>
+        <input type="email" name="email${i}" required>
+        <label>Teléfono: *</label>
+        <input type="tel" name="telefono${i}" required>
+        <label>NIF/NIE/Pasaporte: *</label>
+        <input type="text" name="nif${i}" required>
+        <label>
+          <input type="checkbox" name="condiciones${i}" required>
+          He leído y acepto las condiciones de inscripción al evento (incluidas las referentes a uso de mi imagen)*
+        </label>
+        ${lineaMenor}
+        <p>(*) Campos obligatorios (salvo NIF en menores de 12 años)</p>
+      </div>
+    `;
 
-        // Añade el div generado al contenedor de datos
         elemDatos.appendChild(divInscrito);
       }
 
-      // Muestra el contenedor del paso 3
       $("#paso3").show();
     },
     reiniciarProceso() {

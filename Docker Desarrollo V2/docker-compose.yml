@@ -1,41 +1,29 @@
-
 services:
-  vue-app:
-    build:
-      context: ./  # Asegúrate de que el contexto de construcción es correcto
-      dockerfile: Dockerfile
-    container_name: vue-app
-    ports:
-      - "8081:8080"
-    volumes:
-      - ../valimar_front:/usr/local/vue-app  # Si prefieres montar el volumen en lugar de copiar
-    networks:
-      - dockerdesarrollov2_estelcon-net
-
   app:
     build:
-      context: ./  # El contexto está en el directorio actual, donde se encuentra Dockerfile de este servicio
+      context: "./"
+      dockerfile: "./Dockerfile"  # Usa el Dockerfile en el mismo directorio
     container_name: estelcon-app
     volumes:
-      - ./files/default.config.nginx:/etc/nginx/sites-available/default
-      - ./files/vsftpd.conf:/etc/vsftpd.conf
-      - ./files/vsftpd.sh:/etc/init.d/vsftpd.sh
-      - ./files/vsftpd_virtual:/etc/vsftpd_virtual
-      - ./files/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
-      - ./files/init-mariadb.sql:/var/www/init-mariadb.sql
-      - ./files/mysql-connector-j-8.0.32.jar:/usr/local/tomcat/lib/mysql-connector-j-8.0.32.jar
-      - ./files/start-services.sh:/usr/local/bin/start-services.sh
-      - ./files/50-server.cnf:/var/www/50-server.cnf
-      - ./files/mariadb.sh:/etc/init.d/mariadb.sh
-      - ./files/estelcon.properties:/home/estelcon/estelcon.properties
-      - ./wars:/usr/local/tomcat/webapps
-      - ./tomcat_logs:/usr/local/tomcat/logs
-      - ./local_activity:/home/estelcon/activity
-      - ./local_error:/home/estelcon/error
-      - ./local_log:/home/estelcon/log
-      - ./local_outbox:/home/estelcon/outbox
-      - ./local_plantillas:/home/estelcon/plantillas
-      - ./local_sent:/home/estelcon/sent
+      - "./files/default.config.nginx:/etc/nginx/sites-available/default"
+      - "./files/vsftpd.conf:/etc/vsftpd.conf"
+      - "./files/vsftpd.sh:/etc/init.d/vsftpd.sh"
+      - "./files/vsftpd_virtual:/etc/vsftpd_virtual"
+      - "./files/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml"
+      - "./files/init-mariadb.sql:/var/www/init-mariadb.sql"
+      - "./files/mysql-connector-j-8.0.32.jar:/usr/local/tomcat/lib/mysql-connector-j-8.0.32.jar"
+      - "./files/start-services.sh:/usr/local/bin/start-services.sh"
+      - "./files/50-server.cnf:/var/www/50-server.cnf"
+      - "./files/mariadb.sh:/etc/init.d/mariadb.sh"
+      - "./files/estelcon.properties:/home/estelcon/estelcon.properties"
+      - "./wars:/usr/local/tomcat/webapps"
+      - "./tomcat_logs:/usr/local/tomcat/logs"
+      - "./local_activity:/home/estelcon/activity"
+      - "./local_error:/home/estelcon/error"
+      - "./local_log:/home/estelcon/log"
+      - "./local_outbox:/home/estelcon/outbox"
+      - "./local_plantillas:/home/estelcon/plantillas"
+      - "./local_sent:/home/estelcon/sent"
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
       FTP_USER: ftpestelcon
@@ -58,8 +46,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
     volumes:
-      - ./db_data:/var/lib/mysql
-      - ./files/init-mariadb.sql:/docker-entrypoint-initdb.d/init.sql 
+      - "./db_data:/var/lib/mysql"
+      - "./files/init-mariadb.sql:/docker-entrypoint-initdb.d/init.sql"
     networks:
       - dockerdesarrollov2_estelcon-net
     ports:

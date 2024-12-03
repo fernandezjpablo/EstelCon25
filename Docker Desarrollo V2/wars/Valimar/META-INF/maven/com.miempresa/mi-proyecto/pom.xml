@@ -19,12 +19,16 @@
     <artifactId>jakarta.activation-api</artifactId>
     <version>2.1.0</version>
 </dependency>
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>8.0.32</version> <!-- Usa la versión más reciente -->
+		</dependency>
 <dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-java</artifactId>
-    <version>8.0.32</version> <!-- Usa la versión más reciente -->
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.8.6</version>
 </dependency>
-
 		<!-- Generación de QR -->
 		<dependency>
 			<groupId>io.nayuki</groupId>
@@ -32,11 +36,12 @@
 			<version>1.7.0</version>
 		</dependency>
 		<!-- Logback para SLF4J -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.7.30</version>
-		</dependency>
+	<dependency>
+	    <groupId>org.slf4j</groupId>
+	    <artifactId>slf4j-simple</artifactId>
+	    <version>1.7.30</version>
+	    <scope>runtime</scope>
+	</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>

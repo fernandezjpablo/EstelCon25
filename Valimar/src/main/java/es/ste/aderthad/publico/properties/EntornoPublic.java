@@ -13,18 +13,16 @@ public class EntornoPublic {
     private static final Logger LOGGER = Logger.getLogger(EntornoPublic.class.getName());
 
     // Definición de las rutas por defecto
-   /* private static String entornoLocal = "/home/estelcon/estelcon.properties";
+    private static String entornoLocal = "/home/estelcon/estelcon.properties";
     private static String entornoRemoto = System.getenv("ESTELCON_PROPERTIES") != null
             ? System.getenv("ESTELCON_PROPERTIES")
-            : "/home/estelcon/estelcon.properties";*/
+            : "/home/estelcon/estelcon.properties";
 
-    
-    private static String entornoLocal = "/home/fernandez_juafer2/estelcon/estelcon.properties";
+     
+  /*  private static String entornoLocal = "/home/fernandez_juafer2/estelcon/estelcon.properties";
     private static String entornoRemoto = System.getenv("ESTELCON_PROPERTIES") != null
             ? System.getenv("ESTELCON_PROPERTIES")
-            : "/home/fernandez_juafer2/estelcon/estelcon.properties";
-    
-    
+            : "/home/fernandez_juafer2/estelcon/estelcon.properties";*/
     /**
      * Obtiene el valor de una variable desde el archivo de propiedades.
      * 
