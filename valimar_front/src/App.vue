@@ -38,9 +38,9 @@
         <Paso1 :formData="formData" :baseUrl="formData.baseUrl" @nextStep="handleNextStep"
           v-if="currentStep === 1 && !isLoading" ref="paso1Component" />
         <Paso2 :currentStep="currentStep" :formData="formData" :baseUrl="baseUrl" :mensaje="mensaje"
-          v-if="currentStep === 2 && !isLoading" ref="paso2Component" />
+          v-if="currentStep === 2 " ref="paso2Component" />
         <Paso3 :formData="formData" @nextStep="handleNextStep" @prevStep="handlePrevStep"
-          v-if="currentStep === 3 && !isLoading" ref="paso3Component" />
+          v-if="currentStep === 3 " ref="paso3Component" />
         <Paso4 :formData="formData" @prevStep="handlePrevStep" @submitForm="handleSubmit"
           v-if="currentStep === 4 && !isLoading" />
       </div>
@@ -77,17 +77,26 @@ export default {
         comboHabitaciones: "",
         idhabitacion: "",
         baseUrl: "http://localhost:8080",
-        mensaje: "",
-        isLoading: false, // Estado de carga
+        mensaje: ""
       },
       isDisabled: false,
       showListaEspera: false,
+      isLoading: false, // Estado de carga
+      showInfo: true,
+      showPaso3: false,
+      showPaso3Individual: false,
+      showPaso3EsperaDatos: false,
     };
   },
   watch: {
     // Observa los cambios en 'currentStep' y muestra el nuevo valor en consola
     currentStep(newStep) {
       console.log("Cambio de paso a:", newStep);
+    },
+  },
+  computed: {
+    cursorStyle() {
+      return this.isDisabled ? 'cursor: not-allowed;' : 'cursor: pointer;';
     },
   },
   methods: {
@@ -199,24 +208,25 @@ export default {
             // Verifica si hay respuesta del servicio de bloqueo
             if (response.data) {
               this.formData.idhabitacion = response.data;
-              console.log("Preparandop mensaje a Paso2");
+              console.log("Preparando mensaje a Paso2");
               const mensaje = `
-              <div class="alert alert-info" role="alert">
-                <h4 class="alert-heading">Habitación Bloqueada</h4>
-                <p>Tiene bloqueada temporalmente la habitación <strong>${response.data}</strong>.</p>
-                <hr>
-                <p class="mb-0">Dispone de 10 minutos para formalizar la reserva antes de que la habitación vuelva a liberarse.</p>
-              </div>
-            `;
+                <div class="alert alert-info" role="alert">
+                  <h4 class="alert-heading">Habitación Bloqueada</h4>
+                  <p>Tiene bloqueada temporalmente la habitación <strong>${response.data}</strong>.</p>
+                  <hr>
+                  <p class="mb-0">Dispone de 10 minutos para formalizar la reserva antes de que la habitación vuelva a liberarse.</p>
+                </div>
+              `;
               paso2Component.mostrarMensaje(mensaje); // Enviar el mensaje al componente Paso2
               console.log("Mensaje enviado a Paso2");
               this.generarPaso3(capacidad, response.data); // Llamar a generarPaso3
             } else {
+
               const mensajeError = "Las habitaciones de esta capacidad ya no están disponibles.";
               paso2Component.mostrarError(mensajeError); // Mostrar error en el Paso2
             }
           } else {
-            console.error("El componente Paso2 no está disponible.");
+            console.error("El componente Paso2 no está disponible. CurrentStepL: "+this.currentStep+" IsLoading: "+isLo);
           }
         })
         .catch((error) => {
@@ -230,7 +240,7 @@ export default {
     generarPaso3(capacidad, idhabitacion) {
       console.log("Generar paso 3 con capacidad:", capacidad, "y idhabitacion:", idhabitacion);
 
-
+      const elemDatos = document.getElementById("paso3Datos");
       // Limpia el contenido previo
       elemDatos.innerHTML = "";
 
@@ -249,92 +259,76 @@ export default {
         }
 
         divInscrito.innerHTML = `
-      <div>
-        <h4>Datos del inscrito número ${i + 1}</h4>
-        <label>Nombre: *</label>
-        <input type="text" name="nombre${i}" required>
-        <label>Apellidos: *</label>
-        <input type="text" name="apellidos${i}" required>
-        <label>Pseudónimo (opcional):</label>
-        <input type="text" name="pseudonimo${i}">
-        <label>Email: *</label>
-        <input type="email" name="email${i}" required>
-        <label>Teléfono: *</label>
-        <input type="tel" name="telefono${i}" required>
-        <label>NIF/NIE/Pasaporte: *</label>
-        <input type="text" name="nif${i}" required>
-        <label>
-          <input type="checkbox" name="condiciones${i}" required>
-          He leído y acepto las condiciones de inscripción al evento (incluidas las referentes a uso de mi imagen)*
-        </label>
-        ${lineaMenor}
-        <p>(*) Campos obligatorios (salvo NIF en menores de 12 años)</p>
-      </div>
-    `;
-
+          <div>
+            <h4>Datos del inscrito número ${i + 1}</h4>
+            <label>Nombre: *</label>
+            <input type="text" name="nombre${i}" required>
+            <label>Apellidos: *</label>
+            <input type="text" name="apellidos${i}" required>
+            <label>Pseudónimo (opcional):</label>
+            <input type="text" name="pseudonimo${i}">
+            <label>Email: *</label>
+            <input type="email" name="email${i}" required>
+            <label>Teléfono: *</label>
+            <input type="tel" name="telefono${i}" required>
+            <label>NIF/NIE/Pasaporte: *</label>
+            <input type="text" name="nif${i}" required>
+            <label>
+              <input type="checkbox" name="condiciones${i}" required>
+              He leído y acepto las condiciones de inscripción al evento (incluidas las referentes a uso de mi imagen)*
+            </label>
+            ${lineaMenor}
+          </div>
+        `;
         elemDatos.appendChild(divInscrito);
       }
 
-      $("#paso3").show();
-    },
-    reiniciarProceso() {
-      // Lógica para reiniciar el proceso
-      console.log("Reiniciar proceso");
-      this.isDisabled = false;
-      this.currentStep = 1;
-      this.formData = {
-        comboHabitaciones: "",
-        idhabitacion: "",
-        baseUrl: "http://10.178.169.94:8080",
-      };
+      this.showPaso3 = true;
     },
   },
 };
 </script>
-<style>
-body {
-  font-family: "Roboto", sans-serif;
+
+<style scoped>
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
 }
 
-.header,
-.footer {
-  background-color: #343a40;
-  color: white;
-  padding: 10px 0;
+.spinner-container {
+  display: flex;
+  justify-content: space-around;
+  width: 50px;
 }
 
-.header h1,
-.footer p {
-  margin: 0;
+.spinner-circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #333;
+  animation: bounce 1.5s infinite ease-in-out;
 }
 
-.barramenu {
-  background-color: #f8f9fa;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.spinner-circle:nth-child(2) {
+  animation-delay: -0.3s;
 }
 
-.margin_button button {
-  margin: 5px;
+.spinner-circle:nth-child(3) {
+  animation-delay: -0.6s;
 }
 
-.main-content {
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+@keyframes bounce {
 
-.alert {
-  margin-top: 20px;
-}
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
 
-.alert-heading {
-  font-size: 1.5rem;
-}
-
-.alert p {
-  margin-bottom: 0;
+  40% {
+    transform: scale(1);
+  }
 }
 </style>

@@ -37,6 +37,7 @@ services:
       - "22:22"
       - "40000:40000"
       - "3306:3306"
+      - "9222:9222"
     networks:
       - dockerdesarrollov2_estelcon-net
 
