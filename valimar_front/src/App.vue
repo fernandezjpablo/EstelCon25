@@ -5,46 +5,98 @@
         <h1>Formulario de Varias Etapas</h1>
       </div>
     </header>
+
     <main class="container mt-5">
       <div class="barramenu mb-4">
         <p>Mereth Aldaron Enyali&euml; - Formulario de Inscripci&oacute;n</p>
+
         <div class="margin_button d-flex justify-content-around">
-          <button class="btn btn-primary" @click="inicioGrupos" :disabled="isDisabled"
-            :style="{ cursor: isDisabled ? 'not-allowed' : 'pointer' }">
+          <button
+            class="btn btn-primary"
+            @click="inicioGrupos"
+            :disabled="isDisabled"
+            :style="{ cursor: isDisabled ? 'not-allowed' : 'pointer' }"
+          >
             Inscripci&oacute;n General
           </button>
-          <button class="btn btn-secondary" @click="inicioIndividual" :disabled="isDisabled"
-            :style="{ cursor: isDisabled ? 'not-allowed' : 'pointer' }">
+
+          <button
+            class="btn btn-secondary"
+            @click="inicioIndividual"
+            :disabled="isDisabled"
+            :style="{ cursor: isDisabled ? 'not-allowed' : 'pointer' }"
+          >
             Inscripci&oacute;n Aleatoria
           </button>
-          <button class="btn btn-warning" @click="inicioListaEspera" v-show="showListaEspera">
+
+          <button
+            class="btn btn-warning"
+            @click="inicioListaEspera"
+            v-show="showListaEspera"
+          >
             Apuntarse a la lista de espera
           </button>
+
           <button class="btn btn-danger" @click="reiniciarProceso">
             Reiniciar proceso
           </button>
         </div>
       </div>
+
       <div class="main-content">
         <div v-if="isLoading" class="spinner">
           <div class="spinner-container">
             <div class="spinner-circle"></div>
+
             <div class="spinner-circle"></div>
+
             <div class="spinner-circle"></div>
+
             <div class="spinner-circle"></div>
           </div>
+
           <p>Buscando en el Pony Pisador...</p>
         </div>
-        <Paso1 :formData="formData" :baseUrl="formData.baseUrl" @nextStep="handleNextStep"
-          v-if="currentStep === 1 && !isLoading" ref="paso1Component" />
-        <Paso2 :currentStep="currentStep" :formData="formData" :baseUrl="baseUrl" :mensaje="mensaje"
-          v-if="currentStep === 2 " ref="paso2Component" />
-        <Paso3 :formData="formData" @nextStep="handleNextStep" @prevStep="handlePrevStep"
-          v-if="currentStep === 3 " ref="paso3Component" />
-        <Paso4 :formData="formData" @prevStep="handlePrevStep" @submitForm="handleSubmit"
-          v-if="currentStep === 4 && !isLoading" />
+
+        <Paso1
+          :formData="formData"
+          :baseUrl="formData.baseUrl"
+          @nextStep="handleNextStep"
+          v-if="currentStep === 1 && !isLoading"
+          ref="paso1Component"
+        />
+
+        <Paso2
+          :currentStep="currentStep"
+          :formData="formData"
+          :baseUrl="baseUrl"
+          :mensaje="mensaje"
+          @nextStep="handleNextStep"
+          @prevStep="handlePrevStep"
+          v-if="currentStep === 2"
+          ref="paso2Component"
+        />
+
+        <Paso3
+          :currentStep="currentStep"
+          :formData="formData"
+          :baseUrl="baseUrl"
+          :mensaje="mensaje"
+          @nextStep="handleNextStep"
+          @prevStep="handlePrevStep"
+          v-if="currentStep === 2"
+          ref="paso3Component"
+        />
+
+        <Paso4
+          :formData="formData"
+          @prevStep="handlePrevStep"
+          @submitForm="handleSubmit"
+          v-if="currentStep === 4 && !isLoading"
+        />
       </div>
     </main>
+
     <footer class="footer text-center mt-5">
       <div class="container">
         <p>&copy; 2024 Formulario de Varias Etapas. Todos los derechos reservados.</p>
@@ -76,8 +128,8 @@ export default {
       formData: {
         comboHabitaciones: "",
         idhabitacion: "",
-        baseUrl: "http://localhost:8080",
-        mensaje: ""
+        baseUrl: "http://10.178.169.92:8080",
+        mensaje: "",
       },
       isDisabled: false,
       showListaEspera: false,
@@ -89,27 +141,19 @@ export default {
     };
   },
   watch: {
-    // Observa los cambios en 'currentStep' y muestra el nuevo valor en consola
     currentStep(newStep) {
-      console.log("Cambio de paso a:", newStep);
-    },
-  },
-  computed: {
-    cursorStyle() {
-      return this.isDisabled ? 'cursor: not-allowed;' : 'cursor: pointer;';
+      console.log(`[WATCH] Cambio de paso: Paso ${newStep}`);
     },
   },
   methods: {
     handleNextStep(data) {
-      console.log("Datos del siguiente paso:", data);
+      console.log("[NEXT STEP] Datos del paso siguiente recibidos:", data);
       this.formData = { ...this.formData, ...data };
+      console.log("Step ->" + this.currentStep);
       if (this.currentStep === 1) {
-        console.log("Avanzando al paso 2");
-        console.log("Lanzo paso 2");
         this.lanzarPaso2();
       } else if (this.currentStep === 2) {
-        console.log("Avanzando al paso 3");
-        this.currentStep++;
+        console.log("[NEXT STEP] Avanzando al paso 3...");
         this.generarPaso3(
           this.formData.comboHabitaciones.split(",")[0],
           this.formData.idhabitacion
@@ -120,170 +164,143 @@ export default {
     },
     handlePrevStep() {
       if (this.currentStep > 1) {
+        console.log("[PREV STEP] Retrocediendo al paso anterior.");
         this.currentStep--;
       }
     },
-    handleValidar() {
-      console.log("Validar");
-    },
-    handleEnviar() {
-      console.log("Enviar");
-    },
-    handleSubmit() {
-      console.log("Formulario enviado", this.formData);
-    },
     inicioGrupos() {
       const respuesta = confirm(
-        "Este tipo de inscripción es para habitaciones INDIVIDUALES NO COMPARTIDAS o GRUPOS COMPLETOS. Necesitarás TODOS LOS DATOS de los ocupantes. Si es lo que quieres pulsa Aceptar para continuar."
+        "Este tipo de inscripción es para habitaciones INDIVIDUALES NO COMPARTIDAS o GRUPOS COMPLETOS..."
       );
       if (respuesta) {
+        console.log("[INICIO GRUPOS] Iniciando inscripción general.");
         this.lanzarPaso1();
         this.isDisabled = true;
       }
     },
     inicioIndividual() {
       const respuesta = confirm(
-        "Este tipo de inscripción es para una inscripción individual en una habitación COMPARTIDA con compañer@s seleccionados aleatoriamente. Si es lo que quieres pulsa Aceptar para continuar."
+        "Este tipo de inscripción es para una inscripción individual en una habitación COMPARTIDA..."
       );
       if (respuesta) {
+        console.log("[INICIO INDIVIDUAL] Iniciando inscripción individual.");
         this.lanzarPaso1individual();
         this.isDisabled = true;
       }
     },
-    inicioListaEspera() {
-      this.lanzarPaso1ListaEspera();
-      this.isDisabled = true;
-    },
-    lanzarPaso1() {
-      this.cargarComboPaso1();
-    },
     cargarComboPaso1() {
+      console.log("[PASO 1] Solicitando habitaciones disponibles...");
+      this.isLoading = true;
       axios
-        .get(this.formData.baseUrl + "/Valimar/GetComboHabitacionesDisponibles")
+        .get(`${this.formData.baseUrl}/Valimar/GetComboHabitacionesDisponibles`)
         .then((response) => {
-          console.log(this.$refs);
+          console.log("[PASO 1] Habitaciones disponibles recibidas:", response.data);
           const paso1Component = this.$refs.paso1Component;
           if (paso1Component) {
-            paso1Component.$refs.paso1.innerHTML = response.data; // Usa $refs para acceder al div
-            paso1Component.$refs.paso1.style.display = "block"; // Muestra el div
+            paso1Component.$refs.paso1.innerHTML = response.data;
+            paso1Component.$refs.paso1.style.display = "block";
           } else {
-            console.error("El componente Paso1 no está disponible.");
+            console.error("[PASO 1] Componente Paso1 no encontrado.");
           }
         })
         .catch((error) => {
-          console.error("Error al cargar las habitaciones disponibles:", error);
-        });
-    },
-    lanzarPaso1individual() {
-      // Lógica para lanzar el paso 1 de inscripción individual
-      console.log("Lanzar paso 1 individual");
-    },
-    lanzarPaso1ListaEspera() {
-      // Lógica para lanzar el paso 1 de lista de espera
-      console.log("Lanzar paso 1 lista de espera");
-    },
-    lanzarPaso2() {
-      console.log("Antes de cambiar currentStep:", this.currentStep); // Log antes de actualizar
-      this.currentStep = 2;
-      console.log("Después de cambiar currentStep:", this.currentStep); // Log después de actualizar
-
-      const capacidad = this.formData.comboHabitaciones.split(",")[0];
-      const camas = this.formData.comboHabitaciones.split(",")[1];
-      console.log(`Se llama al servicio de bloquear ${this.formData.baseUrl}/Valimar/BloquearHabitacion`);
-
-      this.isLoading = true; // Inicia el estado de carga
-
-      axios
-        .post(`${this.formData.baseUrl}/Valimar/BloquearHabitacion`, {
-          capacidad: capacidad,
-          camas: camas,
-        })
-        .then((response) => {
-          console.log(this.$refs);
-          const paso2Component = this.$refs.paso2Component;
-          console.log("paso 2 comp. -> " + this.$refs); // Verifica que la referencia está siendo asignada correctamente
-          console.log(this.$refs);
-
-          if (paso2Component) {
-            // Verifica si hay respuesta del servicio de bloqueo
-            if (response.data) {
-              this.formData.idhabitacion = response.data;
-              console.log("Preparando mensaje a Paso2");
-              const mensaje = `
-                <div class="alert alert-info" role="alert">
-                  <h4 class="alert-heading">Habitación Bloqueada</h4>
-                  <p>Tiene bloqueada temporalmente la habitación <strong>${response.data}</strong>.</p>
-                  <hr>
-                  <p class="mb-0">Dispone de 10 minutos para formalizar la reserva antes de que la habitación vuelva a liberarse.</p>
-                </div>
-              `;
-              paso2Component.mostrarMensaje(mensaje); // Enviar el mensaje al componente Paso2
-              console.log("Mensaje enviado a Paso2");
-              this.generarPaso3(capacidad, response.data); // Llamar a generarPaso3
-            } else {
-
-              const mensajeError = "Las habitaciones de esta capacidad ya no están disponibles.";
-              paso2Component.mostrarError(mensajeError); // Mostrar error en el Paso2
-            }
-          } else {
-            console.error("El componente Paso2 no está disponible. CurrentStepL: "+this.currentStep+" IsLoading: "+isLo);
-          }
-        })
-        .catch((error) => {
-          console.error("Error al bloquear la habitación:", error);
+          console.error("[PASO 1] Error al obtener habitaciones:", error);
         })
         .finally(() => {
-          this.isLoading = false; // Finaliza el estado de carga
+          this.isLoading = false;
         });
     },
+    lanzarPaso2() {
+      console.log("[PASO 2] Iniciando solicitud para bloquear habitación...");
+      if (!this.formData.comboHabitaciones) {
+        console.error("[PASO 2] comboHabitaciones está vacío. Abortando.");
+        return;
+      }
+      this.currentStep = 2;
+      this.isLoading = true;
+      axios
+        .post(`${this.formData.baseUrl}/Valimar/BloquearHabitacion`, {
+          capacidad: this.formData.comboHabitaciones.split(",")[0],
+          camas: this.formData.comboHabitaciones.split(",")[1],
+        })
+        .then((response) => {
+          console.log("[PASO 2] Respuesta recibida:", response.data);
 
+          const paso2Component = this.$refs.paso2Component;
+
+          // Verificar valores antes de proceder
+          console.log("[PASO 2] Comprobando valores:");
+          console.log("paso2Component:", paso2Component);
+          console.log("response.data:", response.data);
+
+          if (paso2Component && response.data && response.data.trim() !== "") {
+            // Todo está bien, actualizar los datos y mostrar mensaje
+            this.formData.idhabitacion = response.data;
+            const mensaje = `
+          <div class="alert alert-info" role="alert">
+            <h4 class="alert-heading">Habitación Bloqueada</h4>
+            <p>Habitación bloqueada temporalmente: <strong>${response.data}</strong>.</p>
+            <hr>
+            <p class="mb-0">Dispone de 10 minutos para completar la reserva.</p>
+          </div>`;
+            paso2Component.mostrarMensaje(mensaje);
+          } else {
+            // Manejo del error en caso de problema
+            console.warn("[PASO 2] No se pudo bloquear habitación o datos incompletos.");
+            if (
+              this.$refs.paso2Component &&
+              typeof this.$refs.paso2Component.mostrarError === "function"
+            ) {
+              this.$refs.paso2Component.mostrarError(
+                "No se pudo bloquear la habitación. Inténtelo de nuevo."
+              );
+            } else {
+              console.error(
+                "[PASO 2] No se pudo encontrar el método mostrarError en el componente."
+              );
+            }
+          }
+        })
+        .catch((error) => {
+          console.error("[PASO 2] Error al bloquear habitación:", error);
+          if (
+            this.$refs.paso2Component &&
+            typeof this.$refs.paso2Component.mostrarError === "function"
+          ) {
+            this.$refs.paso2Component.mostrarError(
+              "Error al conectar con el servicio. Inténtelo más tarde."
+            );
+          }
+        });
+    },
     generarPaso3(capacidad, idhabitacion) {
-      console.log("Generar paso 3 con capacidad:", capacidad, "y idhabitacion:", idhabitacion);
+      console.log(
+        `[PASO 3] Generando paso 3 con capacidad: ${capacidad}, idHabitacion: ${idhabitacion}`
+      );
 
-      const elemDatos = document.getElementById("paso3Datos");
-      // Limpia el contenido previo
-      elemDatos.innerHTML = "";
-
-      // Genera los campos de inscripción para cada ocupante según la capacidad
-      for (let i = 0; i < capacidad; i++) {
-        const divInscrito = document.createElement("div");
-        let lineaMenor = "";
-
-        if (i > 0) {
-          lineaMenor = " Menor entre 2 y 12 años";
-        }
-
-        if (i === 0) {
-          lineaMenor = " Voy con menor/es de 2 años (no ocupan plaza)";
-          lineaMenor += "\n(Año de nacimiento del menor)2022 2023 2024";
-        }
-
-        divInscrito.innerHTML = `
-          <div>
-            <h4>Datos del inscrito número ${i + 1}</h4>
-            <label>Nombre: *</label>
-            <input type="text" name="nombre${i}" required>
-            <label>Apellidos: *</label>
-            <input type="text" name="apellidos${i}" required>
-            <label>Pseudónimo (opcional):</label>
-            <input type="text" name="pseudonimo${i}">
-            <label>Email: *</label>
-            <input type="email" name="email${i}" required>
-            <label>Teléfono: *</label>
-            <input type="tel" name="telefono${i}" required>
-            <label>NIF/NIE/Pasaporte: *</label>
-            <input type="text" name="nif${i}" required>
-            <label>
-              <input type="checkbox" name="condiciones${i}" required>
-              He leído y acepto las condiciones de inscripción al evento (incluidas las referentes a uso de mi imagen)*
-            </label>
-            ${lineaMenor}
-          </div>
-        `;
-        elemDatos.appendChild(divInscrito);
+      // Primero aseguramos que la capacidad y la id de la habitación estén definidas
+      if (!capacidad || !idhabitacion) {
+        console.error("[PASO 3] Datos incompletos. Abandonando proceso.");
+        return;
       }
 
-      this.showPaso3 = true;
+      // Establecer el paso 3
+      this.currentStep = 3;
+      const paso3Component = this.$refs.paso3Component;
+
+      // Aquí creamos un arreglo de formularios según la capacidad de personas en la habitación
+      // Supongo que 'capacidad' es el número de personas que ocupan la habitación
+      this.formData.personas = Array.from({ length: capacidad }, (_, index) => ({
+        nombre: "",
+        edad: "",
+        idHabitacion: idhabitacion,
+        index: index + 1,
+      }));
+
+      // Usamos $nextTick para asegurarnos de que Vue haya renderizado el paso 3
+      this.$nextTick(() => {
+        console.log("La vista debería haberse actualizado ahora para el paso 3.");
+      });
     },
   },
 };
@@ -320,13 +337,11 @@ export default {
 }
 
 @keyframes bounce {
-
   0%,
   80%,
   100% {
     transform: scale(0);
   }
-
   40% {
     transform: scale(1);
   }

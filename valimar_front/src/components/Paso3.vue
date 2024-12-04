@@ -1,155 +1,300 @@
 <template>
   <div>
-    <h2>Paso 3</h2>
-    <div id="paso3Datos"></div>
-    <button @click="prevStep">Anterior</button>
-    <button @click="validar">Validar datos de inscripción</button>
-    <button @click="enviarInscripcion" :disabled="isEnviarDisabled">Enviar inscripción</button>
+    <div v-if="currentStep === 3" class="container">
+      <p>¡Estás en el paso 3!</p>
+      <!-- Mensaje visual para que se vea en la UI -->
+      <div id="paso3Datos" class="row">
+        <div class="col-12" v-for="(inscrito, index) in inscritos" :key="index">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h2>Datos del inscrito número {{ index + 1 }}</h2>
+
+              <div class="mb-3">
+                <label :for="'nombre_' + index" class="form-label">Nombre</label>
+                <input
+                  type="text"
+                  :id="'nombre_' + index"
+                  class="form-control"
+                  v-model="inscrito.nombre"
+                  @input="disableEnviar"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label :for="'apellidos_' + index" class="form-label">Apellidos</label>
+                <input
+                  type="text"
+                  :id="'apellidos_' + index"
+                  class="form-control"
+                  v-model="inscrito.apellidos"
+                  @input="disableEnviar"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label :for="'pseudonimo_' + index" class="form-label"
+                  >Pseudónimo (opcional)</label
+                >
+                <input
+                  type="text"
+                  :id="'pseudonimo_' + index"
+                  class="form-control"
+                  v-model="inscrito.pseudonimo"
+                  @input="disableEnviar"
+                />
+              </div>
+
+              <div class="mb-3">
+                <label :for="'email_' + index" class="form-label">Email</label>
+                <input
+                  type="email"
+                  :id="'email_' + index"
+                  class="form-control"
+                  v-model="inscrito.email"
+                  @input="disableEnviar"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label :for="'telefono_' + index" class="form-label">Teléfono</label>
+                <input
+                  type="tel"
+                  :id="'telefono_' + index"
+                  class="form-control"
+                  v-model="inscrito.telefono"
+                  @input="disableEnviar"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label :for="'iden_' + index" class="form-label">NIF/NIE/Pasaporte</label>
+                <input
+                  type="text"
+                  :id="'iden_' + index"
+                  class="form-control"
+                  v-model="inscrito.nif"
+                  @input="disableEnviar"
+                  required
+                />
+              </div>
+
+              <div class="form-check">
+                <input
+                  type="checkbox"
+                  :id="'lopd_' + index"
+                  class="form-check-input"
+                  v-model="inscrito.aceptaCondiciones"
+                  @change="disableEnviar"
+                />
+                <label class="form-check-label" :for="'lopd_' + index">
+                  He leído y acepto las
+                  <a href="terminos.html" target="_blank"
+                    >condiciones de inscripción al evento</a
+                  >
+                  (incluidas las referentes a uso de mi imagen)
+                </label>
+              </div>
+
+              <div v-if="index === 0" class="mt-3">
+                <input
+                  type="checkbox"
+                  :id="'con_bebes_' + index"
+                  @click="toggleBebe(index)"
+                  class="form-check-input"
+                />
+                <label :for="'con_bebes_' + index" class="form-check-label">
+                  Voy con menor/es de 2 años (no ocupan plaza)
+                </label>
+                <div v-if="showBebe[index]" class="mt-2">
+                  <select :id="'fecha_bebe_' + index" class="form-select">
+                    <option value="0">(Año de nacimiento del menor)</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                  </select>
+                </div>
+              </div>
+
+              <div v-if="index > 0" class="mt-3">
+                <input
+                  type="checkbox"
+                  :id="'es_menor_' + index"
+                  @click="toggleMenor(index)"
+                  class="form-check-input"
+                />
+                <label :for="'es_menor_' + index" class="form-check-label">
+                  Menor entre 2 y 12 años
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" @click="nextStep">Siguiente paso</button>
+    </div>
   </div>
 </template>
 
 <script>
-import $ from 'jquery';
 export default {
-  props: ['formData'],
+  name: "Paso3",
+  props: {
+    formData: {
+      type: Object,
+      required: true,
+    },
+    baseUrl: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {
-      isEnviarDisabled: true
+      isEnviarDisabled: true,
+      paso3Datos: "",
+      inscritos: [],
     };
   },
   methods: {
     prevStep() {
-      this.$emit('prevStep');
+      this.$emit("prevStep");
     },
     validar() {
-      var numItems = this.formData.comboHabitaciones.split(',')[0];
-      var resultado_validacion = "";
-      var lista = [];
-      for (var i = 0; i < numItems; i++) {
-        var objeto = {};
-        objeto["iden"] = this.formData[`iden_${i + 1}`];
-        objeto["nombre"] = this.formData[`nombre_${i + 1}`];
-        objeto["apellidos"] = this.formData[`apellidos_${i + 1}`];
-        objeto["email"] = this.formData[`email_${i + 1}`];
-        objeto["telefono"] = this.formData[`telefono_${i + 1}`];
-        if (i == 0) {
-          objeto["menor"] = false;
-        } else {
-          objeto["menor"] = this.formData[`es_menor_${i + 1}`];
-        }
-        if (this.formData[`nombre_${i + 1}`] == '') resultado_validacion += `Nombre ${i + 1} en blanco.\n`;
-        if (this.formData[`apellidos_${i + 1}`] == '') resultado_validacion += `Apellidos ${i + 1} en blanco.\n`;
-        if (this.formData[`email_${i + 1}`] == '') resultado_validacion += `Email ${i + 1} en blanco.\n`;
-        if (this.formData[`telefono_${i + 1}`] == '') resultado_validacion += `Teléfono ${i + 1} en blanco.\n`;
-        if ((this.formData[`iden_${i + 1}`] == '') && (!this.formData[`es_menor_${i + 1}`])) resultado_validacion += `NIF/NIE ${i + 1} en blanco.\n`;
-        if ((this.formData[`fecha_bebe_${i + 1}`] == 0) && (this.formData[`con_bebes_${i + 1}`])) resultado_validacion += `Si va con menores de 4 años debe seleccionar el año de nacimiento.\n`;
-        if ((this.formData[`lopd_${i + 1}`] == '') && (!this.formData[`lopd_${i + 1}`])) resultado_validacion += `Debe leer y aceptar las condiciones de inscripción (LOPD) para el inscrito ${i + 1}.\n`;
-        lista.push(objeto);
-      }
-      if (resultado_validacion == "") {
-        $.ajax({
-          url: "/Valimar/CheckInscrito",
-          type: "POST",
-          data: "datos=" + JSON.stringify(lista),
-          success: function(respuesta, estados) {
-            var respuestaArr = JSON.parse(respuesta);
-            resultado_validacion = "";
-            for (var j = 0; j < respuestaArr.length; j++) {
-              if (respuestaArr[j]["existe"]) {
-                resultado_validacion += `El NIF ${respuestaArr[j]["clave"]} ya figura inscrito en el evento.\n`;
-              }
-            }
-            if (resultado_validacion == "") {
-              this.bloquearCampos();
-              this.isEnviarDisabled = false;
-            } else {
-              alert(resultado_validacion);
-            }
-          }.bind(this)
-        });
+      const errores = [];
+
+      this.inscritos.forEach((inscrito, index) => {
+        if (!inscrito.nombre) errores.push(`Nombre ${index + 1} en blanco.`);
+        if (!inscrito.apellidos) errores.push(`Apellidos ${index + 1} en blanco.`);
+        if (!inscrito.email) errores.push(`Email ${index + 1} en blanco.`);
+        if (!inscrito.telefono) errores.push(`Teléfono ${index + 1} en blanco.`);
+        if (!inscrito.nif && !inscrito.menor)
+          errores.push(`NIF/NIE ${index + 1} en blanco.`);
+        if (!inscrito.aceptaCondiciones)
+          errores.push(
+            `Debe aceptar las condiciones de inscripción para el inscrito ${index + 1}.`
+          );
+      });
+
+      if (errores.length > 0) {
+        alert(errores.join("\n"));
       } else {
-        alert(resultado_validacion);
+        this.isEnviarDisabled = false;
       }
     },
-    enviarInscripcion() {
-      var numItems = this.formData.comboHabitaciones.split(',')[0];
-      var lista = [];
-      for (var i = 0; i < numItems; i++) {
-        var objeto = {};
-        objeto["iden"] = this.formData[`iden_${i + 1}`];
-        objeto["nombre"] = this.formData[`nombre_${i + 1}`];
-        objeto["apellidos"] = this.formData[`apellidos_${i + 1}`];
-        objeto["pseudonimo"] = this.formData[`pseudonimo_${i + 1}`];
-        objeto["email"] = this.formData[`email_${i + 1}`];
-        objeto["telefono"] = this.formData[`telefono_${i + 1}`];
-        objeto["lopd"] = this.formData[`lopd_${i + 1}`];
-        if (i == 0) {
-          objeto["menor"] = false;
-          objeto["con_bebes"] = this.formData[`fecha_bebe_${i + 1}`];
-        } else {
-          objeto["menor"] = this.formData[`es_menor_${i + 1}`];
-          objeto["con_bebes"] = 0;
-        }
-        lista.push(objeto);
+    async enviarInscripcion() {
+      try {
+        const response = await fetch(`${this.baseUrl}/Valimar/RegistrarInscripcion`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            habitacion: this.formData.idhabitacion,
+            datos: this.inscritos,
+          }),
+        });
+
+        const respuesta = await response.text();
+        document.getElementById("paso4").innerHTML = respuesta;
+      } catch (error) {
+        console.error("Error al enviar la inscripción:", error);
       }
-      $.ajax({
-        url: "/Valimar/RegistrarInscripcion",
-        type: "POST",
-        data: "habitacion=" + this.formData.idhabitacion + "&datos=" + JSON.stringify(lista),
-        success: function(respuesta, estados) {
-          $("#paso3").hide();
-          $("#paso2").hide();
-          $("#paso4").show();
-          $("#paso4").html(respuesta);
-        }
-      });
     },
     bloquearCampos() {
-      var numItems = this.formData.comboHabitaciones.split(',')[0];
-      for (var i = 0; i < numItems; i++) {
+      const numItems = parseInt(this.formData.comboHabitaciones.split(",")[0], 10);
+
+      for (let i = 0; i < numItems; i++) {
         this.formData[`iden_${i + 1}`] = true;
         this.formData[`apellidos_${i + 1}`] = true;
         this.formData[`nombre_${i + 1}`] = true;
         this.formData[`pseudonimo_${i + 1}`] = true;
         this.formData[`telefono_${i + 1}`] = true;
         this.formData[`email_${i + 1}`] = true;
-        this.formData[`iden_${i + 1}`] = true;
         this.formData[`es_menor_${i + 1}`] = true;
         this.formData[`lopd_${i + 1}`] = true;
         this.formData[`con_bebes_${i + 1}`] = true;
         this.formData[`fecha_bebe_${i + 1}`] = true;
       }
     },
-    generarPaso3(capacidad, idhabitacion) {
-      var elemDatos = document.getElementById("paso3Datos");
-      $("#paso3Datos").html("");
-      for (var i = 0; i < capacidad; i++) {
-        var divinscrito = document.createElement("div");
-        var linea_menor = "";
-        if (i > 0) {
-          linea_menor = "<input type='checkbox' id='es_menor_" + (i + 1) + "' onClick=toggle('" + (i + 1) + "');>Menor entre 2 y 12 años";
+    generarPaso3(capacidad, idHabitacion) {
+      console.log(
+        "Generando paso 3 con capacidad:",
+        capacidad,
+        "idhabitacion:",
+        idHabitacion
+      );
+
+      if (capacidad && idHabitacion) {
+        const inscritosList = [];
+        for (let i = 0; i < capacidad; i++) {
+          inscritosList.push({
+            nombre: "",
+            apellidos: "",
+            pseudonimo: "",
+            email: "",
+            telefono: "",
+            nif: "",
+            aceptaCondiciones: false,
+            menor: false,
+            fecha_bebe: null,
+          });
         }
-        if (i == 0) {
-          linea_menor = "<input type='checkbox' id='con_bebes_" + (i + 1) + "' onClick=\"$('#fecha_bebe_" + (i + 1) + "').toggle();\">Voy con menor/es de 2 años (no ocupan plaza)";
-          linea_menor += "<br><select style=\"display:none\" id=\"fecha_bebe_" + (i + 1) + "\"><option value=0>(Año de nacimiento del menor)</option><option value=2022>2022</option><option value=2023>2023</option><option value=2024>2024</option></select>";
-        }
-        divinscrito.innerHTML = "<h2>Datos del inscrito número " + (i + 1) + "</h2><br>" +
-          "Nombre: <input type='text' id='nombre_" + (i + 1) + "' onChange='disableEnviar();'>*<br>" +
-          "Apellidos: <input type='text' id='apellidos_" + (i + 1) + "' onChange='disableEnviar();'>*<br>" +
-          "Pseudónimo (opcional): <input type='text' id='pseudonimo_" + (i + 1) + "' onChange='disableEnviar();'><br>" +
-          "email: <input type='text' id='email_" + (i + 1) + "' onChange='disableEnviar();'>*<br>" +
-          "Teléfono: <input type='text' id='telefono_" + (i + 1) + "' onChange='disableEnviar();'>*<br>" +
-          "NIF/NIE/Pasaporte: <input type='text' id='iden_" + (i + 1) + "' onChange='disableEnviar();'>*<br>" +
-          "<input type='checkbox' id='lopd_" + (i + 1) + "' onChange='disableEnviar();'>He leído y acepto las <a href=\"terminos.html\" target=\"_blank\">condiciones de inscripción al evento</a> (incluidas las referentes a uso de mi imagen)*<br>" +
-          linea_menor +
-          "<br>(*) Campos obligatorios (salvo NIF en menores de 12 años)<br>";
-        elemDatos.appendChild(divinscrito);
+        this.inscritos = inscritosList;
+        console.log("Inscritos generados:", this.inscritos);
+      } else {
+        console.error("Faltan datos para generar los inscritos");
       }
-      $('#paso3').show();
-    }
+    },
+    disableEnviar() {
+      this.isEnviarDisabled = true;
+      this.inscritos.forEach((inscrito) => {
+        if (
+          inscrito.nombre &&
+          inscrito.apellidos &&
+          inscrito.email &&
+          inscrito.telefono &&
+          inscrito.nif &&
+          inscrito.aceptaCondiciones
+        ) {
+          this.isEnviarDisabled = false;
+        }
+      });
+    },
+    toggleBebe(index) {
+      this.showBebe[index] = !this.showBebe[index];
+    },
+    toggleMenor(index) {
+      this.inscritos[index].menor = !this.inscritos[index].menor;
+    },
+    nextStep() {
+      this.validar();
+      if (!this.isEnviarDisabled) {
+        console.log("Avanzando al siguiente paso...");
+        this.$emit("nextStep");
+      }
+    },
   },
-  mounted() {
-    this.generarPaso3(this.formData.comboHabitaciones.split(',')[0], this.formData.idhabitacion);
-  }
+  watch: {
+    formData: {
+      currentStep(newValue) {
+        console.log("currentStep cambiado a:", newValue);
+        if (newValue === 3) {
+          console.log("¡Ahora estás en el paso 3!");
+        }
+      },
+      handler(val) {
+        console.log("[WATCH] Cambio de paso:", val);
+        if (val && val.idhabitacion) {
+          this.generarPaso3(val.capacidad, val.idhabitacion);
+        }
+      },
+      deep: true,
+    },
+  },
 };
 </script>
