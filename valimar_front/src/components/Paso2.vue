@@ -57,6 +57,7 @@ export default {
         console.log("Mensaje recibido:", mensaje);
         this.mensaje = mensaje;
         this.error = "";
+        console.warn("LA HABITACIÓN HA SIDO BLOQUEADA");
         this.habitacionBloqueada = true;
         console.log("Habitación bloqueada:", this.habitacionBloqueada);
       } else {

@@ -88,7 +88,7 @@ export default {
         console.log("Camas seleccionadas:", camas);
 
         // Emitir evento para pasar al siguiente paso
-        this.$emit("nextStep", { comboHabitaciones: selectedOption });
+        this.$emit("nextStep", { comboHabitaciones: selectedOption, idhabitacion: this.selectedHabitacion.idhabitacion });
       } else {
         console.error("El elemento <select> no está disponible.");
       }

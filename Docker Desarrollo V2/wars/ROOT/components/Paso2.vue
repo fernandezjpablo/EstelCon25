@@ -1,22 +1,32 @@
 <template>
   <h2 class="mb-4">Paso 2 - Bloqueo de Habitación</h2>
-  <!-- Mostramos mensaje dinámico -->
-  <div v-if="true" v-html="mensaje"></div>
 
-  <!-- Mostramos mensaje de error -->
+  <!-- Mensaje de éxito -->
+  <div
+    v-if="mensaje && !error"
+    class="alert alert-success"
+    role="alert"
+    v-html="mensaje"
+  ></div>
+
+  <!-- Mensaje de error -->
   <div v-if="error" class="alert alert-warning" role="alert">
     {{ error }}
   </div>
+
   <!-- Botón para avanzar al paso 3 -->
-  <button class="btn btn-primary mt-3" 
-          @click="nextStep" 
-          v-if="habitacionBloqueada">
+  <button
+    class="btn btn-primary mt-3"
+    @click="nextStep"
+    v-if="habitacionBloqueada"
+  >
     Continuar al Paso 3
   </button>
 </template>
 
 <script>
-import axios from "axios"; // Asegúrate de importar Axios
+import axios from "axios";
+
 export default {
   name: "Paso2",
   props: {
@@ -27,35 +37,57 @@ export default {
   },
   data() {
     return {
-      mensaje: "", // Mensaje dinámico
+      mensaje: "", // Mensaje de éxito
       error: "", // Mensaje de error
-      habitacionBloqueada: false, // Indica si se permite continuar
+      habitacionBloqueada: false, // Indica si se permite avanzar
     };
   },
   mounted() {
-    this.mensaje = "Prueba"; // Asignamos texto directamente al cargar
+    // Inicializar los mensajes
+    this.mensaje = "";
+    this.error = "";
   },
   methods: {
     nextStep() {
+      console.log("Botón 'Continuar al Paso 3' clicado.");
       this.$emit("nextStep");
     },
     mostrarMensaje(mensaje) {
-      console.log("me llega este mensaje: -> " + mensaje);
-      this.mensaje = mensaje; // Actualiza el mensaje
-      this.error = ""; // Limpia errores previos
-      this.habitacionBloqueada = true; // Marca la habitación como bloqueada
-
-      this.$forceUpdate(); // Fuerza el refresco del componente (depuración)
+      if (mensaje) {
+        console.log("Mensaje recibido:", mensaje);
+        this.mensaje = mensaje;
+        this.error = "";
+        console.warn("LA HABITACIÓN HA SIDO BLOQUEADA");
+        this.habitacionBloqueada = true;
+        console.log("Habitación bloqueada:", this.habitacionBloqueada);
+      } else {
+        console.warn("El mensaje proporcionado está vacío o no es válido.");
+      }
     },
     mostrarError(mensajeError) {
-      this.error = mensajeError; // Actualiza el mensaje de error
-      this.mensaje = ""; // Limpia mensajes previos
-      this.habitacionBloqueada = false; // Marca la habitación como no bloqueada
-    }
+      if (mensajeError) {
+        console.log("Error recibido:", mensajeError);
+        this.error = mensajeError;
+        this.mensaje = "";
+        this.habitacionBloqueada = false;
+        console.log("Habitación bloqueada:", this.habitacionBloqueada);
+      } else {
+        console.warn("El mensaje de error proporcionado está vacío o no es válido.");
+      }
+    },
   },
   watch: {
     mensaje(newMensaje) {
-      console.log("Watcher detecta cambio en mensaje: ", newMensaje);
+      if (newMensaje) {
+        console.log("Watcher detectó cambio en mensaje: ", newMensaje);
+        this.habitacionBloqueada = true;
+      }
+    },
+    error(newError) {
+      if (newError) {
+        console.log("Watcher detectó cambio en error: ", newError);
+        this.habitacionBloqueada = false;
+      }
     },
   },
 };
