@@ -11,29 +11,17 @@
         <p>Mereth Aldaron Enyali&euml; - Formulario de Inscripci&oacute;n</p>
 
         <div class="margin_button d-flex justify-content-around">
-          <button
-            class="btn btn-primary"
-            @click="inicioGrupos"
-            :disabled="isDisabled"
-            :style="{ cursor: isDisabled ? 'not-allowed' : 'pointer' }"
-          >
+          <button class="btn btn-primary" @click="inicioGrupos" :disabled="isDisabled"
+            :style="{ cursor: isDisabled ? 'not-allowed' : 'pointer' }">
             Inscripci&oacute;n General
           </button>
 
-          <button
-            class="btn btn-secondary"
-            @click="inicioIndividual"
-            :disabled="isDisabled"
-            :style="{ cursor: isDisabled ? 'not-allowed' : 'pointer' }"
-          >
+          <button class="btn btn-secondary" @click="inicioIndividual" :disabled="isDisabled"
+            :style="{ cursor: isDisabled ? 'not-allowed' : 'pointer' }">
             Inscripci&oacute;n Aleatoria
           </button>
 
-          <button
-            class="btn btn-warning"
-            @click="inicioListaEspera"
-            v-show="showListaEspera"
-          >
+          <button class="btn btn-warning" @click="inicioListaEspera" v-show="showListaEspera">
             Apuntarse a la lista de espera
           </button>
 
@@ -44,54 +32,25 @@
       </div>
 
       <div class="main-content">
-        <Paso1
-          :formData="formData"
-          :baseUrl="formData.baseUrl"
-          @nextStep="handleNextStep"
-          v-if="currentStep === 1 && !isLoading"
-          ref="paso1Component"
-        />
 
-        <Paso2
-          :currentStep="currentStep"
-          :formData="formData"
-          :baseUrl="baseUrl"
-          :mensaje="mensaje"
-          @nextStep="handleNextStep"
-          @prevStep="handlePrevStep"
-          v-if="currentStep === 2"
-          ref="paso2Component"
-        />
 
-        <Paso3
-          :inscritos="inscritos"
-          :formData="formData"
-          :baseUrl="baseUrl"
-          :mensaje="mensaje"
-          @nextStep="handleNextStep"
-          @prevStep="handlePrevStep"
-          v-if="currentStep === 3"
-          ref="paso3Component"
-        />
+        <Paso1 :formData="formData" :baseUrl="formData.baseUrl" @nextStep="handleNextStep"
+          v-if="currentStep === 1 && !isLoading" ref="paso1Component" />
 
-        <Paso4
-          :inscritos="inscritos"
-          :formData="formData"
-          :baseUrl="baseUrl"
-          @prevStep="handlePrevStep"
-          @submitForm="handleSubmit"
-          v-if="currentStep === 4"
-          ref="paso4Component"
-        />
+        <Paso2 :currentStep="currentStep" :formData="formData" :baseUrl="baseUrl" :mensaje="mensaje"
+          @nextStep="handleNextStep" @prevStep="handlePrevStep" v-if="currentStep === 2" ref="paso2Component" />
+
+        <Paso3 :inscritos="inscritos" currentStep=3 :formData="formData" :baseUrl="baseUrl" :mensaje="mensaje"
+          @nextStep="handleNextStep" @prevStep="handlePrevStep" v-if="currentStep === 3" ref="paso3Component" />
+
+        <Paso4 :formData="formData" @prevStep="handlePrevStep" @submitForm="handleSubmit"
+          v-if="currentStep === 4 && !isLoading" />
       </div>
     </main>
 
     <footer class="footer text-center mt-5">
       <div class="container">
-        <p>
-          &copy; 2024 Formulario de Varias Etapas. Todos los derechos
-          reservados.
-        </p>
+        <p>&copy; 2024 Formulario de Varias Etapas. Todos los derechos reservados.</p>
       </div>
     </footer>
   </div>
@@ -130,7 +89,7 @@ export default {
       showPaso3: false,
       showPaso3Individual: false,
       showPaso3EsperaDatos: false,
-      inscritos: [],
+      inscritos: []
     };
   },
   watch: {
@@ -152,9 +111,7 @@ export default {
         console.log("comboHabitaciones:", this.formData.comboHabitaciones);
         console.log("idHabitacion:", this.formData.idhabitacion);
 
-        const capacidad = this.formData.comboHabitaciones
-          ? parseInt(this.formData.comboHabitaciones.split(",")[0], 10)
-          : undefined;
+        const capacidad = this.formData.comboHabitaciones ? parseInt(this.formData.comboHabitaciones.split(",")[0], 10) : undefined;
         const idhabitacion = this.formData.idhabitacion;
 
         if (capacidad && idhabitacion) {
@@ -162,9 +119,8 @@ export default {
         } else {
           console.error("Faltan datos para generar los inscritos");
         }
-      } else if (this.currentStep === 3) {
-        console.log("[NEXT STEP] Avanzando al paso 4...");
-        this.currentStep = 4;
+      } else if (this.currentStep < 4) {
+        this.currentStep++;
       }
     },
     handlePrevStep() {
@@ -199,10 +155,7 @@ export default {
       axios
         .get(`${this.formData.baseUrl}/Valimar/GetComboHabitacionesDisponibles`)
         .then((response) => {
-          console.log(
-            "[PASO 1] Habitaciones disponibles recibidas:",
-            response.data
-          );
+          console.log("[PASO 1] Habitaciones disponibles recibidas:", response.data);
           const paso1Component = this.$refs.paso1Component;
           if (paso1Component) {
             paso1Component.$refs.paso1.innerHTML = response.data;
@@ -254,9 +207,7 @@ export default {
             paso2Component.mostrarMensaje(mensaje);
           } else {
             // Manejo del error en caso de problema
-            console.warn(
-              "[PASO 2] No se pudo bloquear habitación o datos incompletos."
-            );
+            console.warn("[PASO 2] No se pudo bloquear habitación o datos incompletos.");
             if (
               this.$refs.paso2Component &&
               typeof this.$refs.paso2Component.mostrarError === "function"
@@ -284,29 +235,20 @@ export default {
         });
     },
     generarPaso3(capacidad, idhabitacion) {
-      console.log(
-        `[PASO 3] Generando paso 3 con capacidad: ${capacidad}, idHabitacion: ${idhabitacion}`
-      );
+      console.log(`[PASO 3] Generando paso 3 con capacidad: ${capacidad}, idHabitacion: ${idhabitacion}`);
 
       // Validación inicial
       if (!capacidad || !idhabitacion) {
-        console.error(
-          `[PASO 3] Datos incompletos. Capacidad: ${capacidad}, idHabitacion: ${idhabitacion}. Abandonando proceso.`
-        );
-        this.$emit(
-          "mostrarError",
-          "Capacidad o ID de habitación no especificados."
-        );
+        console.error(`[PASO 3] Datos incompletos. Capacidad: ${capacidad}, idHabitacion: ${idhabitacion}. Abandonando proceso.`);
+        this.$emit('mostrarError', 'Capacidad o ID de habitación no especificados.');
         return;
       }
 
       capacidad = parseInt(capacidad, 10);
 
       if (isNaN(capacidad)) {
-        console.error(
-          `[PASO 3] Capacidad no es un número válido: ${capacidad}. Abandonando proceso.`
-        );
-        this.$emit("mostrarError", "Capacidad debe ser un número válido.");
+        console.error(`[PASO 3] Capacidad no es un número válido: ${capacidad}. Abandonando proceso.`);
+        this.$emit('mostrarError', 'Capacidad debe ser un número válido.');
         return;
       }
 
@@ -324,18 +266,16 @@ export default {
         if (!this.inscritos[i]) {
           console.log(`[PASO 3] Creamos usuario: ${i}`);
           Vue.set(this.inscritos, i, {
-            nombre: "",
-            apellidos: "",
-            pseudonimo: "",
-            email: "",
-            telefono: "",
-            nif: "",
+            nombre: '',
+            apellidos: '',
+            pseudonimo: '',
+            email: '',
+            telefono: '',
+            nif: '',
             aceptaCondiciones: false,
             menor: i > 0,
-            tipo: "",
-            nombreBebe: null,
             conBebes: i === 0 ? false : null,
-            fechaBebe: i === 0 ? "" : null,
+            fechaBebe: i === 0 ? '' : null,
           });
         }
       }
@@ -348,15 +288,11 @@ export default {
 
       // Asegurar reactividad y feedback
       this.$nextTick(() => {
-        console.log(
-          "La vista debería haberse actualizado ahora para el paso 3."
-        );
-        console.log(
-          "Estado actual de inscritos:",
-          JSON.stringify(this.inscritos, null, 2)
-        );
+        console.log("La vista debería haberse actualizado ahora para el paso 3.");
+        console.log("Estado actual de inscritos:", JSON.stringify(this.inscritos, null, 2));
       });
-    },
+    }
+    ,
   },
 };
 </script>
@@ -392,6 +328,7 @@ export default {
 }
 
 @keyframes bounce {
+
   0%,
   80%,
   100% {
